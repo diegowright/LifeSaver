@@ -39,3 +39,5 @@ Thumbs.db
 # XCode Files #
 ###############
 *.xcuserdatad
+./Mobile\ Computing\ Project\ App/Mobile\ Computing\ Project\ App.xcworkspace/xcuserdata/*
+./Mobile\ Computing\ Project\ App/Mobile\ Computing\ Project\ App.xcodeproj/xcuserdata/*
