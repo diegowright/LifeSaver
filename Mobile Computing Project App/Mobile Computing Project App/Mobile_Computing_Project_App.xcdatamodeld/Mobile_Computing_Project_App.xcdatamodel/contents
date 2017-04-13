@@ -3,17 +3,27 @@
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="floatAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventFloatAttribute" inverseName="event" inverseEntity="EventFloatAttribute" syncable="YES"/>
-        <relationship name="stringAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventStringAttribute" inverseName="event" inverseEntity="EventStringAttribute" syncable="YES"/>
+        <attribute name="templateType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dateAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventDateValue" inverseName="event" inverseEntity="EventDateValue" syncable="YES"/>
+        <relationship name="floatAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventFloatValue" inverseName="event" inverseEntity="EventFloatValue" syncable="YES"/>
+        <relationship name="stringAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventStringValue" inverseName="event" inverseEntity="EventStringValue" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="event" inverseEntity="Template" syncable="YES"/>
     </entity>
-    <entity name="EventFloatAttribute" representedClassName="EventFloatAttribute" syncable="YES" codeGenerationType="class">
+    <entity name="EventDateValue" representedClassName="EventDateValue" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="dateAttributes" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventFloatValue" representedClassName="EventFloatValue" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="floatAttributes" inverseEntity="Event" syncable="YES"/>
     </entity>
-    <entity name="EventStringAttribute" representedClassName="EventStringAttribute" syncable="YES" codeGenerationType="class">
+    <entity name="EventStringValue" representedClassName="EventStringValue" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,6 +38,7 @@
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateAttribute" inverseName="template" inverseEntity="TemplateAttribute" syncable="YES"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="template" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="TemplateAttribute" representedClassName="TemplateAttribute" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,11 +47,12 @@
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="attributes" inverseEntity="Template" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-504" positionY="-108" width="128" height="75"/>
-        <element name="Template" positionX="-200" positionY="-1" width="128" height="88"/>
-        <element name="TemplateAttribute" positionX="7" positionY="-0" width="128" height="103"/>
-        <element name="Event" positionX="-560" positionY="-0" width="128" height="103"/>
-        <element name="EventStringAttribute" positionX="-360" positionY="135" width="128" height="118"/>
-        <element name="EventFloatAttribute" positionX="-360" positionY="-0" width="128" height="118"/>
+        <element name="Note" positionX="-558" positionY="-108" width="128" height="75"/>
+        <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
+        <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
+        <element name="Event" positionX="-560" positionY="-0" width="128" height="148"/>
+        <element name="EventStringValue" positionX="-360" positionY="135" width="128" height="118"/>
+        <element name="EventFloatValue" positionX="-360" positionY="-0" width="128" height="118"/>
+        <element name="EventDateValue" positionX="-362" positionY="270" width="128" height="120"/>
     </elements>
 </model>
