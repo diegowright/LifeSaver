@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="floatAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventFloatAttribute" inverseName="event" inverseEntity="EventFloatAttribute" syncable="YES"/>
+        <relationship name="stringAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventStringAttribute" inverseName="event" inverseEntity="EventStringAttribute" syncable="YES"/>
+    </entity>
+    <entity name="EventFloatAttribute" representedClassName="EventFloatAttribute" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="floatAttributes" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventStringAttribute" representedClassName="EventStringAttribute" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="stringAttributes" inverseEntity="Event" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateAttribute" inverseName="template" inverseEntity="TemplateAttribute" syncable="YES"/>
+    </entity>
+    <entity name="TemplateAttribute" representedClassName="TemplateAttribute" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="attributes" inverseEntity="Template" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Note" positionX="-504" positionY="-108" width="128" height="75"/>
+        <element name="Template" positionX="-200" positionY="-1" width="128" height="88"/>
+        <element name="TemplateAttribute" positionX="7" positionY="-0" width="128" height="103"/>
+        <element name="Event" positionX="-560" positionY="-0" width="128" height="103"/>
+        <element name="EventStringAttribute" positionX="-360" positionY="135" width="128" height="118"/>
+        <element name="EventFloatAttribute" positionX="-360" positionY="-0" width="128" height="118"/>
     </elements>
 </model>

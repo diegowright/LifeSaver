@@ -50,7 +50,7 @@ class NoteVC: UIViewController {
         let date: Date = self.datePicker.date
         let noteText: String = self.noteText.text
         print(date, noteText)
-        DataManager.saveNoteRecord(date: date, noteText: noteText)
+        DataManager.shared.saveNoteRecord(date: date, noteText: noteText)
         _ = self.navigationController?.popViewController(animated: true)
     }
     

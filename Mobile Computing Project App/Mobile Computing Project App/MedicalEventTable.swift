@@ -22,7 +22,7 @@ class MedicalEventTable: UITableViewController {
         print("edit button")
         let name: String = "Migraine"
         let atts: [(String, String)] = [("pain_level", "slider"), ("date", "date_picker")]
-        DataManager.saveEventTemplate(name: name, atts: atts)
+        DataManager.shared.saveEventTemplate(name: name, atts: atts)
         
         // let storyboard: UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
         // let nextVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")

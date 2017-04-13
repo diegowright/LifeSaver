@@ -21,7 +21,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     let gray = UIColor.gray
     
     var selectedDate: Date = Date() // Will be used to load events for that day
-    var selectedEvents:[(String, Date)] = DataManager.loadEventsByDate(Date())
+    var selectedEvents:[(String, Date)] = DataManager.shared.loadEventsByDate(Date())
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var eventTable: UITableView!
@@ -94,12 +94,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             myCustomCell.selectedView.isHidden = false
             
             self.selectedDate = myCustomCell.date!
-            self.selectedEvents = DataManager.loadEventsByDate(myCustomCell.date!)
+            self.selectedEvents = DataManager.shared.loadEventsByDate(myCustomCell.date!)
             
             print("Date \(self.selectedDate)")
             
             // Update tableview to include stuff
-            self.selectedEvents = DataManager.loadEventsByDate(self.selectedDate)
+            self.selectedEvents = DataManager.shared.loadEventsByDate(self.selectedDate)
             self.eventTable.reloadData()
         } else {
             myCustomCell.selectedView.isHidden = true
