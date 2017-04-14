@@ -12,11 +12,13 @@ class EventInput: UIViewController {
 
     @IBOutlet weak var eventTitle: UILabel!
     
-    var eTitle:String?
+    var template:Template?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = eTitle!
+        self.title = self.template!.name
+        
+        // Programatically add views based on template attributes, ugh...
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)

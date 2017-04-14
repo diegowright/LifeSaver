@@ -38,6 +38,7 @@
     <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateAttribute" inverseName="template" inverseEntity="TemplateAttribute" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="template" inverseEntity="Event" syncable="YES"/>
     </entity>
@@ -53,7 +54,7 @@
         <element name="EventFloatValue" positionX="-360" positionY="-0" width="128" height="118"/>
         <element name="EventStringValue" positionX="-360" positionY="135" width="128" height="118"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
-        <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
+        <element name="Template" positionX="-198" positionY="-0" width="128" height="118"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
     </elements>
 </model>

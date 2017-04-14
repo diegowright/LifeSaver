@@ -13,26 +13,58 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     var alertController:UIAlertController? = nil
     
     @IBOutlet weak var eventName: UITextField!  // This will be the name of the medical event
-    var attributeList:[(String, String)] = []          // This will contain attributes added, starts with none when defining new event
+    var attributeList:[(String, String)] = []   // This will contain attributes added, starts with none when defining new event
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var attributeTable: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Define Event"
         
+        // Set attribute table datasource and delegate
+        attributeTable.dataSource = self
+        attributeTable.delegate = self
+        
+        // Define save bar and its action
         let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done, target: self, action: #selector(DefineEventView.saveEvent))
-        //save.title = "Save"
-        //save.action = #selector(DefineEventView.saveEvent)
         self.navigationItem.rightBarButtonItem = save
         
+        // Add observer that looks for attribute save notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyHandler(_:)), name: NSNotification.Name(rawValue: addAttKey), object: nil)
+        
+        // function that dismisses keyboard on tap
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        // You need to remove the observer before this object goes away.
+        // This removes all registered observers for this object.
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func notifyHandler(_ notification: Notification) {
+        print("Adding attribute to current event.")
+        
+        // extract the data that was sent in the notification
+        let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
+        
+        let name = dataDict["name"]!
+        let type = dataDict["type"]!
+        
+        print("name: ", name, "\ntype: ", type)
+        
+        // Add attribute to data list and reload table
+        attributeList.append((name, type))
+        self.attributeTable.reloadData()
+        print("attribute added to current event.")
+        print(self.attributeList)
     }
     
 
@@ -44,10 +76,6 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
             let backItem = UIBarButtonItem()
             backItem.title = "Cancel"
             navigationItem.backBarButtonItem = backItem
-            
-            if let destination = segue.destination as? AttributeInformationView {
-                destination.currentAttibuteList = self.attributeList
-            }
         }
     }
     
@@ -63,8 +91,10 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
             return
         }
         
+        // Save template
+        DataManager.shared.saveTemplate(templateName: self.eventName.text!,
+                                        attributeList: self.attributeList)
         print("Event type Saved!")
-        // save function for event goes HERE
         
         // Return to previous view which is Medical Event Table
         _ = self.navigationController?.popViewController(animated: true)
@@ -76,12 +106,13 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Count of attribute list: ", self.attributeList.count)
         return self.attributeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "attributeCell", for: indexPath)
         
         // Configure the cell...
         let index:Int = indexPath.row

@@ -10,24 +10,7 @@ import UIKit
 
 class MedicalEventTable: UITableViewController {
 
-    fileprivate let definedEvents:[String] = ["Headache", "Stomach Pain", "Chest Pain"]
-    
-    func defineButton() {
-        print("define button")
-        let storyboard:UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
-        let eventVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")
-        self.navigationController!.pushViewController(eventVC, animated: true)
-    }
-    func editButton() {
-        print("edit button")
-        let name: String = "Migraine"
-        let atts: [(String, String)] = [("pain_level", "slider"), ("date", "date_picker")]
-        DataManager.shared.saveEventTemplate(name: name, atts: atts)
-        
-        // let storyboard: UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
-        // let nextVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")
-        // present(nextVC, animated: true, completion: nil)
-    }
+    fileprivate var definedEvents:[Template] = DataManager.shared.loadTemplates()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +27,14 @@ class MedicalEventTable: UITableViewController {
         
         self.navigationItem.leftBarButtonItem = edit_button
         self.navigationItem.rightBarButtonItem = define_button
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // reload events when page is opened again
+        super.viewWillAppear(animated)
+        self.definedEvents = DataManager.shared.loadTemplates()
+        self.tableView.reloadData()
+        self.tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +56,8 @@ class MedicalEventTable: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> MedicalEventCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event_cell", for: indexPath) as! MedicalEventCell
-        cell.cellTitle.text = definedEvents[indexPath.row]
+        // Set cell title as name attribute from EventTemplate object associated with the current row
+        cell.cellTitle.text = definedEvents[indexPath.row].name
         return cell
     }
 
@@ -77,12 +69,29 @@ class MedicalEventTable: UITableViewController {
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         
+        // For each seque set the destination template as the correct one from the list
         if segue.identifier == "eventSegue" {
             if let destination = segue.destination as? EventInput {
                 if let idx = tableView.indexPathForSelectedRow?.row {
-                    destination.eTitle = definedEvents[idx]
+                    destination.template = definedEvents[idx]
                 }
             }
         }
+    }
+    
+    func defineButton() {
+        let storyboard:UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
+        let eventVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")
+        self.navigationController!.pushViewController(eventVC, animated: true)
+    }
+    
+    func editButton() {
+        //let name: String = "Migraine"
+        //let atts: [(String, String)] = [("pain_level", "slider"), ("date", "date_picker")]
+        //DataManager.shared.saveEventTemplate(name: name, atts: atts)
+        
+        // let storyboard: UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
+        // let nextVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")
+        // present(nextVC, animated: true, completion: nil)
     }
 }

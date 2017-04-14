@@ -11,47 +11,85 @@ import UIKit
 import CoreData
 
 final class DataManager {
-    // Instantiate the singleton for this class.
-    // This is the only code that should create a DataManager object.
+    // Instantiate DataManager singleton.
     static let shared = DataManager()
     
-    // The Core Data data model. Don't allow access from outside this class.
-    fileprivate var events = [NSManagedObject]()
+    // The Core Data data model. So far this type of implementation isn't necessary but it may be useful later.
+    // fileprivate var events = [Event]()
+    // fileprivate var templates = [Template]()
     
     // Data model methods.
     
-    // Saves the template for an event and saves to core data to be used to define data event adder page
-    func saveEventTemplate(name:String, atts:[(String, String)]) {
-        print("Save the event of type \(name)")
+    // save a template with a given list of attributes in format (name, type)
+    func saveTemplate(templateName: String, attributeList:[(String, String)]) {
+        let managedContext = self.persistentContainer.viewContext
         
-        var _model: NSManagedObjectModel {
-            let model = NSManagedObjectModel()
+        // Define template entity
+        let entity = NSEntityDescription.entity(forEntityName: "Template", in: managedContext)
+        let template = NSManagedObject(entity: entity!, insertInto: managedContext) as! Template
+        let currentDate:Date = Date()
+        // Populate entity values
+        
+        template.name = templateName
+        template.dateCreated = currentDate as NSDate?
+        template.user = "default"
+
+        // Go through attributes and create template attributes
+        for (index, attribute) in attributeList.enumerated() {
+            // Define template attribute entity
+            let attEntity = NSEntityDescription.entity(forEntityName: "TemplateAttribute", in: managedContext)
+            let templateAtt = NSManagedObject(entity: attEntity!, insertInto: managedContext) as! TemplateAttribute
+            // Define template attribute values
+            templateAtt.name = attribute.0
+            templateAtt.type = attribute.1
+            templateAtt.order = Int16(index)
             
-            let entity = NSEntityDescription()
-            entity.name = name + "_Template"
-            entity.managedObjectClassName = String(describing: DataManager.self)
-            
-            //set attributes from list of attributes
-            var properties:[NSAttributeDescription] = []
-            
-            for att in atts {
-                print(att)
-                let (attName, attType) = att
-                let attribute: NSAttributeDescription = NSAttributeDescription()
-                attribute.name = attName
-                attribute.defaultValue = attType
-                attribute.attributeType = .stringAttributeType
-                attribute.isOptional = false
-                attribute.isIndexed = true
-                properties.append(attribute)
-            }
-            
-            entity.properties = properties
-            model.entities = [entity]
-            
-            return model
+            // Add templateAtt to template by relationship defined in core data model
+            template.setValue(NSSet(object: templateAtt), forKey: "attributes")
         }
         
+        // Try saving newly added template and template attributes
+        do {
+            try managedContext.save()
+            print("Saved template.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+    // Load all template names so that they can be later identified by name
+    func loadTemplates() -> [Template] {
+        var templates:[Template] = []
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Template")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Templates loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        // Add each fetched template to list
+        if let results = fetchedResults {
+            for result in results {
+                templates.append(result as! Template)
+            }
+        } else {
+            print("Could not fetch templates.")
+        }
+        
+        return templates
     }
     
     func saveNoteRecord(date: Date, noteText: String) {
@@ -122,55 +160,6 @@ final class DataManager {
         }
         
         return records
-    }
-
-    func load() {
-        let managedContext = self.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Event")
-        
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResults {
-            events = results
-        } else {
-            print("Could not fetch")
-        }
-    }
-    
-    func savePerson(name: String, age: String) {
-        let managedContext = self.persistentContainer.viewContext
-        
-        // Create the entity we want to save
-        let entity =  NSEntityDescription.entity(forEntityName: "Person", in: managedContext)
-        
-        let person = NSManagedObject(entity: entity!, insertInto: managedContext)
-        
-        // Set the attribute values
-        person.setValue(name, forKey: "name")
-        person.setValue(Int(age), forKey: "age")
-        
-        // Commit the changes.
-        do {
-            try managedContext.save()
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            print("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        // Add the new entity to our array of managed objects
-        events.append(person)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////

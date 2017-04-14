@@ -35,6 +35,7 @@
 		2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */; };
 		2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */; };
 		2B3AC9061E8081E100CF5BD0 /* AttributeInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9051E8081E100CF5BD0 /* AttributeInformationView.swift */; };
+		2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4428641EA16423009D178B /* NotificationKeys.swift */; };
 		2B681F1C1E832D4E00BCF8F1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B681F1B1E832D4D00BCF8F1 /* TextField.swift */; };
 		2B8F52A81E81C69400F3CDAE /* EventInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A71E81C69400F3CDAE /* EventInput.swift */; };
 		2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A91E81CA6800F3CDAE /* DataManager.swift */; };
@@ -101,6 +102,7 @@
 		2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventCell.swift; sourceTree = "<group>"; };
 		2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineEventView.swift; sourceTree = "<group>"; };
 		2B3AC9051E8081E100CF5BD0 /* AttributeInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeInformationView.swift; sourceTree = "<group>"; };
+		2B4428641EA16423009D178B /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		2B681F1B1E832D4D00BCF8F1 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2B8F52A71E81C69400F3CDAE /* EventInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInput.swift; sourceTree = "<group>"; };
 		2B8F52A91E81CA6800F3CDAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				2B8F52AB1E81CCE600F3CDAE /* Attribute.swift */,
 				2B681F1B1E832D4D00BCF8F1 /* TextField.swift */,
+				2B4428641EA16423009D178B /* NotificationKeys.swift */,
 			);
 			name = Attributes;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				1B0968F81E85531700DBF79D /* CellView.swift in Sources */,
 				016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */,
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
+				2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */,
 				2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2BB983521E862041002BF3A7 /* Style.swift in Sources */,

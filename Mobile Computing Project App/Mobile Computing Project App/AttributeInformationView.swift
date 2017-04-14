@@ -14,12 +14,10 @@ class AttributeInformationView: UIViewController, UIPickerViewDataSource, UIPick
     
     fileprivate let attributeTypes:[String] = ["Text Field", "Slider", "Segmented Control", "Switch", "Stepper", "Date Picker", "Text View"]
     
-    var currentAttibuteList:[(String, String)]?   // this will contain attributes defined for event and will be added to and passed back to event controller
-    
     @IBOutlet weak var attributeName: UITextField!
     @IBOutlet weak var attributePicker: UIPickerView!
 
-    //
+    // Save attribute to event by sending a notification that the event will listen for
     @IBAction func saveAttribute(_ sender: Any) {
         if self.attributeName.text == "" {
             self.alertController = UIAlertController(title: "Hey!", message: "You must have a name for your attribute",
@@ -31,19 +29,18 @@ class AttributeInformationView: UIViewController, UIPickerViewDataSource, UIPick
             self.present(self.alertController!, animated: true, completion:nil)
             return
         } else {
-            let name = self.attributeName.text!.replacingOccurrences(of: " ", with: "_")
-            let type = self.attributeTypes[self.attributePicker.selectedRow(inComponent: 0)].replacingOccurrences(of: " ", with: "_")
-            let attribute = (name, type)
-            print(attribute)
+            print("Saving attribute, about to send notification")
+            let name = self.attributeName.text!
+            let type = self.attributeTypes[self.attributePicker.selectedRow(inComponent: 0)]
+
+            // package the data into a dictionary
+            let dataDict = ["name":name, "type":type];
             
-            // FIX THIS
+            // Post notification to add attribute
+            NotificationCenter.default.post(name: Notification.Name(rawValue: addAttKey), object: nil, userInfo: dataDict)
             
-            //self.currentAttibuteList!.append(attribute)
-            
-            //let n: Int! = self.navigationController?.viewControllers.count
-            //let eventVC = self.navigationController?.viewControllers[n-1] as! DefineEventView
-            //eventVC.attributeList = self.currentAttibuteList!
-            
+            print("Add attribute notification sent. Exit.")
+
             _ = self.navigationController?.popViewController(animated: true)
         }
     }
