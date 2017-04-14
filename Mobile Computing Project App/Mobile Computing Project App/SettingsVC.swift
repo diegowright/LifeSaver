@@ -24,15 +24,18 @@ class SettingsVC: UIViewController {
     
     @IBAction func saveBtn(_ sender: Any) {
         if currentAction == 0{
-            Style.whiteTheme()
+            Appearance.updateBackgroundColor(color: UIColor.white)
+            //Style.whiteTheme()
             //Style.setColor("white")
             
         }else if currentAction == 1{
-            Style.orangeTheme()
+            Appearance.updateBackgroundColor(color: UIColor.orange)
+            //Style.orangeTheme()
             //Style.setColor("orange")
  
         }else{
-            Style.blueTheme()
+            Appearance.updateBackgroundColor(color: UIColor.blue)
+            //Style.blueTheme()
             //Style.setColor("blue")
 
         }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01042B011EA1674200692922 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B001EA1674200692922 /* Config.swift */; };
+		01042B031EA167F600692922 /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B021EA167F600692922 /* Apperance.swift */; };
+		01042B051EA1935400692922 /* MyBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B041EA1935400692922 /* MyBackgroundColor.swift */; };
 		016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353E71E85C19C008958BD /* OptionTableViewController.swift */; };
 		016353EA1E85C4F3008958BD /* optionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */; };
 		016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353EB1E85DA5E008958BD /* SettingsVC.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01042B001EA1674200692922 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		01042B021EA167F600692922 /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
+		01042B041EA1935400692922 /* MyBackgroundColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBackgroundColor.swift; sourceTree = "<group>"; };
 		016353E71E85C19C008958BD /* OptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = optionsStoryboard.storyboard; sourceTree = "<group>"; };
 		016353EB1E85DA5E008958BD /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -196,6 +202,8 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
+				01042B021EA167F600692922 /* Apperance.swift */,
+				01042B001EA1674200692922 /* Config.swift */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
@@ -209,6 +217,7 @@
 				1BEC53841E7F7508001145E1 /* LaunchScreen.storyboard */,
 				1BEC53871E7F7508001145E1 /* Info.plist */,
 				1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */,
+				01042B041EA1935400692922 /* MyBackgroundColor.swift */,
 			);
 			path = "Mobile Computing Project App";
 			sourceTree = "<group>";
@@ -509,13 +518,16 @@
 				1B0968F81E85531700DBF79D /* CellView.swift in Sources */,
 				016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */,
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
+				01042B051EA1935400692922 /* MyBackgroundColor.swift in Sources */,
 				2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2BB983521E862041002BF3A7 /* Style.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
+				01042B011EA1674200692922 /* Config.swift in Sources */,
 				2B8F52AC1E81CCE600F3CDAE /* Attribute.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
+				01042B031EA167F600692922 /* Apperance.swift in Sources */,
 				2B3AC9061E8081E100CF5BD0 /* AttributeInformationView.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
