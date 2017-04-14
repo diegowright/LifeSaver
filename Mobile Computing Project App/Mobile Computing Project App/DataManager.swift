@@ -170,7 +170,7 @@ final class DataManager {
         }
         
         // Add the new entity to our array of managed objects
-        people.append(person)
+        events.append(person)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////
