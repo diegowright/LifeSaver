@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1421" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,6 +31,11 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="stringAttributes" inverseEntity="Event" syncable="YES"/>
     </entity>
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+        <attribute name="dose" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -55,5 +60,6 @@
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
+        <element name="Medicine" positionX="-360" positionY="18" width="128" height="90"/>
     </elements>
 </model>
