@@ -10,26 +10,25 @@ import UIKit
 
 class QuestionCell: UITableViewCell {
     
-    var questionLabel:UILabel!
-    var questionSegControl:UISegmentedControl!
+    private var questionLabel:UILabel!
+    private var questionSegControl:UISegmentedControl!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // Set size of cell
-        let frameSize = CGSize(width: self.frame.size.width, height: CGFloat(50))
-        self.frame = CGRect(origin: self.frame.origin, size: frameSize)
-        
         // Spacing constants
+        let cellHeight: CGFloat = 100
         let gap: CGFloat = 5
         let labelHeight: CGFloat = 30
         let labelWidth: CGFloat = 150
-        let black: UIColor = UIColor.black  // Saves some processing time
+        
+        // Set size of cell
+        let frameSize = CGSize(width: self.frame.size.width, height: cellHeight)
+        self.frame = CGRect(origin: self.frame.origin, size: frameSize)
         
         // Setup label attributes
         questionLabel = UILabel()
         questionLabel.frame = CGRect(x:gap, y:gap, width:labelWidth, height:labelHeight)
-        questionLabel.textColor = black
         
         // Setup segmented control answers, Yes or No
         questionSegControl = UISegmentedControl()
@@ -42,6 +41,11 @@ class QuestionCell: UITableViewCell {
         self.contentView.addSubview(questionSegControl)
     }
     
+    // Set label text of a cell
+    func setLabelText(labelText: String) {
+        self.questionLabel.text! = labelText
+    }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:)")
     }
@@ -49,7 +53,6 @@ class QuestionCell: UITableViewCell {
     /*
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     */

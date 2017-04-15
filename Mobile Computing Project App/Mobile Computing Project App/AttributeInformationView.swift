@@ -85,21 +85,15 @@ class AttributeInformationView: UIViewController, UIPickerViewDataSource, UIPick
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         if row == 0 {
-            // let attLabel = UILabel(frame: CGRect(x: , y: 30, width: , height: <#T##Int#>)
-            //self.view.backgroundColor = UIColor.white
-            //let textField = UITextField()
+            print(0)
         } else if row == 1 {
-            //self.view.backgroundColor = UIColor.red
-            //let slider = UISlider()
+            print(1)
         } else if row == 2 {
-            //self.view.backgroundColor =  UIColor.green
-            //let segControl = UISegmentedControl()
+            print(2)
         } else if row == 3 {
-            //self.view.backgroundColor = UIColor.blue
-            //let switch = UISwitch()
+            print(3)
         } else {
-            //self.view.backgroundColor = UIColor.purple
-            //let stepper = UIStepper()
+            print(4)
         }
     }
 

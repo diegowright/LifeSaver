@@ -32,7 +32,7 @@ final class DataManager {
         
         template.name = templateName
         template.dateCreated = currentDate as NSDate?
-        template.user = "default"
+        //template.user = "default"
 
         // Go through attributes and create template attributes
         for (index, attribute) in attributeList.enumerated() {
