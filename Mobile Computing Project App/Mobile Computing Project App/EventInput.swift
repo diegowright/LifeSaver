@@ -17,6 +17,19 @@ class EventInput: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = self.template!.name
+
+        // Test to see what is in template attributes
+        var atext:String = ""
+        
+        let atts:[TemplateAttribute] = Array(self.template!.attributes!) as! [TemplateAttribute]
+        print("Count of atts: ", atts.count)
+        for att in atts {
+            atext.append("Name: ")
+            atext.append(att.name!)
+            atext.append(", ")
+        }
+        
+        self.eventTitle.text = atext
         
         // Programatically add views based on template attributes, ugh...
         

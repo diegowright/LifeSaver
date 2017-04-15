@@ -36,6 +36,7 @@ final class DataManager {
 
         // Go through attributes and create template attributes
         for (index, attribute) in attributeList.enumerated() {
+            print("Index: ", index)
             // Define template attribute entity
             let attEntity = NSEntityDescription.entity(forEntityName: "TemplateAttribute", in: managedContext)
             let templateAtt = NSManagedObject(entity: attEntity!, insertInto: managedContext) as! TemplateAttribute
@@ -45,7 +46,7 @@ final class DataManager {
             templateAtt.order = Int16(index)
             
             // Add templateAtt to template by relationship defined in core data model
-            template.setValue(NSSet(object: templateAtt), forKey: "attributes")
+            template.addToAttributes(templateAtt)
         }
         
         // Try saving newly added template and template attributes
