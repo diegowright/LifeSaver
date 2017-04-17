@@ -13,6 +13,8 @@ class DatePickerCell: UITableViewCell {
     private var dateLabel:UILabel!
     private var datePicker:UIDatePicker!
     
+    static let dateDescription = "Select the time for which you had you ailment."
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

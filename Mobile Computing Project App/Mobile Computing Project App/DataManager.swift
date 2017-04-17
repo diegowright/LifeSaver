@@ -34,12 +34,13 @@ final class DataManager {
         template.dateCreated = currentDate as NSDate?
         //template.user = "default"
 
+        /*
         // Go through attributes and create template attributes
         for (index, attribute) in attributeList.enumerated() {
             print("Index: ", index)
             // Define template attribute entity
             let attEntity = NSEntityDescription.entity(forEntityName: "TemplateAttribute", in: managedContext)
-            let templateAtt = NSManagedObject(entity: attEntity!, insertInto: managedContext) as! TemplateAttribute
+            //let templateAtt = NSManagedObject(entity: attEntity!, insertInto: managedContext) as! TemplateAttribute
             // Define template attribute values
             templateAtt.name = attribute.0
             templateAtt.type = attribute.1
@@ -48,6 +49,7 @@ final class DataManager {
             // Add templateAtt to template by relationship defined in core data model
             template.addToAttributes(templateAtt)
         }
+        */
         
         // Try saving newly added template and template attributes
         do {

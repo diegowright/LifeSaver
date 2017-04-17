@@ -33,9 +33,16 @@
 		2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FC1E80648500CF5BD0 /* MedicalEventTable.swift */; };
 		2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */; };
 		2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */; };
-		2B3AC9061E8081E100CF5BD0 /* AttributeInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9051E8081E100CF5BD0 /* AttributeInformationView.swift */; };
+		2B3AC9061E8081E100CF5BD0 /* AttributeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */; };
 		2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4428641EA16423009D178B /* NotificationKeys.swift */; };
 		2B63F5C81EA2C5690059717F /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63F5C71EA2C5690059717F /* DatePickerCell.swift */; };
+		2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200D1EA42F710060D88E /* AttributeTableController.swift */; };
+		2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200F1EA4345F0060D88E /* AttributeCell.swift */; };
+		2B8E20121EA43DFB0060D88E /* PainDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */; };
+		2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20131EA43E060060D88E /* PainLevelCell.swift */; };
+		2B8E20161EA43E0E0060D88E /* PainLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20151EA43E0E0060D88E /* PainLocationCell.swift */; };
+		2B8E20181EA43E1C0060D88E /* PainTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */; };
+		2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20191EA43E280060D88E /* NoteCell.swift */; };
 		2B8F52A81E81C69400F3CDAE /* EventInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A71E81C69400F3CDAE /* EventInput.swift */; };
 		2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A91E81CA6800F3CDAE /* DataManager.swift */; };
 		2BB2E2781EA28BCB0024B748 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2E2771EA28BCB0024B748 /* QuestionCell.swift */; };
@@ -100,9 +107,16 @@
 		2B3AC8FC1E80648500CF5BD0 /* MedicalEventTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventTable.swift; sourceTree = "<group>"; };
 		2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventCell.swift; sourceTree = "<group>"; };
 		2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineEventView.swift; sourceTree = "<group>"; };
-		2B3AC9051E8081E100CF5BD0 /* AttributeInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeInformationView.swift; sourceTree = "<group>"; };
+		2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeInfoView.swift; sourceTree = "<group>"; };
 		2B4428641EA16423009D178B /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		2B63F5C71EA2C5690059717F /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		2B8E200D1EA42F710060D88E /* AttributeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeTableController.swift; sourceTree = "<group>"; };
+		2B8E200F1EA4345F0060D88E /* AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeCell.swift; sourceTree = "<group>"; };
+		2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainDurationCell.swift; sourceTree = "<group>"; };
+		2B8E20131EA43E060060D88E /* PainLevelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainLevelCell.swift; sourceTree = "<group>"; };
+		2B8E20151EA43E0E0060D88E /* PainLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainLocationCell.swift; sourceTree = "<group>"; };
+		2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainTypeCell.swift; sourceTree = "<group>"; };
+		2B8E20191EA43E280060D88E /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		2B8F52A71E81C69400F3CDAE /* EventInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInput.swift; sourceTree = "<group>"; };
 		2B8F52A91E81CA6800F3CDAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2BB2E2771EA28BCB0024B748 /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
@@ -245,7 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				2B3AC8FA1E805F9900CF5BD0 /* MedicalEvent.storyboard */,
-				2B3AC9051E8081E100CF5BD0 /* AttributeInformationView.swift */,
+				2B8E200F1EA4345F0060D88E /* AttributeCell.swift */,
+				2B8E200D1EA42F710060D88E /* AttributeTableController.swift */,
+				2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */,
 				2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */,
 				2B8F52A71E81C69400F3CDAE /* EventInput.swift */,
 				2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */,
@@ -261,6 +277,11 @@
 				2B4428641EA16423009D178B /* NotificationKeys.swift */,
 				2BB2E2771EA28BCB0024B748 /* QuestionCell.swift */,
 				2B63F5C71EA2C5690059717F /* DatePickerCell.swift */,
+				2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */,
+				2B8E20131EA43E060060D88E /* PainLevelCell.swift */,
+				2B8E20151EA43E0E0060D88E /* PainLocationCell.swift */,
+				2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */,
+				2B8E20191EA43E280060D88E /* NoteCell.swift */,
 			);
 			name = Attributes;
 			sourceTree = "<group>";
@@ -498,6 +519,7 @@
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
+				2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */,
 				2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */,
 				2BC825CA1E85B36900FD8784 /* MedicineVC.swift in Sources */,
 				1B0969001E859C6100DBF79D /* CalendarEventsTableViewController.swift in Sources */,
@@ -509,7 +531,9 @@
 				2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */,
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
 				2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */,
+				2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */,
 				1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */,
+				2B8E20161EA43E0E0060D88E /* PainLocationCell.swift in Sources */,
 				016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */,
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
 				2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */,
@@ -517,13 +541,17 @@
 				2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2BB983521E862041002BF3A7 /* Style.swift in Sources */,
+				2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
-				2B3AC9061E8081E100CF5BD0 /* AttributeInformationView.swift in Sources */,
+				2B3AC9061E8081E100CF5BD0 /* AttributeInfoView.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B8F52A81E81C69400F3CDAE /* EventInput.swift in Sources */,
+				2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */,
+				2B8E20181EA43E1C0060D88E /* PainTypeCell.swift in Sources */,
+				2B8E20121EA43DFB0060D88E /* PainDurationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

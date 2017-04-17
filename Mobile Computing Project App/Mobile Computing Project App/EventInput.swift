@@ -21,6 +21,7 @@ class EventInput: UIViewController {
         // Test to see what is in template attributes
         var atext:String = ""
         
+        /*
         let atts:[TemplateAttribute] = Array(self.template!.attributes!) as! [TemplateAttribute]
         print("Count of atts: ", atts.count)
         for att in atts {
@@ -28,6 +29,7 @@ class EventInput: UIViewController {
             atext.append(att.name!)
             atext.append(", ")
         }
+        */
         
         self.eventTitle.text = atext
         

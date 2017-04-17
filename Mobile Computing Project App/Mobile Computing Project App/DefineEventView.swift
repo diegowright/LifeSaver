@@ -13,7 +13,7 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     var alertController:UIAlertController? = nil
     
     @IBOutlet weak var eventName: UITextField!  // This will be the name of the medical event
-    var attributeList:[(String, String)] = []   // This will contain attributes added, starts with none when defining new event
+    var attributeList:[NSDictionary] = []   // This will contain attributes added, starts with none when defining new event
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var attributeTable: UITableView!
@@ -31,8 +31,11 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done, target: self, action: #selector(DefineEventView.saveEvent))
         self.navigationItem.rightBarButtonItem = save
         
-        // Add observer that looks for attribute save notifications
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyHandler(_:)), name: NSNotification.Name(rawValue: addAttKey), object: nil)
+        // Add observers that look for attribute save notifications
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(questionHandler(_:)),
+                                               name: NSNotification.Name(rawValue: addQuestionAtt),
+                                               object: nil)
         
         // function that dismisses keyboard on tap
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -49,22 +52,37 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         NotificationCenter.default.removeObserver(self)
     }
     
-    func notifyHandler(_ notification: Notification) {
+    func questionHandler(_ notification: Notification) {
         print("Adding attribute to current event.")
         
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
-        let name = dataDict["name"]!
-        let type = dataDict["type"]!
+        let id = dataDict["id"]!
+        let question = dataDict["question"]!
         
-        print("name: ", name, "\ntype: ", type)
+        print("Id: ", id, "\nQuestion: ", question)
         
         // Add attribute to data list and reload table
-        attributeList.append((name, type))
+        //attributeList.append((name, type))
         self.attributeTable.reloadData()
-        print("attribute added to current event.")
-        print(self.attributeList)
+        print("Question attribute added to current event.")
+    }
+    
+    func noteHandler(_ notification: Notification) {
+        print("Adding attribute to current event.")
+        
+        // extract the data that was sent in the notification
+        let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
+        
+        let id = dataDict["id"]!
+        
+        print("Id: ", id)
+        
+        // Add attribute to data list and reload table
+        //attributeList.append((name, type))
+        self.attributeTable.reloadData()
+        print("Note attribute added to current event.")
     }
     
 
@@ -92,8 +110,8 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         // Save template
-        DataManager.shared.saveTemplate(templateName: self.eventName.text!,
-                                        attributeList: self.attributeList)
+        //DataManager.shared.saveTemplate(templateName: self.eventName.text!,
+        //                                attributeList: self.attributeList)
         print("Event type Saved!")
         
         // Return to previous view which is Medical Event Table
@@ -116,10 +134,7 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // Configure the cell...
         let index:Int = indexPath.row
-        let attributeName: String = self.attributeList[index].0
-        let attributeType: String = self.attributeList[index].1
-        cell.textLabel?.text = attributeName
-        cell.detailTextLabel?.text = attributeType
+        cell.textLabel?.text = self.attributeList[index].value(forKey: "id") as? String
         
         return cell
     }

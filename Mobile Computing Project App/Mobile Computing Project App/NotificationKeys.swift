@@ -8,6 +8,11 @@
 
 import Foundation
 
-// Different attribute keys will be definied here if there are many
-// If not then this will be moved to a general key file somewhere else
-let addAttKey = "addAttKey"
+// Template Attribute Keys
+let addQuestionAtt = "addQuestionAtt"
+let addPainLvlAtt = "addPainLvlAtt"
+let addPainLocAtt = "addPainLocAtt"
+let addPainTypeAtt = "addPainTypeAtt"
+let addPainDurAtt = "addPainDurAtt"
+let addDateTimeAtt = "addDateTimeAtt"
+let addNoteAtt = "addNoteAtt"

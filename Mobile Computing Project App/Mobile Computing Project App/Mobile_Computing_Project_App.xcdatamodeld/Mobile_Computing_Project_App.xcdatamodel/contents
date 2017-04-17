@@ -2,34 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="templateType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="dateAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventDateValue" inverseName="event" inverseEntity="EventDateValue" syncable="YES"/>
-        <relationship name="floatAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventFloatValue" inverseName="event" inverseEntity="EventFloatValue" syncable="YES"/>
-        <relationship name="stringAttributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventStringValue" inverseName="event" inverseEntity="EventStringValue" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="event" inverseEntity="Template" syncable="YES"/>
-    </entity>
-    <entity name="EventDateValue" representedClassName="EventDateValue" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="value" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="dateAttributes" inverseEntity="Event" syncable="YES"/>
-    </entity>
-    <entity name="EventFloatValue" representedClassName="EventFloatValue" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="value" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="floatAttributes" inverseEntity="Event" syncable="YES"/>
-    </entity>
-    <entity name="EventStringValue" representedClassName="EventStringValue" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="stringAttributes" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -38,23 +11,59 @@
     <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateAttribute" inverseName="template" inverseEntity="TemplateAttribute" syncable="YES"/>
+        <relationship name="datetimeAtts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateDateTimeAtt" inverseName="template" inverseEntity="TemplateDateTimeAtt" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="template" inverseEntity="Event" syncable="YES"/>
+        <relationship name="noteAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplateNoteAtt" inverseName="template" inverseEntity="TemplateNoteAtt" syncable="YES"/>
+        <relationship name="painDurAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplatePainDurAtt" inverseName="template" inverseEntity="TemplatePainDurAtt" syncable="YES"/>
+        <relationship name="painLocAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplatePainLocAtt" inverseName="template" inverseEntity="TemplatePainLocAtt" syncable="YES"/>
+        <relationship name="painLvlAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplatePainLvlAtt" inverseName="template" inverseEntity="TemplatePainLvlAtt" syncable="YES"/>
+        <relationship name="painTypeAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplatePainTypeAtt" inverseName="template" inverseEntity="TemplatePainTypeAtt" syncable="YES"/>
+        <relationship name="questionAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplateQuestionAtt" inverseName="template" inverseEntity="TemplateQuestionAtt" syncable="YES"/>
     </entity>
-    <entity name="TemplateAttribute" representedClassName="TemplateAttribute" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="attributes" inverseEntity="Template" syncable="YES"/>
+    <entity name="TemplateDateTimeAtt" representedClassName="TemplateDateTimeAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="datetimeAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplateNoteAtt" representedClassName="TemplateNoteAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="noteAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplatePainDurAtt" representedClassName="TemplatePainDurAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="painDurAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplatePainLocAtt" representedClassName="TemplatePainLocAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc5" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="painLocAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplatePainLvlAtt" representedClassName="TemplatePainLvlAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="painLvlAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplatePainTypeAtt" representedClassName="TemplatePainTypeAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="painTypeAtts" inverseEntity="Template" syncable="YES"/>
+    </entity>
+    <entity name="TemplateQuestionAtt" representedClassName="TemplateQuestionAtt" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="questionAtts" inverseEntity="Template" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-560" positionY="-0" width="128" height="163"/>
-        <element name="EventDateValue" positionX="-362" positionY="270" width="128" height="120"/>
-        <element name="EventFloatValue" positionX="-360" positionY="-0" width="128" height="118"/>
-        <element name="EventStringValue" positionX="-360" positionY="135" width="128" height="118"/>
+        <element name="Event" positionX="-560" positionY="-0" width="128" height="75"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
-        <element name="Template" positionX="-198" positionY="-0" width="128" height="118"/>
-        <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
+        <element name="Template" positionX="-198" positionY="-0" width="128" height="195"/>
+        <element name="TemplateDateTimeAtt" positionX="-315" positionY="63" width="128" height="75"/>
+        <element name="TemplateNoteAtt" positionX="-324" positionY="54" width="128" height="75"/>
+        <element name="TemplatePainDurAtt" positionX="-333" positionY="45" width="128" height="75"/>
+        <element name="TemplatePainLocAtt" positionX="-342" positionY="36" width="128" height="150"/>
+        <element name="TemplatePainLvlAtt" positionX="-324" positionY="36" width="128" height="75"/>
+        <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
+        <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
     </elements>
 </model>

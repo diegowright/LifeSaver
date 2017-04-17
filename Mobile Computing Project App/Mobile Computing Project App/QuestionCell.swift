@@ -12,6 +12,8 @@ class QuestionCell: UITableViewCell {
     
     private var questionLabel:UILabel!
     private var questionSegControl:UISegmentedControl!
+    
+    static let questionDescription = "A yes or no question that you can define."
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
