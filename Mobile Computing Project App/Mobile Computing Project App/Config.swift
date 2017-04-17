@@ -11,8 +11,8 @@ import UIKit
 
 class Config {
     
-    static var myCustomBackground = UIColor.white
-    //static var myCustomLabelColor = UIColor.green
-    //static var myCustomButtonFont = UIFont.systemFont(ofSize: 15.0)
+    //static var myCustomBackground = UIColor.white
+    static var myCustomLabelColor = UIColor.green
+    static var myCustomButtonFont = UIFont.systemFont(ofSize: 15.0)
     
 }

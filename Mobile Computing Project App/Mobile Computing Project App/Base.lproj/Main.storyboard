@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="weK-6y-rak">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="weK-6y-rak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -205,6 +205,9 @@
                                 <rect key="frame" x="160" y="517" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="hea-6u-XFa" kind="show" identifier="regID" id="q43-fC-Aae"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-5M-egD">
                                 <rect key="frame" x="16" y="463" width="133" height="21"/>
@@ -227,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="769" y="-874"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="KZ9-yc-cXV">
             <objects>
-                <viewController id="hea-6u-XFa" sceneMemberID="viewController">
+                <viewController id="hea-6u-XFa" customClass="RegisterViewController" customModule="Mobile_Computing_Project_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdc-Ri-Xf7"/>
                         <viewControllerLayoutGuide type="bottom" id="u60-Q1-w0o"/>
@@ -267,18 +270,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6f-FI-bKj">
-                                <rect key="frame" x="160" y="318" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAF-da-RS7">
+                                <rect key="frame" x="38" y="28" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="hea-6u-XFa" eventType="touchUpInside" id="A7X-07-IU1"/>
+                                    <segue destination="weK-6y-rak" kind="show" id="yTz-ce-6NU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6f-FI-bKj">
+                                <rect key="frame" x="152" y="318" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="cfmBtn:" destination="hea-6u-XFa" eventType="touchUpInside" id="ZBq-Cg-TaP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="passW" destination="hRk-qS-F4Q" id="eaP-II-5WU"/>
+                        <outlet property="userN" destination="Zjc-Zb-HhK" id="ha0-Zq-p9a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mje-Z5-SRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="-873"/>
+            <point key="canvasLocation" x="1992.8" y="-873.01349325337333"/>
         </scene>
     </scenes>
     <resources>

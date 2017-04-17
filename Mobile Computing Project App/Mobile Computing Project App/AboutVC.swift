@@ -14,6 +14,7 @@ class AboutVC: UIViewController {
         super.viewDidLoad()
 
         self.title = "About"
+        self.view.backgroundColor = BGColorUser.bgColor()
     }
 
     override func didReceiveMemoryWarning() {

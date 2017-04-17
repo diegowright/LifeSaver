@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,6 +47,10 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="attributes" inverseEntity="Template" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="passWord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Event" positionX="-560" positionY="-0" width="128" height="163"/>
         <element name="EventDateValue" positionX="-362" positionY="270" width="128" height="120"/>
@@ -55,5 +59,6 @@
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
+        <element name="User" positionX="-351" positionY="27" width="128" height="75"/>
     </elements>
 </model>

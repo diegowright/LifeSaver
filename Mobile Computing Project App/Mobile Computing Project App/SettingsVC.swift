@@ -16,6 +16,8 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
 
         self.title = "Settings"
+        //self.view.backgroundColor
+        self.view.backgroundColor = BGColorUser.bgColor()
     }
     
     @IBAction func segAction(_ sender: Any) {
@@ -24,20 +26,22 @@ class SettingsVC: UIViewController {
     
     @IBAction func saveBtn(_ sender: Any) {
         if currentAction == 0{
-            Appearance.updateBackgroundColor(color: UIColor.white)
-            //Style.whiteTheme()
-            //Style.setColor("white")
+            //Appearance.updateBackgroundColor(color: UIColor.white)
+            Appearance.updateLabelColor(color: UIColor.purple)
+            BGColorUser.setBGC(UIColor.white)
             
         }else if currentAction == 1{
-            Appearance.updateBackgroundColor(color: UIColor.orange)
-            //Style.orangeTheme()
-            //Style.setColor("orange")
- 
+            //Appearance.updateBackgroundColor(color: UIColor.orange)
+            Appearance.updateLabelColor(color: UIColor.orange)
+            Appearance.updateButtonFont(font: UIFont(name: "HelveticaNeue-Bold" , size: 24.0)!)
+            BGColorUser.setBGC(UIColor.orange)
+            
         }else{
-            Appearance.updateBackgroundColor(color: UIColor.blue)
-            //Style.blueTheme()
-            //Style.setColor("blue")
-
+            //Appearance.updateBackgroundColor(color: UIColor.blue)
+            Appearance.updateLabelColor(color: UIColor.red)
+            Appearance.updateButtonFont(font: UIFont(name: "HelveticaNeue-Bold" , size: 15.0)!)
+            BGColorUser.setBGC(UIColor.blue)
+            
         }
     }
     override func didReceiveMemoryWarning() {

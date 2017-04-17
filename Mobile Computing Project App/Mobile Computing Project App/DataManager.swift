@@ -17,7 +17,7 @@ final class DataManager {
     
     // The Core Data data model. Don't allow access from outside this class.
     fileprivate var events = [NSManagedObject]()
-    
+    //fileprivate var users = [NSManagedObject]()
     // Data model methods.
     
     // Saves the template for an event and saves to core data to be used to define data event adder page
@@ -54,6 +54,34 @@ final class DataManager {
         
     }
     
+    // the Register CoreData
+    func saveUser(userN: String, passW: String){
+        
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let entity =  NSEntityDescription.entity(forEntityName: "User", in: managedContext)
+        
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        // Set attribute values
+        user.setValue(userN, forKey: "userName")
+        user.setValue(passW, forKey: "passWord")
+        
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+
+    
     func saveNoteRecord(date: Date, noteText: String) {
         // Obtain context
         let managedContext = self.persistentContainer.viewContext
@@ -78,6 +106,67 @@ final class DataManager {
         return
     }
     
+    func loadUsers() -> [User]{
+        var users:[User] = []
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
+        var fetchedResults:[NSManagedObject]? = nil
+
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Users loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResults {
+            for result in results {
+                users.append(result as! User)
+            }
+        } else {
+            print("Could not fetch users.")
+        }
+        
+        return users
+    }
+
+
+   
+    /*
+    // Load all template names so that they can be later identified by name
+    func loadTemplates() -> [Template] {
+        var templates:[Template] = []
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Template")
+        var fetchedResults:[NSManagedObject]? = nil
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Templates loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        // Add each fetched template to list
+        if let results = fetchedResults {
+            for result in results {
+                templates.append(result as! Template)
+            }
+        } else {
+            print("Could not fetch templates.")
+        }
+        
+        return templates
+    }
+    */
     func loadEventsByDate(_ date: Date) -> [(String, Date)] {
         
         let managedContext = self.persistentContainer.viewContext

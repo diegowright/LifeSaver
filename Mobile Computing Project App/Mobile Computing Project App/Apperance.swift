@@ -9,31 +9,37 @@
 import Foundation
 import UIKit
 
-class Appearance {
+class Appearance: NSObject {
     
     class func setInitialAppTheme() {
-        //Appearance.setMyCustomLabelColor()
-        //Appearance.setMyCustomButtonFont()
-        Appearance.setMyBackgroundColor()
+        Appearance.setMyCustomLabelColor()
+        Appearance.setMyCustomButtonFont()
+        //Appearance.setMyBackGroundColor()
     }
-    /*
+    
     class func setMyCustomLabelColor() {
-        MyCustomLabel.appearance().textColor = Config.myCustomLabelColor
+        //MyCustomLabel.appearance().textColor = Config.myCustomLabelColor
+        UILabel.appearance().textColor = Config.myCustomLabelColor
     }
     
     class func setMyCustomButtonFont() {
         MyCustomButton.appearance().titleLabelFont = Config.myCustomButtonFont
     }
-    */
+    
+    /*
     class func setMyBackGroundColor() {
-        MyBackgroundColor.appearance().color = Config.myCustomBackground
+        if UserDefaults.standard.object(forKey: cColor) == nil {
+            BGColorUser.setBGC(UIColor.white)
+        BGColorUser.setBGC(UIColor.white)
+        
     }
     
     class func updateBackgroundColor(color: UIColor){
         Config.myCustomBackground = color
         Appearance.setMyBackgroundColor()
     }
-    /*
+    */
+    
     class func updateLabelColor(color: UIColor) {
         Config.myCustomLabelColor = color
         Appearance.setMyCustomLabelColor()
@@ -43,5 +49,5 @@ class Appearance {
         Config.myCustomButtonFont = font
         Appearance.setMyCustomButtonFont()
     }
-    */
+    
 }

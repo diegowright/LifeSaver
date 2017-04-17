@@ -10,10 +10,42 @@
 		01042B011EA1674200692922 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B001EA1674200692922 /* Config.swift */; };
 		01042B031EA167F600692922 /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B021EA167F600692922 /* Apperance.swift */; };
 		01042B051EA1935400692922 /* MyBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B041EA1935400692922 /* MyBackgroundColor.swift */; };
+		01042B071EA3DA0500692922 /* MyCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B061EA3DA0500692922 /* MyCustomLabel.swift */; };
+		01042B091EA3DA5F00692922 /* MyCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B081EA3DA5F00692922 /* MyCustomButton.swift */; };
+		01042B0B1EA4085A00692922 /* BGColorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B0A1EA4085A00692922 /* BGColorUser.swift */; };
+		01042B0D1EA424ED00692922 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01042B0C1EA424ED00692922 /* RegisterViewController.swift */; };
 		016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353E71E85C19C008958BD /* OptionTableViewController.swift */; };
 		016353EA1E85C4F3008958BD /* optionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */; };
 		016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353EB1E85DA5E008958BD /* SettingsVC.swift */; };
 		016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353ED1E85DA6C008958BD /* AboutVC.swift */; };
+		01D1CEAC1EA471AE0054D3CE /* Data.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D1CEAB1EA471AE0054D3CE /* Data.storyboard */; };
+		01D1CEB61EA475170054D3CE /* JBChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CEB41EA475170054D3CE /* JBChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CEB91EA475170054D3CE /* JBChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D1CEB21EA475170054D3CE /* JBChart.framework */; };
+		01D1CEBA1EA475170054D3CE /* JBChart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01D1CEB21EA475170054D3CE /* JBChart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		01D1CF1B1EA477170054D3CE /* NSMutableArray+JBStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CEFC1EA477170054D3CE /* NSMutableArray+JBStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF1C1EA477170054D3CE /* NSMutableArray+JBStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CEFD1EA477170054D3CE /* NSMutableArray+JBStack.m */; };
+		01D1CF1D1EA477170054D3CE /* JBBarChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CEFF1EA477170054D3CE /* JBBarChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF1E1EA477170054D3CE /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF001EA477170054D3CE /* JBBarChartView.m */; };
+		01D1CF1F1EA477170054D3CE /* JBGradientBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF021EA477170054D3CE /* JBGradientBarView.h */; };
+		01D1CF201EA477170054D3CE /* JBGradientBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF031EA477170054D3CE /* JBGradientBarView.m */; };
+		01D1CF211EA477170054D3CE /* JBChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF051EA477170054D3CE /* JBChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF221EA477170054D3CE /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF061EA477170054D3CE /* JBChartView.m */; };
+		01D1CF231EA477170054D3CE /* JBLineChartView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF081EA477170054D3CE /* JBLineChartView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF241EA477170054D3CE /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF091EA477170054D3CE /* JBLineChartView.m */; };
+		01D1CF251EA477170054D3CE /* JBGradientLineLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF0B1EA477170054D3CE /* JBGradientLineLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF261EA477170054D3CE /* JBGradientLineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF0C1EA477170054D3CE /* JBGradientLineLayer.m */; };
+		01D1CF271EA477170054D3CE /* JBShapeLineLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF0D1EA477170054D3CE /* JBShapeLineLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF281EA477170054D3CE /* JBShapeLineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF0E1EA477170054D3CE /* JBShapeLineLayer.m */; };
+		01D1CF291EA477170054D3CE /* JBLineChartLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF101EA477170054D3CE /* JBLineChartLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF2A1EA477170054D3CE /* JBLineChartLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF111EA477170054D3CE /* JBLineChartLine.m */; };
+		01D1CF2B1EA477170054D3CE /* JBLineChartPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF121EA477170054D3CE /* JBLineChartPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF2C1EA477170054D3CE /* JBLineChartPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF131EA477170054D3CE /* JBLineChartPoint.m */; };
+		01D1CF2D1EA477170054D3CE /* JBLineChartDotsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF151EA477170054D3CE /* JBLineChartDotsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF2E1EA477170054D3CE /* JBLineChartDotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF161EA477170054D3CE /* JBLineChartDotsView.m */; };
+		01D1CF2F1EA477170054D3CE /* JBLineChartDotView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF171EA477170054D3CE /* JBLineChartDotView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF301EA477170054D3CE /* JBLineChartDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF181EA477170054D3CE /* JBLineChartDotView.m */; };
+		01D1CF311EA477170054D3CE /* JBLineChartLinesView.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D1CF191EA477170054D3CE /* JBLineChartLinesView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01D1CF321EA477170054D3CE /* JBLineChartLinesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D1CF1A1EA477170054D3CE /* JBLineChartLinesView.m */; };
 		1B0968F81E85531700DBF79D /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968F71E85531700DBF79D /* CellView.swift */; };
 		1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968F91E8562A400DBF79D /* CalendarViewController.swift */; };
 		1B0968FC1E85945F00DBF79D /* MonthHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0968FB1E85945F00DBF79D /* MonthHeader.xib */; };
@@ -53,6 +85,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		01D1CEB71EA475170054D3CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BEC536D1E7F7508001145E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01D1CEB11EA475170054D3CE;
+			remoteInfo = JBChart;
+		};
 		1BEC538D1E7F7508001145E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1BEC536D1E7F7508001145E1 /* Project object */;
@@ -69,14 +108,60 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		01D1CEBE1EA475170054D3CE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				01D1CEBA1EA475170054D3CE /* JBChart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		01042B001EA1674200692922 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		01042B021EA167F600692922 /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
 		01042B041EA1935400692922 /* MyBackgroundColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBackgroundColor.swift; sourceTree = "<group>"; };
+		01042B061EA3DA0500692922 /* MyCustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomLabel.swift; sourceTree = "<group>"; };
+		01042B081EA3DA5F00692922 /* MyCustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomButton.swift; sourceTree = "<group>"; };
+		01042B0A1EA4085A00692922 /* BGColorUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGColorUser.swift; sourceTree = "<group>"; };
+		01042B0C1EA424ED00692922 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		016353E71E85C19C008958BD /* OptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = optionsStoryboard.storyboard; sourceTree = "<group>"; };
 		016353EB1E85DA5E008958BD /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		016353ED1E85DA6C008958BD /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		01D1CEAB1EA471AE0054D3CE /* Data.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Data.storyboard; sourceTree = "<group>"; };
+		01D1CEB21EA475170054D3CE /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01D1CEB41EA475170054D3CE /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
+		01D1CEB51EA475170054D3CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01D1CEFC1EA477170054D3CE /* NSMutableArray+JBStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+JBStack.h"; sourceTree = "<group>"; };
+		01D1CEFD1EA477170054D3CE /* NSMutableArray+JBStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+JBStack.m"; sourceTree = "<group>"; };
+		01D1CEFF1EA477170054D3CE /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		01D1CF001EA477170054D3CE /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		01D1CF021EA477170054D3CE /* JBGradientBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBGradientBarView.h; sourceTree = "<group>"; };
+		01D1CF031EA477170054D3CE /* JBGradientBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBGradientBarView.m; sourceTree = "<group>"; };
+		01D1CF051EA477170054D3CE /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		01D1CF061EA477170054D3CE /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		01D1CF081EA477170054D3CE /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		01D1CF091EA477170054D3CE /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		01D1CF0B1EA477170054D3CE /* JBGradientLineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBGradientLineLayer.h; sourceTree = "<group>"; };
+		01D1CF0C1EA477170054D3CE /* JBGradientLineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBGradientLineLayer.m; sourceTree = "<group>"; };
+		01D1CF0D1EA477170054D3CE /* JBShapeLineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShapeLineLayer.h; sourceTree = "<group>"; };
+		01D1CF0E1EA477170054D3CE /* JBShapeLineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShapeLineLayer.m; sourceTree = "<group>"; };
+		01D1CF101EA477170054D3CE /* JBLineChartLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartLine.h; sourceTree = "<group>"; };
+		01D1CF111EA477170054D3CE /* JBLineChartLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartLine.m; sourceTree = "<group>"; };
+		01D1CF121EA477170054D3CE /* JBLineChartPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartPoint.h; sourceTree = "<group>"; };
+		01D1CF131EA477170054D3CE /* JBLineChartPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartPoint.m; sourceTree = "<group>"; };
+		01D1CF151EA477170054D3CE /* JBLineChartDotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartDotsView.h; sourceTree = "<group>"; };
+		01D1CF161EA477170054D3CE /* JBLineChartDotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartDotsView.m; sourceTree = "<group>"; };
+		01D1CF171EA477170054D3CE /* JBLineChartDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartDotView.h; sourceTree = "<group>"; };
+		01D1CF181EA477170054D3CE /* JBLineChartDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartDotView.m; sourceTree = "<group>"; };
+		01D1CF191EA477170054D3CE /* JBLineChartLinesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartLinesView.h; sourceTree = "<group>"; };
+		01D1CF1A1EA477170054D3CE /* JBLineChartLinesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartLinesView.m; sourceTree = "<group>"; };
 		128AFF607E21E26A856D2EC7 /* Pods-Mobile Computing Project App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Computing Project App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Computing Project App/Pods-Mobile Computing Project App.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0968F71E85531700DBF79D /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellView.swift; path = ../CellView.swift; sourceTree = "<group>"; };
 		1B0968F91E8562A400DBF79D /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -124,11 +209,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01D1CEAE1EA475170054D3CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1BEC53721E7F7508001145E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				281D29B0D426A6A47B9B58A6 /* Pods_Mobile_Computing_Project_App.framework in Frameworks */,
+				01D1CEB91EA475170054D3CE /* JBChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +253,119 @@
 			name = Options;
 			sourceTree = "<group>";
 		};
+		01D1CEAA1EA4718A0054D3CE /* DataPlotting */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CEAB1EA471AE0054D3CE /* Data.storyboard */,
+			);
+			name = DataPlotting;
+			sourceTree = "<group>";
+		};
+		01D1CEB31EA475170054D3CE /* JBChart */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CEFA1EA477170054D3CE /* Classes */,
+				01D1CEB41EA475170054D3CE /* JBChart.h */,
+				01D1CEB51EA475170054D3CE /* Info.plist */,
+			);
+			path = JBChart;
+			sourceTree = "<group>";
+		};
+		01D1CEFA1EA477170054D3CE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CEFB1EA477170054D3CE /* Additions */,
+				01D1CEFE1EA477170054D3CE /* Bar */,
+				01D1CF041EA477170054D3CE /* Base */,
+				01D1CF071EA477170054D3CE /* Line */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		01D1CEFB1EA477170054D3CE /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CEFC1EA477170054D3CE /* NSMutableArray+JBStack.h */,
+				01D1CEFD1EA477170054D3CE /* NSMutableArray+JBStack.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		01D1CEFE1EA477170054D3CE /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CEFF1EA477170054D3CE /* JBBarChartView.h */,
+				01D1CF001EA477170054D3CE /* JBBarChartView.m */,
+				01D1CF011EA477170054D3CE /* Views */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		01D1CF011EA477170054D3CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF021EA477170054D3CE /* JBGradientBarView.h */,
+				01D1CF031EA477170054D3CE /* JBGradientBarView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01D1CF041EA477170054D3CE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF051EA477170054D3CE /* JBChartView.h */,
+				01D1CF061EA477170054D3CE /* JBChartView.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		01D1CF071EA477170054D3CE /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF081EA477170054D3CE /* JBLineChartView.h */,
+				01D1CF091EA477170054D3CE /* JBLineChartView.m */,
+				01D1CF0A1EA477170054D3CE /* Layers */,
+				01D1CF0F1EA477170054D3CE /* Models */,
+				01D1CF141EA477170054D3CE /* Views */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
+		01D1CF0A1EA477170054D3CE /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF0B1EA477170054D3CE /* JBGradientLineLayer.h */,
+				01D1CF0C1EA477170054D3CE /* JBGradientLineLayer.m */,
+				01D1CF0D1EA477170054D3CE /* JBShapeLineLayer.h */,
+				01D1CF0E1EA477170054D3CE /* JBShapeLineLayer.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		01D1CF0F1EA477170054D3CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF101EA477170054D3CE /* JBLineChartLine.h */,
+				01D1CF111EA477170054D3CE /* JBLineChartLine.m */,
+				01D1CF121EA477170054D3CE /* JBLineChartPoint.h */,
+				01D1CF131EA477170054D3CE /* JBLineChartPoint.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		01D1CF141EA477170054D3CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01D1CF151EA477170054D3CE /* JBLineChartDotsView.h */,
+				01D1CF161EA477170054D3CE /* JBLineChartDotsView.m */,
+				01D1CF171EA477170054D3CE /* JBLineChartDotView.h */,
+				01D1CF181EA477170054D3CE /* JBLineChartDotView.m */,
+				01D1CF191EA477170054D3CE /* JBLineChartLinesView.h */,
+				01D1CF1A1EA477170054D3CE /* JBLineChartLinesView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1B211B111E854FD8006573D9 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +389,7 @@
 				1BEC53771E7F7508001145E1 /* Mobile Computing Project App */,
 				1BEC538F1E7F7508001145E1 /* Mobile Computing Project AppTests */,
 				1BEC539A1E7F7508001145E1 /* Mobile Computing Project AppUITests */,
+				01D1CEB31EA475170054D3CE /* JBChart */,
 				1BEC53761E7F7508001145E1 /* Products */,
 				CD2FBC87555DB5C18770C376 /* Pods */,
 				ECC9AFF3A3B1BDB3B37E3F73 /* Frameworks */,
@@ -195,6 +402,7 @@
 				1BEC53751E7F7508001145E1 /* Mobile Computing Project App.app */,
 				1BEC538C1E7F7508001145E1 /* Mobile Computing Project AppTests.xctest */,
 				1BEC53971E7F7508001145E1 /* Mobile Computing Project AppUITests.xctest */,
+				01D1CEB21EA475170054D3CE /* JBChart.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +410,11 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
+				01D1CEAA1EA4718A0054D3CE /* DataPlotting */,
+				01042B041EA1935400692922 /* MyBackgroundColor.swift */,
+				01042B0A1EA4085A00692922 /* BGColorUser.swift */,
+				01042B061EA3DA0500692922 /* MyCustomLabel.swift */,
+				01042B081EA3DA5F00692922 /* MyCustomButton.swift */,
 				01042B021EA167F600692922 /* Apperance.swift */,
 				01042B001EA1674200692922 /* Config.swift */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
@@ -217,7 +430,6 @@
 				1BEC53841E7F7508001145E1 /* LaunchScreen.storyboard */,
 				1BEC53871E7F7508001145E1 /* Info.plist */,
 				1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */,
-				01042B041EA1935400692922 /* MyBackgroundColor.swift */,
 			);
 			path = "Mobile Computing Project App";
 			sourceTree = "<group>";
@@ -276,6 +488,7 @@
 			children = (
 				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
 				2BB9834E1E862041002BF3A7 /* LoginViewController.swift */,
+				01042B0C1EA424ED00692922 /* RegisterViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -312,7 +525,48 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		01D1CEAF1EA475170054D3CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01D1CF2B1EA477170054D3CE /* JBLineChartPoint.h in Headers */,
+				01D1CF311EA477170054D3CE /* JBLineChartLinesView.h in Headers */,
+				01D1CEB61EA475170054D3CE /* JBChart.h in Headers */,
+				01D1CF2F1EA477170054D3CE /* JBLineChartDotView.h in Headers */,
+				01D1CF251EA477170054D3CE /* JBGradientLineLayer.h in Headers */,
+				01D1CF271EA477170054D3CE /* JBShapeLineLayer.h in Headers */,
+				01D1CF1B1EA477170054D3CE /* NSMutableArray+JBStack.h in Headers */,
+				01D1CF2D1EA477170054D3CE /* JBLineChartDotsView.h in Headers */,
+				01D1CF1D1EA477170054D3CE /* JBBarChartView.h in Headers */,
+				01D1CF211EA477170054D3CE /* JBChartView.h in Headers */,
+				01D1CF231EA477170054D3CE /* JBLineChartView.h in Headers */,
+				01D1CF291EA477170054D3CE /* JBLineChartLine.h in Headers */,
+				01D1CF1F1EA477170054D3CE /* JBGradientBarView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		01D1CEB11EA475170054D3CE /* JBChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01D1CEBB1EA475170054D3CE /* Build configuration list for PBXNativeTarget "JBChart" */;
+			buildPhases = (
+				01D1CEAD1EA475170054D3CE /* Sources */,
+				01D1CEAE1EA475170054D3CE /* Frameworks */,
+				01D1CEAF1EA475170054D3CE /* Headers */,
+				01D1CEB01EA475170054D3CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JBChart;
+			productName = JBChart;
+			productReference = 01D1CEB21EA475170054D3CE /* JBChart.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		1BEC53741E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BEC53A01E7F7508001145E1 /* Build configuration list for PBXNativeTarget "Mobile Computing Project App" */;
@@ -323,10 +577,12 @@
 				1BEC53731E7F7508001145E1 /* Resources */,
 				A35D1CF08413D21EA331A4E0 /* [CP] Embed Pods Frameworks */,
 				6CB73B878121FBDE715BCE72 /* [CP] Copy Pods Resources */,
+				01D1CEBE1EA475170054D3CE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				01D1CEB81EA475170054D3CE /* PBXTargetDependency */,
 			);
 			name = "Mobile Computing Project App";
 			productName = "Mobile Computing Project App";
@@ -379,6 +635,10 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Robin Stewart";
 				TargetAttributes = {
+					01D1CEB11EA475170054D3CE = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					1BEC53741E7F7508001145E1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -411,11 +671,19 @@
 				1BEC53741E7F7508001145E1 /* Mobile Computing Project App */,
 				1BEC538B1E7F7508001145E1 /* Mobile Computing Project AppTests */,
 				1BEC53961E7F7508001145E1 /* Mobile Computing Project AppUITests */,
+				01D1CEB11EA475170054D3CE /* JBChart */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		01D1CEB01EA475170054D3CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1BEC53731E7F7508001145E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,6 +696,7 @@
 				1B211B131E855020006573D9 /* CellView.xib in Resources */,
 				2B3AC8FB1E805F9900CF5BD0 /* MedicalEvent.storyboard in Resources */,
 				2BB983501E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png in Resources */,
+				01D1CEAC1EA471AE0054D3CE /* Data.storyboard in Resources */,
 				1B0968FC1E85945F00DBF79D /* MonthHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,10 +766,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		01D1CEAD1EA475170054D3CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01D1CF281EA477170054D3CE /* JBShapeLineLayer.m in Sources */,
+				01D1CF321EA477170054D3CE /* JBLineChartLinesView.m in Sources */,
+				01D1CF2E1EA477170054D3CE /* JBLineChartDotsView.m in Sources */,
+				01D1CF241EA477170054D3CE /* JBLineChartView.m in Sources */,
+				01D1CF2A1EA477170054D3CE /* JBLineChartLine.m in Sources */,
+				01D1CF1C1EA477170054D3CE /* NSMutableArray+JBStack.m in Sources */,
+				01D1CF2C1EA477170054D3CE /* JBLineChartPoint.m in Sources */,
+				01D1CF221EA477170054D3CE /* JBChartView.m in Sources */,
+				01D1CF1E1EA477170054D3CE /* JBBarChartView.m in Sources */,
+				01D1CF201EA477170054D3CE /* JBGradientBarView.m in Sources */,
+				01D1CF301EA477170054D3CE /* JBLineChartDotView.m in Sources */,
+				01D1CF261EA477170054D3CE /* JBGradientLineLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1BEC53711E7F7508001145E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01042B091EA3DA5F00692922 /* MyCustomButton.swift in Sources */,
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
@@ -516,6 +805,8 @@
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
 				1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */,
 				1B0968F81E85531700DBF79D /* CellView.swift in Sources */,
+				01042B0D1EA424ED00692922 /* RegisterViewController.swift in Sources */,
+				01042B071EA3DA0500692922 /* MyCustomLabel.swift in Sources */,
 				016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */,
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
 				01042B051EA1935400692922 /* MyBackgroundColor.swift in Sources */,
@@ -528,6 +819,7 @@
 				2B8F52AC1E81CCE600F3CDAE /* Attribute.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				01042B031EA167F600692922 /* Apperance.swift in Sources */,
+				01042B0B1EA4085A00692922 /* BGColorUser.swift in Sources */,
 				2B3AC9061E8081E100CF5BD0 /* AttributeInformationView.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
@@ -554,6 +846,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		01D1CEB81EA475170054D3CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01D1CEB11EA475170054D3CE /* JBChart */;
+			targetProxy = 01D1CEB71EA475170054D3CE /* PBXContainerItemProxy */;
+		};
 		1BEC538E1E7F7508001145E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1BEC53741E7F7508001145E1 /* Mobile Computing Project App */;
@@ -586,6 +883,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		01D1CEBC1EA475170054D3CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolliamGaming.JBChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		01D1CEBD1EA475170054D3CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JBChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolliamGaming.JBChart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		1BEC539E1E7F7508001145E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -760,6 +1101,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01D1CEBB1EA475170054D3CE /* Build configuration list for PBXNativeTarget "JBChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01D1CEBC1EA475170054D3CE /* Debug */,
+				01D1CEBD1EA475170054D3CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1BEC53701E7F7508001145E1 /* Build configuration list for PBXProject "Mobile Computing Project App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
