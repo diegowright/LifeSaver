@@ -215,6 +215,58 @@ final class DataManager {
         return records
     }
     
+    // MARK: - Login/Registration Functions
+    
+    func loadUsers() -> [User]{
+        var users:[User] = []
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Users loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResults {
+            for result in results {
+                users.append(result as! User)
+            }
+        } else {
+            print("Could not fetch users.")
+        }
+        
+        return users
+    }
+    
+    func saveUser(userN: String, passW: String){
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let entity =  NSEntityDescription.entity(forEntityName: "User", in: managedContext)
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        // Set attribute values
+        user.setValue(userN, forKey: "userName")
+        user.setValue(passW, forKey: "passWord")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////////
     // START - Core Data code moved from AppDelegate - unchanged.
     

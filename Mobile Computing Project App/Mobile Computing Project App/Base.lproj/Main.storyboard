@@ -186,13 +186,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="fWd-kP-YoT" kind="show" identifier="LoginSeg" id="mbs-HA-bN7"/>
+                                    <segue destination="fWd-kP-YoT" kind="show" identifier="LoginSegue" id="mbs-HA-bN7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o5-3n-7Qw">
                                 <rect key="frame" x="160" y="517" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="hea-6u-XFa" kind="show" id="fhk-4S-InM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-5M-egD">
                                 <rect key="frame" x="16" y="463" width="133" height="21"/>
@@ -215,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="769" y="-874"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="KZ9-yc-cXV">
             <objects>
-                <viewController id="hea-6u-XFa" sceneMemberID="viewController">
+                <viewController id="hea-6u-XFa" customClass="RegisterViewController" customModule="Mobile_Computing_Project_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdc-Ri-Xf7"/>
                         <viewControllerLayoutGuide type="bottom" id="u60-Q1-w0o"/>
@@ -259,14 +262,29 @@
                                 <rect key="frame" x="160" y="318" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmButton:" destination="hea-6u-XFa" eventType="touchUpInside" id="CYF-7a-DAZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujN-do-1Al">
+                                <rect key="frame" x="22" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="weK-6y-rak" kind="show" id="KFY-4O-e4E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="passW" destination="hRk-qS-F4Q" id="vXT-0c-pxS"/>
+                        <outlet property="userN" destination="Zjc-Zb-HhK" id="3Zm-oH-CNb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mje-Z5-SRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="-873"/>
+            <point key="canvasLocation" x="1710" y="-875"/>
         </scene>
     </scenes>
     <resources>

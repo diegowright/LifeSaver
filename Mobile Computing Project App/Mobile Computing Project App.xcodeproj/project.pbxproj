@@ -31,6 +31,10 @@
 		2B2089211EA54AB8005AEE7F /* PrescriptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891B1EA54AB8005AEE7F /* PrescriptionsTableViewController.swift */; };
 		2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */; };
 		2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */; };
+		2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089251EA54E6C005AEE7F /* Apperance.swift */; };
+		2B2089291EA54E6C005AEE7F /* BGColorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089261EA54E6C005AEE7F /* BGColorUser.swift */; };
+		2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089271EA54E6C005AEE7F /* Config.swift */; };
+		2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */; };
 		2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26EB1E85C3330024461B /* TabVC.swift */; };
 		2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F01E85D6C60024461B /* LoadedEventCell.swift */; };
 		2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F21E85DA5A0024461B /* ShowEventVC.swift */; };
@@ -54,7 +58,6 @@
 		2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2E2791EA28C270024B748 /* CellView.swift */; };
 		2BB983501E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */; };
 		2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9834E1E862041002BF3A7 /* LoginViewController.swift */; };
-		2BB983521E862041002BF3A7 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9834F1E862041002BF3A7 /* Style.swift */; };
 		2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825C21E85B33300FD8784 /* DataVC.swift */; };
 		2BC825C61E85B34E00FD8784 /* MedicalEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825C51E85B34E00FD8784 /* MedicalEventVC.swift */; };
 		2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825C71E85B35800FD8784 /* CalendarVC.swift */; };
@@ -110,6 +113,10 @@
 		2B20891B1EA54AB8005AEE7F /* PrescriptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionsTableViewController.swift; sourceTree = "<group>"; };
 		2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
+		2B2089251EA54E6C005AEE7F /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
+		2B2089261EA54E6C005AEE7F /* BGColorUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGColorUser.swift; sourceTree = "<group>"; };
+		2B2089271EA54E6C005AEE7F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2B2F26EB1E85C3330024461B /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		2B2F26F01E85D6C60024461B /* LoadedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadedEventCell.swift; sourceTree = "<group>"; };
 		2B2F26F21E85DA5A0024461B /* ShowEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventVC.swift; sourceTree = "<group>"; };
@@ -133,7 +140,6 @@
 		2BB2E2791EA28C270024B748 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lifesaver-clipart-9TpeL8XTE.png"; sourceTree = "<group>"; };
 		2BB9834E1E862041002BF3A7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2BB9834F1E862041002BF3A7 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		2BC825C21E85B33300FD8784 /* DataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataVC.swift; sourceTree = "<group>"; };
 		2BC825C51E85B34E00FD8784 /* MedicalEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventVC.swift; sourceTree = "<group>"; };
 		2BC825C71E85B35800FD8784 /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -172,10 +178,10 @@
 		016353E41E85BE58008958BD /* Options */ = {
 			isa = PBXGroup;
 			children = (
-				016353E71E85C19C008958BD /* OptionTableViewController.swift */,
 				016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */,
-				016353EB1E85DA5E008958BD /* SettingsVC.swift */,
 				016353ED1E85DA6C008958BD /* AboutVC.swift */,
+				016353E71E85C19C008958BD /* OptionTableViewController.swift */,
+				016353EB1E85DA5E008958BD /* SettingsVC.swift */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -222,15 +228,15 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
-				2B2089241EA54AC1005AEE7F /* Medicine */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
+				2B20892B1EA54E81005AEE7F /* Styling */,
+				2B2089241EA54AC1005AEE7F /* Medicine */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
 				1B211B111E854FD8006573D9 /* Calendar */,
 				016353E41E85BE58008958BD /* Options */,
 				2BC825C41E85B33A00FD8784 /* TabViewControllers */,
 				2B2F26EF1E85CF990024461B /* DataManagement */,
-				2BB9834F1E862041002BF3A7 /* Style.swift */,
 				1BEC53821E7F7508001145E1 /* Assets.xcassets */,
 				1BEC537C1E7F7508001145E1 /* Main.storyboard */,
 				1BEC53841E7F7508001145E1 /* LaunchScreen.storyboard */,
@@ -269,6 +275,16 @@
 				2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */,
 			);
 			name = Medicine;
+			sourceTree = "<group>";
+		};
+		2B20892B1EA54E81005AEE7F /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				2B2089251EA54E6C005AEE7F /* Apperance.swift */,
+				2B2089261EA54E6C005AEE7F /* BGColorUser.swift */,
+				2B2089271EA54E6C005AEE7F /* Config.swift */,
+			);
+			name = Styling;
 			sourceTree = "<group>";
 		};
 		2B2F26EF1E85CF990024461B /* DataManagement */ = {
@@ -314,6 +330,7 @@
 			children = (
 				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
 				2BB9834E1E862041002BF3A7 /* LoginViewController.swift */,
+				2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -541,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
+				2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
 				2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */,
@@ -551,6 +569,7 @@
 				2B63F5C81EA2C5690059717F /* DatePickerCell.swift in Sources */,
 				2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */,
 				016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */,
+				2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */,
 				2B2F26F51E85F86C0024461B /* NoteVC.swift in Sources */,
 				1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */,
 				2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */,
@@ -566,7 +585,8 @@
 				2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */,
-				2BB983521E862041002BF3A7 /* Style.swift in Sources */,
+				2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */,
+				2B2089291EA54E6C005AEE7F /* BGColorUser.swift in Sources */,
 				2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
