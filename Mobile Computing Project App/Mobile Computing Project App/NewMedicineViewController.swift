@@ -18,6 +18,8 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     let unitData = ["mg", "mcg", "mL", "pill(s)"]
     var notify:Array = [[String(),Date()]]
+    let center = UNUserNotificationCenter.current()
+    var alertController:UIAlertController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         
-        let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
             (granted, error) in
@@ -52,16 +53,23 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBAction func saveAction(_ sender: Any) {
         let unitsValue:String = unitData[unitsOutlet.selectedRow(inComponent: 0)]
-        DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue)
         
-        // create a corresponding local notification
-        let notification = UILocalNotification()
-        notification.alertBody = "Todo Item Is Overdue" // text that will be displayed in the notification
-        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = notify[0][1] as? Date // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        notification.userInfo = [:] // assign a unique identifier to the notification so that we can retrieve it later
+        if medNameOutlet.text! == "" || doseStrengthOutlet.text! == "" || unitsValue == "" || Int(doseStrengthOutlet.text!) == nil {
+            self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields. Make sure the dose is an integer.", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                print("Ok Button Pressed 1");
+            }
+            self.alertController!.addAction(OKAction)
+            self.present(self.alertController!, animated: true, completion:nil)
+        }
+        else {
+            DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue)
+        }
         
-        UIApplication.shared.scheduleLocalNotification(notification)
+        let selectedDate = Date()
+        print("Selected date: \(selectedDate)")
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        delegate?.scheduleNotification(at: selectedDate)
     }
   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

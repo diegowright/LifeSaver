@@ -24,6 +24,7 @@
 		1BC6D6371EA172A00025F493 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6361EA172A00025F493 /* PrescriptionTableViewCell.swift */; };
 		1BC6D6391EA193AA0025F493 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */; };
 		1BC6D63B1EA195120025F493 /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */; };
+		1BCF4DF11EA544F800C545F4 /* UYLNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */; };
 		1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC53781E7F7508001145E1 /* AppDelegate.swift */; };
 		1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEC537C1E7F7508001145E1 /* Main.storyboard */; };
 		1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */; };
@@ -91,6 +92,7 @@
 		1BC6D6361EA172A00025F493 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
+		1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYLNotificationDelegate.swift; sourceTree = "<group>"; };
 		1BEC53751E7F7508001145E1 /* Mobile Computing Project App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Computing Project App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEC53781E7F7508001145E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BEC537D1E7F7508001145E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */,
 				1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */,
 				1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */,
+				1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */,
 			);
 			name = Medicine;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				2B8F52AC1E81CCE600F3CDAE /* Attribute.swift in Sources */,
+				1BCF4DF11EA544F800C545F4 /* UYLNotificationDelegate.swift in Sources */,
 				1BC6D6331EA167560025F493 /* PrescriptionsTableViewController.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				1BC6D6371EA172A00025F493 /* PrescriptionTableViewCell.swift in Sources */,
