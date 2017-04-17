@@ -14,7 +14,7 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var eventName: UITextField!  // This will be the name of the medical event
     var attributeList = ["Question":[], "Pain Duration":[], "Pain Level":[], "Pain Type":[],
-                         "Pain Location":[], "Note":[], "DateTime":[]]
+                         "Pain Location":[], "Note":[], "Date & Time":[]]
     var attributeNames:[String] = []
     
     @IBOutlet weak var addButton: UIButton!
@@ -29,13 +29,19 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         attributeTable.delegate = self
         
         // Define save bar and its action
-        let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done, target: self, action: #selector(DefineEventView.saveEvent))
+        let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done,
+                                   target: self, action: #selector(DefineEventView.saveEvent))
         self.navigationItem.rightBarButtonItem = save
         
         // Add observers that look for attribute save notifications
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(questionHandler(_:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(self.questionHandler(_:)),
                                                name: NSNotification.Name(rawValue: addQuestionAtt),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.painLocHandler(_:)),
+                                               name: NSNotification.Name(rawValue: addPainLocAtt),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.otherHandler(_:)),
+                                               name: NSNotification.Name(rawValue: addOtherAtt),
                                                object: nil)
         
         // function that dismisses keyboard on tap
@@ -54,28 +60,26 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func questionHandler(_ notification: Notification) {
-        print("Adding attribute to current event.")
+        print("Adding question attribute to current event.")
         
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
         let questionText = dataDict["question"]!
-        print("Question: ", questionText)
+        print("Question & id: ", questionText)
         
         // Add attribute to data list and reload table
-        let questionAtt:TemplateQuestionAtt = TemplateQuestionAtt()
-        questionAtt.question = questionText
-        questionAtt.id = questionText
+        let questionAtt = ["question":questionText, "id":questionText]
         
-        attributeList["Question"]?.append(questionText)
-        self.attributeNames.append(questionText)
+        attributeList["Question"]!.append(questionAtt)
+        self.attributeNames.append(questionAtt["id"]!)
         self.attributeTable.reloadData()
         
         print("Question attribute added to current event.")
     }
     
     func painLocHandler(_ notification: Notification) {
-        print("Adding attribute to current event.")
+        print("Adding pain location attribute to current event.")
         
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
@@ -90,18 +94,33 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         print("Id: ", id, "Locations: ", loc0, loc1, loc2, loc3 ,loc4)
         
         // Add attribute to data list and reload table
-        let painLocAtt:TemplatePainLocAtt = TemplatePainLocAtt()
-        painLocAtt.id = id
-        painLocAtt.loc0 = loc0
-        painLocAtt.loc1 = loc1
-        painLocAtt.loc2 = loc2
-        painLocAtt.loc3 = loc3
-        painLocAtt.loc4 = loc4
+        let painLocAtt = ["id":id, "loc0":loc0, "loc1":loc1, "loc2":loc2, "loc3":loc3, "loc4":loc4]
         
-        //attributeList.append((name, type))
+        self.attributeList["Pain Location"]!.append(painLocAtt)
+        self.attributeNames.append(painLocAtt["id"]!)
         self.attributeTable.reloadData()
-        self.attributeNames.append(id)
-        print("Note attribute added to current event.")
+        
+        print("Pain location attribute added to current event.")
+    }
+    
+    func otherHandler(_ notification: Notification) {
+        print("Adding attribute to current event")
+        
+        // extract the data sent in the notification
+        let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String, String>
+        
+        let id = dataDict["id"]!
+        
+        print("Id: ", id)
+        
+        // Add attribute to data list and reload table
+        let otherAtt = ["id":id]
+        
+        self.attributeList[id]!.append(otherAtt)
+        self.attributeNames.append(otherAtt["id"]!)
+        self.attributeTable.reloadData()
+        
+        print("Other attribute added to current event.")
     }
     
 

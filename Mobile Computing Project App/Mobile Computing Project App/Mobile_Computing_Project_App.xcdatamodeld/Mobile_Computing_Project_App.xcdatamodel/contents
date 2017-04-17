@@ -11,7 +11,7 @@
     <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="datetimeAtts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateDateTimeAtt" inverseName="template" inverseEntity="TemplateDateTimeAtt" syncable="YES"/>
+        <relationship name="datetimeAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplateDateTimeAtt" inverseName="template" inverseEntity="TemplateDateTimeAtt" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="template" inverseEntity="Event" syncable="YES"/>
         <relationship name="noteAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplateNoteAtt" inverseName="template" inverseEntity="TemplateNoteAtt" syncable="YES"/>
         <relationship name="painDurAtts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="TemplatePainDurAtt" inverseName="template" inverseEntity="TemplatePainDurAtt" syncable="YES"/>

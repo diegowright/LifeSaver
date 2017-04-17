@@ -21,7 +21,7 @@ final class DataManager {
     // Data model methods.
     
     // save a template with a given list of attributes in format (name, type)
-    func saveTemplate(templateName: String, attributeList:[(String, String)]) {
+    func saveTemplate(templateName: String, attributeList:[String:Dictionary<String, String>]) {
         let managedContext = self.persistentContainer.viewContext
         
         // Define template entity
@@ -32,8 +32,10 @@ final class DataManager {
         
         template.name = templateName
         template.dateCreated = currentDate as NSDate?
-        //template.user = "default"
+        //template.user = Config.user // or something like that eventually
 
+        // Go through attributeList
+        
         /*
         // Go through attributes and create template attributes
         for (index, attribute) in attributeList.enumerated() {

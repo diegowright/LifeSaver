@@ -10,9 +10,5 @@ import Foundation
 
 // Template Attribute Keys
 let addQuestionAtt = "addQuestionAtt"
-let addPainLvlAtt = "addPainLvlAtt"
 let addPainLocAtt = "addPainLocAtt"
-let addPainTypeAtt = "addPainTypeAtt"
-let addPainDurAtt = "addPainDurAtt"
-let addDateTimeAtt = "addDateTimeAtt"
-let addNoteAtt = "addNoteAtt"
+let addOtherAtt = "addOtherAtt"

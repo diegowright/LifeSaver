@@ -12,13 +12,13 @@ class AttributeTableController: UITableViewController {
     
     var alertController:UIAlertController? = nil
     
-    fileprivate let attributeTypes = [["Date & Time", addDateTimeAtt, DatePickerCell.dateDescription],
+    fileprivate let attributeTypes = [["Date & Time", addOtherAtt, DatePickerCell.dateDescription],
                                       ["Question", addQuestionAtt, QuestionCell.questionDescription],
-                                      ["Pain Duration", addPainDurAtt, PainDurationCell.painDurDescription],
-                                      ["Note", addNoteAtt, NoteCell.noteDescription],
-                                      ["Pain Level", addPainLvlAtt, PainLevelCell.painLvlDescription],
+                                      ["Pain Duration", addOtherAtt, PainDurationCell.painDurDescription],
+                                      ["Note", addOtherAtt, NoteCell.noteDescription],
+                                      ["Pain Level", addOtherAtt, PainLevelCell.painLvlDescription],
                                       ["Pain Location", addPainLocAtt, PainLocationCell.painLocDescription],
-                                      ["Pain Type", addPainTypeAtt, PainTypeCell.painTypeDescription]]
+                                      ["Pain Type", addOtherAtt, PainTypeCell.painTypeDescription]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +101,7 @@ class AttributeTableController: UITableViewController {
             NotificationCenter.default.post(name: Notification.Name(rawValue: addQuestionAtt),
                                             object: nil,
                                             userInfo: dataDict)
+            _ = self.navigationController?.popViewController(animated: true)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -153,10 +154,13 @@ class AttributeTableController: UITableViewController {
                 NotificationCenter.default.post(name: Notification.Name(rawValue: addPainLocAtt),
                                                 object: nil,
                                                 userInfo: dataDict)
+                _ = self.navigationController?.popViewController(animated: true)
         }))
         
+        // Add cancel button
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
+        // Add 5 text inputs
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
             textField.placeholder = "Location 1"
         })
@@ -172,9 +176,12 @@ class AttributeTableController: UITableViewController {
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
             textField.placeholder = "Location 5"
         })
+        
+        // Present the alert controller
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // The other attributes all have only an id value so no special work is needed to send their notification
     func otherAction(_ row: Int) {
         print("Other", row)
         
@@ -191,6 +198,7 @@ class AttributeTableController: UITableViewController {
                 NotificationCenter.default.post(name: Notification.Name(rawValue: self.attributeTypes[row][1]),
                                                                  object: nil,
                                                                  userInfo: dataDict)
+                _ = self.navigationController?.popViewController(animated: true)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
