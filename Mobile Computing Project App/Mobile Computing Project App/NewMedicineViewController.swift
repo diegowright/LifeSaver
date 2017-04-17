@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var medNameOutlet: UITextField!
     @IBOutlet weak var doseStrengthOutlet: UITextField!
@@ -37,6 +37,16 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(displayDaily(notification:)), name: NSNotification.Name(rawValue: "displayDaily"), object: nil)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [[.alert, .sound, .badge]], completionHandler: { (granted, error) in
+            // Handle Error
+        })
+        UNUserNotificationCenter.current().delegate = self
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound])
     }
     
     override func viewWillAppear(_ animated: Bool) {
