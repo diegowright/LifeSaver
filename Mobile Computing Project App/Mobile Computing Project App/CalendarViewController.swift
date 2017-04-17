@@ -41,6 +41,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.title = "Calendar"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.selectedEvents = DataManager.shared.loadEventsByDate(self.selectedDate)
+        self.eventTable.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -132,7 +138,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     //override func viewWillAppear(_ animated: Bool) {
     //    super.viewWillAppear(true)
-    //    // self.selectedEvents = DataManager.loadEventsByDate(self.selectedDate)
+    //    // self.selectedEvents = DataManager.shared.loadEventsByDate(self.selectedDate)
     //}
     
     // New Note action

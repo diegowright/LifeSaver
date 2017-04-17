@@ -16,7 +16,7 @@ class MedicalEventCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Move edit button off screen for now
+        // Move edit button off screen for now, to maybe use later
         var editOrigin = editEventButton.frame.origin
         editOrigin = CGPoint(x: editOrigin.x-100, y: editOrigin.y)
         editEventButton.frame.origin = editOrigin

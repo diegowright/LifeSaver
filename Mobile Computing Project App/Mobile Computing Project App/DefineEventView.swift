@@ -13,8 +13,8 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     var alertController:UIAlertController? = nil
     
     @IBOutlet weak var eventName: UITextField!  // This will be the name of the medical event
-    var attributeList = ["Question":[], "Pain Duration":[], "Pain Level":[], "Pain Type":[],
-                         "Pain Location":[], "Note":[], "Date & Time":[]]
+    var attributeList: [String:[Dictionary<String, String>]] = ["Question":[], "Pain Duration":[], "Pain Level":[], "Pain Type":[],
+                                                              "Pain Location":[], "Note":[], "Date & Time":[]]
     var attributeNames:[String] = []
     
     @IBOutlet weak var addButton: UIButton!
@@ -148,8 +148,8 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
         // Save template
-        //DataManager.shared.saveTemplate(templateName: self.eventName.text!,
-        //                                attributeList: self.attributeList)
+        DataManager.shared.saveTemplate(templateName: self.eventName.text!,
+                                        attributeList: self.attributeList)
         print("Event type Saved!")
         
         // Return to previous view which is Medical Event Table

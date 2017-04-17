@@ -71,9 +71,9 @@ final class DataManager {
     
     // MARK: - Medical Event Methods
     
-    func saveTemplate(templateName: String, attributeList:[String:Dictionary<String, String>]) {
+    func saveTemplate(templateName: String, attributeList:[String:[Dictionary<String, String>]]) {
         let managedContext = self.persistentContainer.viewContext
-        
+
         // Define template entity
         let entity = NSEntityDescription.entity(forEntityName: "Template", in: managedContext)
         let template = NSManagedObject(entity: entity!, insertInto: managedContext) as! Template
@@ -82,26 +82,78 @@ final class DataManager {
         
         template.name = templateName
         template.dateCreated = currentDate as NSDate?
-        //template.user = Config.user // or something like that eventually
+        template.user = self.currentUser
 
         // Go through attributeList
-        
-        /*
-        // Go through attributes and create template attributes
-        for (index, attribute) in attributeList.enumerated() {
-            print("Index: ", index)
-            // Define template attribute entity
-            let attEntity = NSEntityDescription.entity(forEntityName: "TemplateAttribute", in: managedContext)
-            //let templateAtt = NSManagedObject(entity: attEntity!, insertInto: managedContext) as! TemplateAttribute
-            // Define template attribute values
-            templateAtt.name = attribute.0
-            templateAtt.type = attribute.1
-            templateAtt.order = Int16(index)
-            
-            // Add templateAtt to template by relationship defined in core data model
-            template.addToAttributes(templateAtt)
+        for (id, atts) in attributeList {
+            switch id {
+            case "Question":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplateQuestionAtt", in: managedContext)
+                    let questionAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplateQuestionAtt
+                    questionAtt.id = dict["id"]
+                    questionAtt.question = dict["question"]
+                    template.addToQuestionAtts(questionAtt)
+                    print("Question added to template.")
+                }
+            case "Pain Location":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplatePainLocAtt", in: managedContext)
+                    let painLocAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplatePainLocAtt
+                    painLocAtt.id = dict["id"]
+                    painLocAtt.loc0 = dict["loc0"]
+                    painLocAtt.loc1 = dict["loc1"]
+                    painLocAtt.loc2 = dict["loc2"]
+                    painLocAtt.loc3 = dict["loc3"]
+                    painLocAtt.loc4 = dict["loc4"]
+                    template.addToPainLocAtts(painLocAtt)
+                    print("Pain Location added to template.")
+                }
+            case "Pain Type":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplatePainTypeAtt", in: managedContext)
+                    let painTypeAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplatePainTypeAtt
+                    painTypeAtt.id = dict["id"]
+                    template.addToPainTypeAtts(painTypeAtt)
+                    print("Pain Type added to template.")
+                }
+                
+            case "Pain Duration":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplatePainDurAtt", in: managedContext)
+                    let painDurAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplatePainDurAtt
+                    painDurAtt.id = dict["id"]
+                    template.addToPainDurAtts(painDurAtt)
+                    print("Pain Duration added to template.")
+                }
+            case "Pain Level":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplatePainLvlAtt", in: managedContext)
+                    let painLvlAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplatePainLvlAtt
+                    painLvlAtt.id = dict["id"]
+                    template.addToPainLvlAtts(painLvlAtt)
+                    print("Pain Level added to template.")
+                }
+            case "Note":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplateNoteAtt", in: managedContext)
+                    let noteAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplateNoteAtt
+                    noteAtt.id = dict["id"]
+                    template.addToNoteAtts(noteAtt)
+                    print("Note added to template.")
+                }
+            case "Date & Time":
+                for dict in atts {
+                    let entity = NSEntityDescription.entity(forEntityName: "TemplateDateTimeAtt", in: managedContext)
+                    let dateTimeAtt = NSManagedObject(entity: entity!, insertInto: managedContext) as! TemplateDateTimeAtt
+                    dateTimeAtt.id = dict["id"]
+                    template.addToDatetimeAtts(dateTimeAtt)
+                    print("Date & Time added to template.")
+                }
+            default:
+                print("Default case. Something went wrong.")
+            }
         }
-        */
         
         // Try saving newly added template and template attributes
         do {
@@ -144,8 +196,11 @@ final class DataManager {
             print("Could not fetch templates.")
         }
         
+        print(templates)
         return templates
     }
+    
+    // MARK: - Notes
     
     func saveNoteRecord(date: Date, noteText: String) {
         // Obtain context
@@ -175,8 +230,7 @@ final class DataManager {
         
         let managedContext = self.persistentContainer.viewContext
         
-        print("\nloading data for \(date)")
-        // let entityNames:Array =
+        //print("\nloading data for \(date)")
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Note")
         var fetchedResults:[NSManagedObject]? = nil

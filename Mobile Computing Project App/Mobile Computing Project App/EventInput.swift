@@ -19,7 +19,7 @@ class EventInput: UIViewController {
         self.title = self.template!.name
 
         // Test to see what is in template attributes
-        var atext:String = ""
+        let atext:String = ""
         
         /*
         let atts:[TemplateAttribute] = Array(self.template!.attributes!) as! [TemplateAttribute]
