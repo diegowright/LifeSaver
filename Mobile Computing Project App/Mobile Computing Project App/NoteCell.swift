@@ -10,7 +10,7 @@ import UIKit
 
 class NoteCell: UITableViewCell {
     
-    static let noteDescription = "Small description about what your pain or ailment."
+    static let noteDescription = "Small comment about your pain or ailment."
 
     override func awakeFromNib() {
         super.awakeFromNib()

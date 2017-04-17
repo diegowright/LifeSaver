@@ -11,14 +11,14 @@ import UIKit
 class AttributeCell: UITableViewCell {
 
     var tapAction: ((UITableViewCell) -> Void)?
-    
-    @IBOutlet weak var cellLabel: UIButton!
+
     @IBOutlet weak var attributeDescription: UILabel!
+    @IBOutlet weak var rowLabel: UILabel!
     
     @IBAction func cellTap(_ sender: Any) {
         tapAction?(self)  // this excecutes whatever closure is associated with tapAction
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

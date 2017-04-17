@@ -58,10 +58,10 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
-        let id = dataDict["id"]!
+        //let id = dataDict["id"]!
         let question = dataDict["question"]!
         
-        print("Id: ", id, "\nQuestion: ", question)
+        //print("Id: ", id, "\nQuestion: ", question)
         
         // Add attribute to data list and reload table
         //attributeList.append((name, type))

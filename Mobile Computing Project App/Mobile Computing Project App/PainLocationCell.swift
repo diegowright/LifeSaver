@@ -10,7 +10,7 @@ import UIKit
 
 class PainLocationCell: UITableViewCell {
     
-    static let painLocDescription = "Can choose up to 5 user-defined locations from where pain could originate."
+    static let painLocDescription = "Can choose up to 5 user-defined areas where pain originates."
 
     override func awakeFromNib() {
         super.awakeFromNib()

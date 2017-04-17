@@ -33,7 +33,6 @@
 		2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FC1E80648500CF5BD0 /* MedicalEventTable.swift */; };
 		2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */; };
 		2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */; };
-		2B3AC9061E8081E100CF5BD0 /* AttributeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */; };
 		2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4428641EA16423009D178B /* NotificationKeys.swift */; };
 		2B63F5C81EA2C5690059717F /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63F5C71EA2C5690059717F /* DatePickerCell.swift */; };
 		2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200D1EA42F710060D88E /* AttributeTableController.swift */; };
@@ -107,7 +106,6 @@
 		2B3AC8FC1E80648500CF5BD0 /* MedicalEventTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventTable.swift; sourceTree = "<group>"; };
 		2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventCell.swift; sourceTree = "<group>"; };
 		2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineEventView.swift; sourceTree = "<group>"; };
-		2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeInfoView.swift; sourceTree = "<group>"; };
 		2B4428641EA16423009D178B /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		2B63F5C71EA2C5690059717F /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		2B8E200D1EA42F710060D88E /* AttributeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeTableController.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				2B3AC8FA1E805F9900CF5BD0 /* MedicalEvent.storyboard */,
 				2B8E200F1EA4345F0060D88E /* AttributeCell.swift */,
 				2B8E200D1EA42F710060D88E /* AttributeTableController.swift */,
-				2B3AC9051E8081E100CF5BD0 /* AttributeInfoView.swift */,
 				2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */,
 				2B8F52A71E81C69400F3CDAE /* EventInput.swift */,
 				2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */,
@@ -545,7 +542,6 @@
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
-				2B3AC9061E8081E100CF5BD0 /* AttributeInfoView.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B8F52A81E81C69400F3CDAE /* EventInput.swift in Sources */,

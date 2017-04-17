@@ -10,7 +10,7 @@ import UIKit
 
 class PainDurationCell: UITableViewCell {
     
-    static let painDurDescription = "Duration of pain in hours, minutes, or seconds."
+    static let painDurDescription = "Duration of your pain in hours, minutes, or seconds."
 
     override func awakeFromNib() {
         super.awakeFromNib()
