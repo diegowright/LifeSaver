@@ -77,26 +77,25 @@ class AttributeTableController: UITableViewController {
         print("Question", row)
         // Present UIAlertController asking to enter question and then a confirm or back
         
-        let alertController = UIAlertController(title: "Title",
-                                                message: "",
+        let alertController = UIAlertController(title: "Add Attribute",
+                                                message: "Enter in the question you would like to ask yourself.",
                                                 preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Save",
+        alertController.addAction(UIAlertAction(title: "Add",
                                                 style: .default,
                                                 handler:
         {
             alert -> Void in
             let textField = alertController.textFields![0] as UITextField
-            let textField2 = alertController.textFields![1] as UITextField
-            let textField3 = alertController.textFields![2] as UITextField
             
-            let questionText = textField.text
+            let questionText:String = textField.text!
             
-            if (questionText! == "") {
-                
+            if (questionText == "") {
+                self.showMessage("Need to enter in a question!")
+                return
             }
             
-            let dataDict = ["questionText":questionText]
+            let dataDict = ["question":questionText]
             
             // Send notification with data
             NotificationCenter.default.post(name: Notification.Name(rawValue: addQuestionAtt),
@@ -107,13 +106,7 @@ class AttributeTableController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "Search1"
-        })
-        alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "Search2"
-        })
-        alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "Search3"
+            textField.placeholder = "Your question"
         })
         
         self.present(alertController, animated: true, completion: nil)
@@ -123,11 +116,11 @@ class AttributeTableController: UITableViewController {
         print("Pain Location", row)
         // Present UIAlertController asking to enter up to 5 locations then
         
-        let alertController = UIAlertController(title: "Title",
-                                                message: "",
+        let alertController = UIAlertController(title: "Add Attribute",
+                                                message: "Enter the locations you want to keep track of (blank boxes will not appear).",
                                                 preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Save",
+        alertController.addAction(UIAlertAction(title: "Add",
                                                 style: .default,
                                                 handler:
             {
@@ -145,13 +138,19 @@ class AttributeTableController: UITableViewController {
                 let location4 = textField4.text
 
                 if (location0 == "") {
-                    
+                    self.showMessage("Must have at least one location entered")
+                    return
                 }
                 
-                let dataDict = ["loc0":location0]
+                let dataDict = ["id":self.attributeTypes[row][0],
+                                "loc0":location0,
+                                "loc1":location1,
+                                "loc2":location2,
+                                "loc3":location3,
+                                "loc4":location4,]
                 
                 // Send notification with data
-                NotificationCenter.default.post(name: Notification.Name(rawValue: addQuestionAtt),
+                NotificationCenter.default.post(name: Notification.Name(rawValue: addPainLocAtt),
                                                 object: nil,
                                                 userInfo: dataDict)
         }))
@@ -178,5 +177,37 @@ class AttributeTableController: UITableViewController {
     
     func otherAction(_ row: Int) {
         print("Other", row)
+        
+        let alertController = UIAlertController(title: "Add Attribute",
+                                                message: "Add this attribute?",
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Add",
+                                                style: .default,
+                                                handler:
+            {
+                alert -> Void in
+                let dataDict = ["id":self.attributeTypes[row][0]]
+                NotificationCenter.default.post(name: Notification.Name(rawValue: self.attributeTypes[row][1]),
+                                                                 object: nil,
+                                                                 userInfo: dataDict)
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func showMessage(_ message: String) {
+        let alertController = UIAlertController(title: "Title",
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Ok",
+                                                style: .default,
+                                                handler: {Void in print("Ok pressed")}))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

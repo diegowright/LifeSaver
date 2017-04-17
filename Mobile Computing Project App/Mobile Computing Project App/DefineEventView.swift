@@ -13,11 +13,12 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     var alertController:UIAlertController? = nil
     
     @IBOutlet weak var eventName: UITextField!  // This will be the name of the medical event
-    var attributeList:[NSDictionary] = []   // This will contain attributes added, starts with none when defining new event
+    var attributeList = ["Question":[], "Pain Duration":[], "Pain Level":[], "Pain Type":[],
+                         "Pain Location":[], "Note":[], "DateTime":[]]
+    var attributeNames:[String] = []
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var attributeTable: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,30 +59,48 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
-        //let id = dataDict["id"]!
-        let question = dataDict["question"]!
-        
-        //print("Id: ", id, "\nQuestion: ", question)
+        let questionText = dataDict["question"]!
+        print("Question: ", questionText)
         
         // Add attribute to data list and reload table
-        //attributeList.append((name, type))
+        let questionAtt:TemplateQuestionAtt = TemplateQuestionAtt()
+        questionAtt.question = questionText
+        questionAtt.id = questionText
+        
+        attributeList["Question"]?.append(questionText)
+        self.attributeNames.append(questionText)
         self.attributeTable.reloadData()
+        
         print("Question attribute added to current event.")
     }
     
-    func noteHandler(_ notification: Notification) {
+    func painLocHandler(_ notification: Notification) {
         print("Adding attribute to current event.")
         
         // extract the data that was sent in the notification
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
         let id = dataDict["id"]!
+        let loc0 = dataDict["loc0"]!
+        let loc1 = dataDict["loc1"]!
+        let loc2 = dataDict["loc2"]!
+        let loc3 = dataDict["loc3"]!
+        let loc4 = dataDict["loc4"]!
         
-        print("Id: ", id)
+        print("Id: ", id, "Locations: ", loc0, loc1, loc2, loc3 ,loc4)
         
         // Add attribute to data list and reload table
+        let painLocAtt:TemplatePainLocAtt = TemplatePainLocAtt()
+        painLocAtt.id = id
+        painLocAtt.loc0 = loc0
+        painLocAtt.loc1 = loc1
+        painLocAtt.loc2 = loc2
+        painLocAtt.loc3 = loc3
+        painLocAtt.loc4 = loc4
+        
         //attributeList.append((name, type))
         self.attributeTable.reloadData()
+        self.attributeNames.append(id)
         print("Note attribute added to current event.")
     }
     
@@ -125,16 +144,15 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Count of attribute list: ", self.attributeList.count)
-        return self.attributeList.count
+        return self.attributeNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "attributeCell", for: indexPath)
         
-        // Configure the cell...
-        let index:Int = indexPath.row
-        cell.textLabel?.text = self.attributeList[index].value(forKey: "id") as? String
+        let cellLabel:String = self.attributeNames[indexPath.row]
+        cell.textLabel?.text = cellLabel
         
         return cell
     }

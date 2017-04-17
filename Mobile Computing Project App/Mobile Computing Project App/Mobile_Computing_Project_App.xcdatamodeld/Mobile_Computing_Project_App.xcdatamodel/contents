@@ -34,11 +34,11 @@
     </entity>
     <entity name="TemplatePainLocAtt" representedClassName="TemplatePainLocAtt" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loc0" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loc1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loc2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loc3" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loc4" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="loc5" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="painLocAtts" inverseEntity="Template" syncable="YES"/>
     </entity>
     <entity name="TemplatePainLvlAtt" representedClassName="TemplatePainLvlAtt" syncable="YES" codeGenerationType="class">
