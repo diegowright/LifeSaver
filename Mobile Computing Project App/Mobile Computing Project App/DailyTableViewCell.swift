@@ -13,6 +13,11 @@ class DailyTableViewCell: UITableViewCell {
     @IBOutlet weak var timePickerOutlet: UIDatePicker!
     @IBOutlet weak var pickerHeightConstraint: NSLayoutConstraint!
     
+    @IBAction func pickerAction(_ sender: Any) {
+        let dataDict:Dictionary = ["Daily":timePickerOutlet.date]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "dailyPickerTime"), object: nil, userInfo: dataDict)
+    }
+    
     var isExpanded:Bool = false {
         didSet {
             if !isExpanded {

@@ -57,9 +57,9 @@
         <element name="EventDateValue" positionX="-362" positionY="270" width="128" height="120"/>
         <element name="EventFloatValue" positionX="-360" positionY="-0" width="128" height="118"/>
         <element name="EventStringValue" positionX="-360" positionY="135" width="128" height="118"/>
+        <element name="Medicine" positionX="-360" positionY="18" width="128" height="90"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
-        <element name="Medicine" positionX="-360" positionY="18" width="128" height="90"/>
     </elements>
 </model>

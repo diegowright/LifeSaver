@@ -187,9 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				1BC6D62F1EA162D60025F493 /* Medicine.storyboard */,
-				1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */,
 				1BC6D6321EA167560025F493 /* PrescriptionsTableViewController.swift */,
 				1BC6D6361EA172A00025F493 /* PrescriptionTableViewCell.swift */,
+				1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */,
 				1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */,
 				1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */,
 			);

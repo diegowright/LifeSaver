@@ -11,13 +11,17 @@ import UIKit
 class RemindersTableViewController: UITableViewController {
     
     var expandedRows = Set<Int>()
+    var time:Dictionary<String,Date> = ["Daily":Date()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.rowHeight = 44
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handlerDaily(notification:)), name: NSNotification.Name(rawValue: "dailyPickerTime"), object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -72,6 +76,25 @@ class RemindersTableViewController: UITableViewController {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
     }
+    
+    func handlerDaily (notification: Notification) {
+        time = notification.userInfo as! Dictionary<String,Date>
+    }
+    
+    
+    @IBAction func saveAction(_ sender: Any) {
+        
+        //var rowID:Array = Array(expandedRows)
+        //let cell = tableView.cellForRow(at: rowID[0]) as? DailyTableViewCell
+        
+        let theTime = time["Daily"]
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: theTime!)
+        let minute = calendar.component(.minute, from: theTime!)
+        print ("Notification Date: \(hour):\(minute)")
+        let dataDict:Dictionary = ["Daily":theTime]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "displayDaily"), object: nil, userInfo: dataDict)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -108,14 +131,13 @@ class RemindersTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
+/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
+ */
+    
 }
