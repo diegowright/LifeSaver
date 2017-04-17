@@ -39,18 +39,31 @@ class RegisterViewController: UIViewController {
             
         }else if userN?.text != "" && passW.text != ""{
             
-            DataManager.shared.saveUser(userN: userN.text!, passW: passW.text!)
-            print("New user saved with username \(userN) and password \(passW).")
+            let saved = DataManager.shared.saveUser(userN: userN.text!, passW: passW.text!)
             
-            self.alertController = UIAlertController(title: "Registration", message: "Registration Successful", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
-                print("Ok Button Pressed 2")
-                // pop back to login view
+            if saved == true {
+                print("New user saved with username \(userN) and password \(passW).")
+                
+                self.alertController = UIAlertController(title: "Registration", message: "Registration Successful", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
+                    print("Ok Button Pressed 2")
+                    // pop back to login view
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+                self.alertController!.addAction(okAction)
+                self.present(self.alertController!, animated: true, completion:nil)
+            } else {
+                print("User already exists.")
+                
+                self.alertController = UIAlertController(title: "Registration", message: "User already exists.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
+                    print("Ok Button Pressed")
+                }
+                self.alertController!.addAction(okAction)
+                self.present(self.alertController!, animated: true, completion:nil)
             }
-            self.alertController!.addAction(okAction)
-            self.present(self.alertController!, animated: true, completion:nil)
-            
         }
     }
 }

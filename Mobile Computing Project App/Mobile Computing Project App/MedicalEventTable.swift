@@ -121,6 +121,7 @@ class MedicalEventTable: UITableViewController {
     }
     
     func editButton() {
+        print("Current user: ", DataManager.shared.getCurrentUser())
         //let name: String = "Migraine"
         //let atts: [(String, String)] = [("pain_level", "slider"), ("date", "date_picker")]
         //DataManager.shared.saveEventTemplate(name: name, atts: atts)

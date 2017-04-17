@@ -14,7 +14,9 @@ final class DataManager {
     // Instantiate DataManager singleton.
     static let shared = DataManager()
     
-    // The Core Data data model. So far this type of implementation isn't necessary but it may be useful later.
+    // This is the current user
+    fileprivate var currentUser = User()
+    
     // fileprivate var events = [Event]()
     // fileprivate var templates = [Template]()
     
@@ -217,6 +219,39 @@ final class DataManager {
     
     // MARK: - Login/Registration Functions
     
+    func getUser(username:String, password:String) -> User {
+        let userList = self.loadUsers()
+        
+        for user in userList {
+            if user.userName == username && user.passWord == password {
+                print("User \(user) found.")
+                return user
+            }
+        }
+        print("User not found.")
+        return User()
+    }
+    
+    func setCurrentUser(user:User) {
+        self.currentUser = user
+        print("Current user set to \(user)")
+    }
+    
+    func getCurrentUser() -> User {
+        return self.currentUser
+    }
+    
+    func isValidUser(userName: String, passWord: String) -> Bool{
+        let userList = self.loadUsers()
+        
+        for user in userList{
+            if userName == user.userName && passWord == user.passWord{
+                return true
+            }
+        }
+        return false
+    }
+    
     func loadUsers() -> [User]{
         var users:[User] = []
         let managedContext = self.persistentContainer.viewContext
@@ -245,16 +280,21 @@ final class DataManager {
         return users
     }
     
-    func saveUser(userN: String, passW: String){
+    func saveUser(userN: String, passW: String) -> Bool {
         
         let managedContext = self.persistentContainer.viewContext
         
         let entity =  NSEntityDescription.entity(forEntityName: "User", in: managedContext)
-        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext) as! User
+        
+        if self.isValidUser(userName: userN, passWord: passW) {
+            print("This user exists already.")
+            return false
+        }
         
         // Set attribute values
-        user.setValue(userN, forKey: "userName")
-        user.setValue(passW, forKey: "passWord")
+        user.userName = userN
+        user.passWord = passW
         
         do {
             try managedContext.save()
@@ -264,7 +304,7 @@ final class DataManager {
             print("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        return
+        return true
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////
