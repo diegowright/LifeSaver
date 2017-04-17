@@ -25,6 +25,12 @@
 		1BEC53911E7F7508001145E1 /* Mobile_Computing_Project_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC53901E7F7508001145E1 /* Mobile_Computing_Project_AppTests.swift */; };
 		1BEC539C1E7F7508001145E1 /* Mobile_Computing_Project_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC539B1E7F7508001145E1 /* Mobile_Computing_Project_AppUITests.swift */; };
 		281D29B0D426A6A47B9B58A6 /* Pods_Mobile_Computing_Project_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462492C6BC49F9834BF64482 /* Pods_Mobile_Computing_Project_App.framework */; };
+		2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089181EA54AB8005AEE7F /* DailyTableViewCell.swift */; };
+		2B20891F1EA54AB8005AEE7F /* Medicine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2089191EA54AB8005AEE7F /* Medicine.storyboard */; };
+		2B2089201EA54AB8005AEE7F /* NewMedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891A1EA54AB8005AEE7F /* NewMedicineViewController.swift */; };
+		2B2089211EA54AB8005AEE7F /* PrescriptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891B1EA54AB8005AEE7F /* PrescriptionsTableViewController.swift */; };
+		2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */; };
+		2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */; };
 		2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26EB1E85C3330024461B /* TabVC.swift */; };
 		2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F01E85D6C60024461B /* LoadedEventCell.swift */; };
 		2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F21E85DA5A0024461B /* ShowEventVC.swift */; };
@@ -98,6 +104,12 @@
 		1BEC53971E7F7508001145E1 /* Mobile Computing Project AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mobile Computing Project AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEC539B1E7F7508001145E1 /* Mobile_Computing_Project_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile_Computing_Project_AppUITests.swift; sourceTree = "<group>"; };
 		1BEC539D1E7F7508001145E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B2089181EA54AB8005AEE7F /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
+		2B2089191EA54AB8005AEE7F /* Medicine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Medicine.storyboard; sourceTree = "<group>"; };
+		2B20891A1EA54AB8005AEE7F /* NewMedicineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMedicineViewController.swift; sourceTree = "<group>"; };
+		2B20891B1EA54AB8005AEE7F /* PrescriptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionsTableViewController.swift; sourceTree = "<group>"; };
+		2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		2B2F26EB1E85C3330024461B /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		2B2F26F01E85D6C60024461B /* LoadedEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadedEventCell.swift; sourceTree = "<group>"; };
 		2B2F26F21E85DA5A0024461B /* ShowEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventVC.swift; sourceTree = "<group>"; };
@@ -210,6 +222,7 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
+				2B2089241EA54AC1005AEE7F /* Medicine */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
@@ -243,6 +256,19 @@
 				1BEC539D1E7F7508001145E1 /* Info.plist */,
 			);
 			path = "Mobile Computing Project AppUITests";
+			sourceTree = "<group>";
+		};
+		2B2089241EA54AC1005AEE7F /* Medicine */ = {
+			isa = PBXGroup;
+			children = (
+				2B2089191EA54AB8005AEE7F /* Medicine.storyboard */,
+				2B2089181EA54AB8005AEE7F /* DailyTableViewCell.swift */,
+				2B20891A1EA54AB8005AEE7F /* NewMedicineViewController.swift */,
+				2B20891B1EA54AB8005AEE7F /* PrescriptionsTableViewController.swift */,
+				2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */,
+				2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */,
+			);
+			name = Medicine;
 			sourceTree = "<group>";
 		};
 		2B2F26EF1E85CF990024461B /* DataManagement */ = {
@@ -436,6 +462,7 @@
 				1BEC53861E7F7508001145E1 /* LaunchScreen.storyboard in Resources */,
 				1BEC53831E7F7508001145E1 /* Assets.xcassets in Resources */,
 				1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */,
+				2B20891F1EA54AB8005AEE7F /* Medicine.storyboard in Resources */,
 				1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */,
 				1B211B131E855020006573D9 /* CellView.xib in Resources */,
 				2B3AC8FB1E805F9900CF5BD0 /* MedicalEvent.storyboard in Resources */,
@@ -522,6 +549,7 @@
 				1B0969001E859C6100DBF79D /* CalendarEventsTableViewController.swift in Sources */,
 				2BC825C61E85B34E00FD8784 /* MedicalEventVC.swift in Sources */,
 				2B63F5C81EA2C5690059717F /* DatePickerCell.swift in Sources */,
+				2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */,
 				016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */,
 				2B2F26F51E85F86C0024461B /* NoteVC.swift in Sources */,
 				1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */,
@@ -537,6 +565,7 @@
 				2BB2E2781EA28BCB0024B748 /* QuestionCell.swift in Sources */,
 				2B2F26F11E85D6C60024461B /* LoadedEventCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
+				2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */,
 				2BB983521E862041002BF3A7 /* Style.swift in Sources */,
 				2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
@@ -544,10 +573,13 @@
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowEventVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
+				2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */,
 				2B8F52A81E81C69400F3CDAE /* EventInput.swift in Sources */,
+				2B2089211EA54AB8005AEE7F /* PrescriptionsTableViewController.swift in Sources */,
 				2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */,
 				2B8E20181EA43E1C0060D88E /* PainTypeCell.swift in Sources */,
 				2B8E20121EA43DFB0060D88E /* PainDurationCell.swift in Sources */,
+				2B2089201EA54AB8005AEE7F /* NewMedicineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

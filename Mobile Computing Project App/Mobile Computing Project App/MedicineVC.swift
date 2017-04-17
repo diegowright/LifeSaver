@@ -14,11 +14,11 @@ class MedicineVC: UIViewController {
         super.viewDidLoad()
 
         // Instantiate the separate storyboard for Medicine section and load it
-        // let storyboard = UIStoryboard(name: "Medicine", bundle: nil)
-        // let controller = storyboard.instantiateViewController(withIdentifier: "MedicineNav") as UIViewController
-        // addChildViewController(controller)
-        // view.addSubview(controller.view)
-        // controller.didMove(toParentViewController: self)
+        let storyboard = UIStoryboard(name: "Medicine", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MedicineNav") as UIViewController
+        addChildViewController(controller)
+        view.addSubview(controller.view)
+        controller.didMove(toParentViewController: self)
     }
 
     override func didReceiveMemoryWarning() {

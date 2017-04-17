@@ -18,9 +18,57 @@ final class DataManager {
     // fileprivate var events = [Event]()
     // fileprivate var templates = [Template]()
     
-    // Data model methods.
+    // MARK: - Medicine Methods
     
-    // save a template with a given list of attributes in format (name, type)
+    func saveMedicine(name: String, dose:Float, unit: String) {
+        // Obtain context
+        let managedContext = self.persistentContainer.viewContext
+        
+        // Create note entity
+        let entity = NSEntityDescription.entity(forEntityName: "Medicine", in: managedContext)
+        let med = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        print("saving med for \(name)")
+        
+        med.setValue(name, forKey: "name")
+        med.setValue(dose, forKey: "dose")
+        med.setValue(unit, forKey: "unit")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+    func loadMedicine() ->  [NSManagedObject]{
+        let managedContext = self.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Medicine")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResults {
+            return results
+        } else {
+            print("Could not fetch")
+            return fetchedResults!
+        }
+    }
+    
+    // MARK: - Medical Event Methods
+    
     func saveTemplate(templateName: String, attributeList:[String:Dictionary<String, String>]) {
         let managedContext = self.persistentContainer.viewContext
         

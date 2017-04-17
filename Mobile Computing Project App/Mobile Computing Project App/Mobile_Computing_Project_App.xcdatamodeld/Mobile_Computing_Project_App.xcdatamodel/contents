@@ -4,6 +4,11 @@
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="event" inverseEntity="Template" syncable="YES"/>
     </entity>
+    <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
+        <attribute name="dose" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,5 +70,6 @@
         <element name="TemplatePainLvlAtt" positionX="-324" positionY="36" width="128" height="75"/>
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
+        <element name="Medicine" positionX="-378" positionY="18" width="128" height="90"/>
     </elements>
 </model>
