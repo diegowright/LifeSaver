@@ -14,6 +14,18 @@ class PainLocationCell: UITableViewCell {
     
     static let painLocDescription = "Can choose up to 5 user-defined areas where pain originates."
 
+    var row:Int?
+
+    @IBAction func sendLocationNotification(_ sender: Any) {
+        let idx:Int = locationControl.selectedSegmentIndex
+        let selectedText:String = locationControl.titleForSegment(at: idx)!
+        let dataDict:Dictionary<String, Any> = ["data":selectedText,
+                                                "row":self.row!]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
+                                        object: nil,
+                                        userInfo: dataDict)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

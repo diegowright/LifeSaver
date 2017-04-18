@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4op-ct-kJn" id="NwW-em-49l">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD4-1p-Sgn">
@@ -73,24 +73,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Date &amp; Time" selectionStyle="default" indentationWidth="10" reuseIdentifier="Date &amp; Time" rowHeight="90" id="cOL-RP-a4L" customClass="DateTimeCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Date &amp; Time" selectionStyle="default" indentationWidth="10" reuseIdentifier="Date &amp; Time" rowHeight="70" id="cOL-RP-a4L" customClass="DateTimeCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cOL-RP-a4L" id="q7v-z6-yYC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="C4D-65-cxb">
-                                            <rect key="frame" x="127" y="8" width="240" height="74"/>
+                                            <rect key="frame" x="127" y="-2.5" width="240" height="74.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="74" id="yxr-Fb-49b"/>
                                             </constraints>
                                             <date key="date" timeIntervalSinceReferenceDate="514163164.013004">
                                                 <!--2017-04-17 23:06:04 +0000-->
                                             </date>
+                                            <connections>
+                                                <action selector="sendDateNotification:" destination="cOL-RP-a4L" eventType="valueChanged" id="bS2-Bf-A7U"/>
+                                            </connections>
                                         </datePicker>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date &amp; Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePQ-gv-y7e">
-                                            <rect key="frame" x="8" y="8" width="111" height="74"/>
+                                            <rect key="frame" x="8" y="-2.5" width="111" height="74.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="74" id="RZ2-m3-zv0"/>
                                                 <constraint firstAttribute="width" constant="111" id="b3P-DZ-fqJ"/>
@@ -115,14 +118,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Question" selectionStyle="default" indentationWidth="10" reuseIdentifier="Question" rowHeight="70" id="rWb-jD-inb" customClass="QuestionCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="118" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rWb-jD-inb" id="vFR-6g-Fim">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exo-YP-U21">
-                                            <rect key="frame" x="267" y="20" width="100" height="29"/>
+                                            <rect key="frame" x="267" y="20.5" width="100" height="29"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="RSv-1L-1yl"/>
@@ -132,8 +135,11 @@
                                                 <segment title="No"/>
                                             </segments>
                                             <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sendQuestionNotification:" destination="rWb-jD-inb" eventType="valueChanged" id="s90-Ss-iNb"/>
+                                            </connections>
                                         </segmentedControl>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;question?&gt;" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZU-vp-4kW">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;question text&gt;" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZU-vp-4kW">
                                             <rect key="frame" x="8" y="8" width="251" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -156,44 +162,49 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Note" selectionStyle="default" indentationWidth="10" reuseIdentifier="Note" rowHeight="70" id="Y1O-U2-5As" customClass="NoteCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="188" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="168" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y1O-U2-5As" id="YVk-V5-JPy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-yz-PaH">
-                                            <rect key="frame" x="8" y="22.5" width="47.5" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-yz-PaH">
+                                            <rect key="frame" x="8" y="23" width="42" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23" id="hV8-jm-hYR"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-zB-Eme">
-                                            <rect key="frame" x="63.5" y="8" width="303.5" height="53"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFz-0V-5xn">
+                                            <rect key="frame" x="58" y="19" width="309" height="30"/>
+                                            <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="sendNoteNotification:" destination="Y1O-U2-5As" eventType="editingDidEnd" id="viq-02-Qlc"/>
+                                            </connections>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="q4e-zB-Eme" firstAttribute="top" secondItem="YVk-V5-JPy" secondAttribute="topMargin" id="31R-ue-KA1"/>
-                                        <constraint firstItem="q4e-zB-Eme" firstAttribute="leading" secondItem="TQ2-yz-PaH" secondAttribute="trailing" constant="8" symbolic="YES" id="6S0-10-Z93"/>
-                                        <constraint firstItem="TQ2-yz-PaH" firstAttribute="centerY" secondItem="q4e-zB-Eme" secondAttribute="centerY" id="7jZ-zi-QIT"/>
-                                        <constraint firstItem="q4e-zB-Eme" firstAttribute="trailing" secondItem="YVk-V5-JPy" secondAttribute="trailingMargin" id="H4B-5I-zFe"/>
-                                        <constraint firstItem="TQ2-yz-PaH" firstAttribute="leading" secondItem="YVk-V5-JPy" secondAttribute="leadingMargin" id="Qm7-Cd-0xn"/>
-                                        <constraint firstItem="q4e-zB-Eme" firstAttribute="bottom" secondItem="YVk-V5-JPy" secondAttribute="bottomMargin" id="Rcp-Aj-zju"/>
+                                        <constraint firstItem="zFz-0V-5xn" firstAttribute="centerY" secondItem="YVk-V5-JPy" secondAttribute="centerY" id="K9f-kz-VVh"/>
+                                        <constraint firstItem="zFz-0V-5xn" firstAttribute="trailing" secondItem="YVk-V5-JPy" secondAttribute="trailingMargin" id="pZz-ey-y7f"/>
+                                        <constraint firstItem="zFz-0V-5xn" firstAttribute="leading" secondItem="TQ2-yz-PaH" secondAttribute="trailing" constant="8" symbolic="YES" id="sia-qn-Bey"/>
+                                        <constraint firstItem="TQ2-yz-PaH" firstAttribute="centerY" secondItem="zFz-0V-5xn" secondAttribute="centerY" id="ujk-E1-VVI"/>
+                                        <constraint firstItem="TQ2-yz-PaH" firstAttribute="leading" secondItem="YVk-V5-JPy" secondAttribute="leadingMargin" id="vau-iU-pUk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="noteText" destination="q4e-zB-Eme" id="ehH-ju-lTZ"/>
+                                    <outlet property="noteText" destination="zFz-0V-5xn" id="UT0-eG-3TF"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pain Duration" rowHeight="70" id="vwg-aB-pmU" customClass="PainDurationCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="258" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vwg-aB-pmU" id="G6n-KU-l6D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pain Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfM-Mc-36y">
@@ -214,6 +225,9 @@
                                                 <segment title="sec"/>
                                             </segments>
                                             <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sendUnitNotification:" destination="vwg-aB-pmU" eventType="valueChanged" id="ahb-qb-DqI"/>
+                                            </connections>
                                         </segmentedControl>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zds-Ie-EvD">
                                             <rect key="frame" x="141" y="20" width="75" height="30"/>
@@ -223,6 +237,9 @@
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="sendDurationNotification:" destination="vwg-aB-pmU" eventType="editingDidEnd" id="XQs-VL-ILq"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -246,40 +263,52 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pain Level" rowHeight="70" id="sD2-Wt-1rq" customClass="PainLevelCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="328" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="308" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sD2-Wt-1rq" id="JFN-Cv-44S">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PPT-eX-tTU">
+                                            <rect key="frame" x="128" y="20" width="241" height="31"/>
+                                            <connections>
+                                                <action selector="sendPainLevelNotification:" destination="sD2-Wt-1rq" eventType="valueChanged" id="bkI-UG-ztd"/>
+                                            </connections>
+                                        </slider>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;val&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-Jr-RO0">
+                                            <rect key="frame" x="42" y="39" width="43" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of Pain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnW-2s-nL0">
-                                            <rect key="frame" x="8" y="24" width="110" height="23"/>
+                                            <rect key="frame" x="8" y="8" width="110" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="PPT-eX-tTU">
-                                            <rect key="frame" x="128" y="20" width="241" height="31"/>
-                                        </slider>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="trailing" secondItem="JFN-Cv-44S" secondAttribute="trailingMargin" id="04l-gj-wKg"/>
-                                        <constraint firstItem="YnW-2s-nL0" firstAttribute="centerY" secondItem="PPT-eX-tTU" secondAttribute="centerY" id="VZk-zY-y9v"/>
-                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="leading" secondItem="YnW-2s-nL0" secondAttribute="trailing" constant="12" id="X6X-sq-rHD"/>
-                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="centerY" secondItem="JFN-Cv-44S" secondAttribute="centerY" id="dsI-ui-bfi"/>
-                                        <constraint firstItem="YnW-2s-nL0" firstAttribute="leading" secondItem="JFN-Cv-44S" secondAttribute="leadingMargin" id="sh2-QR-enf"/>
+                                        <constraint firstItem="YnW-2s-nL0" firstAttribute="top" secondItem="JFN-Cv-44S" secondAttribute="topMargin" id="2JD-QV-vkq"/>
+                                        <constraint firstItem="Gwq-Jr-RO0" firstAttribute="top" secondItem="YnW-2s-nL0" secondAttribute="bottom" constant="8" symbolic="YES" id="4qh-Yr-MUg"/>
+                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="trailing" secondItem="JFN-Cv-44S" secondAttribute="trailingMargin" id="7RI-jf-hgS"/>
+                                        <constraint firstItem="YnW-2s-nL0" firstAttribute="centerX" secondItem="Gwq-Jr-RO0" secondAttribute="centerX" id="TJi-XD-d19"/>
+                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="leading" secondItem="YnW-2s-nL0" secondAttribute="trailing" constant="12" id="aBr-gm-Wpf"/>
+                                        <constraint firstItem="YnW-2s-nL0" firstAttribute="leading" secondItem="JFN-Cv-44S" secondAttribute="leadingMargin" id="hDQ-Lq-1sb"/>
+                                        <constraint firstItem="PPT-eX-tTU" firstAttribute="centerY" secondItem="JFN-Cv-44S" secondAttribute="centerY" id="ych-I5-uBV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="painLevel" destination="Gwq-Jr-RO0" id="IEj-lw-OHp"/>
                                     <outlet property="painSlider" destination="PPT-eX-tTU" id="cnA-Qj-CfV"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pain Location" rowHeight="70" id="blC-yK-tbF" customClass="PainLocationCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="398" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="378" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blC-yK-tbF" id="Oey-l3-B6k">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pain Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnM-lH-ue0">
@@ -298,6 +327,9 @@
                                                 <segment title="&lt;loc1&gt;"/>
                                             </segments>
                                             <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sendLocationNotification:" destination="blC-yK-tbF" eventType="valueChanged" id="xRg-KX-AXU"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <constraints>
@@ -314,10 +346,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pain Type" rowHeight="70" id="NZN-VS-8iF" customClass="PainTypeCell" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="468" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="448" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NZN-VS-8iF" id="YKf-Nc-p3H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pain Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxL-bv-PtQ">
@@ -339,6 +371,9 @@
                                                 <segment title="Pierce"/>
                                             </segments>
                                             <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sendPainTypeNotification:" destination="NZN-VS-8iF" eventType="valueChanged" id="pMW-uS-QEP"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                     <constraints>
@@ -477,7 +512,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ARK-1Y-vIw" id="JFV-7T-jd1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This text will be a brief explanation of this attribute" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cal-0y-lOE">

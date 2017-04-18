@@ -13,6 +13,8 @@ class EventInputTable: UITableViewController {
     var template:Template?
     var attributeInfo:[Dictionary<String, Any>]?
     var data:Dictionary<String, [Any]>?
+    
+    let white:UIColor = UIColor.white
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class EventInputTable: UITableViewController {
         
         // Add observer that looks for data posting
         NotificationCenter.default.addObserver(self, selector: #selector(self.addData(_:)),
-                                               name: NSNotification.Name(rawValue: addQuestionData),
+                                               name: NSNotification.Name(rawValue: addDataKey),
                                                object: nil)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -60,18 +62,27 @@ class EventInputTable: UITableViewController {
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DateTimeCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            cell.sendDateNotification(cell)
             return cell
             
         case "Note":
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NoteCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            cell.sendNoteNotification(cell)
             return cell
             
         case "Pain Location":
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLocationCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            
             let locs:[String] = [self.attributeInfo![indexPath.row]["loc0"]! as! String,
                                  self.attributeInfo![indexPath.row]["loc1"]! as! String,
                                  self.attributeInfo![indexPath.row]["loc2"]! as! String,
@@ -87,6 +98,8 @@ class EventInputTable: UITableViewController {
                     locationCount += 1
                 }
             }
+            cell.locationControl.selectedSegmentIndex = 0
+            cell.sendLocationNotification(cell)
             
             return cell
             
@@ -94,25 +107,38 @@ class EventInputTable: UITableViewController {
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainTypeCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            cell.sendPainTypeNotification(cell)
             return cell
             
         case "Pain Duration":
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainDurationCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            cell.sendNotification()
             return cell
             
         case "Pain Level":
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLevelCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            cell.sendPainLevelNotification(cell)
             return cell
             
         case "Question":
             print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! QuestionCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
+            cell.backgroundColor = white
+            cell.row = indexPath.row
+            
             cell.questionText.text = self.attributeInfo![indexPath.row]["question"]! as? String
+            cell.sendQuestionNotification(cell)
             return cell
             
         default:
@@ -123,16 +149,26 @@ class EventInputTable: UITableViewController {
     }
 
     func addData(_ notification: Notification) {
-        print("")
+        let data = notification.userInfo as! Dictionary<String, Any>
+        let row = data["row"]! as! Int
+        self.attributeInfo![row]["data"] = data["data"]!
     }
     
     func saveEvent() {
         // Save Record
+        print("Current Data")
+        for el in self.attributeInfo! {
+            print()
+            for (key, value) in el {
+                print(key, value)
+            }
+        }
+        
         //DataManager.shared.saveRecord(stuff)
-        print("Event type Saved!")
+        //print("Event type Saved!")
         
         // Return to previous view which is Medical Event Table
-        _ = self.navigationController?.popViewController(animated: true)
+        //_ = self.navigationController?.popViewController(animated: true)
     }
     
     func dismissKeyboard() {

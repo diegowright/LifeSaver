@@ -15,6 +15,16 @@ class DateTimeCell: UITableViewCell {
     
     static let dateDescription = "Select the time and date that your pain occurred on."
     
+    var row:Int?
+    
+    @IBAction func sendDateNotification(_ sender: Any) {
+        let dataDict:Dictionary<String, Any> = ["data":datePicker.date,
+                                                "row":self.row!]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
+                                        object: nil,
+                                        userInfo: dataDict)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

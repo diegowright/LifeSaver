@@ -15,6 +15,18 @@ class QuestionCell: UITableViewCell {
     
     static let questionDescription = "A yes or no question that you can define."
     
+    var row:Int?
+    
+    @IBAction func sendQuestionNotification(_ sender: Any) {
+        let idx:Int = answer.selectedSegmentIndex
+        let selectedText:String = answer.titleForSegment(at: idx)!
+        let dataDict:Dictionary<String, Any> = ["data":selectedText,
+                                                "row":self.row!]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
+                                        object: nil,
+                                        userInfo: dataDict)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
