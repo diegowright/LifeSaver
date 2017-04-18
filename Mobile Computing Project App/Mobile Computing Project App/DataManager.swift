@@ -405,6 +405,7 @@ final class DataManager {
         return
     }
     
+    // This function needs to be modified to also search for entities by date and add them somehow to calendar
     func loadEventsByDate(_ date: Date) -> [(String, Date)] {
         
         let managedContext = self.persistentContainer.viewContext
@@ -539,6 +540,41 @@ final class DataManager {
         }
         return true
     }
+    
+    /*
+     //This pseudocode for how a loadAllData function would work
+     func loadAllData() -> Dictionary<String,Any> {
+        dataDict:Dictionary<String, Any> = [:]
+     
+        let managedContext = self.persistentContainer.viewContext
+     
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Events")
+        var fetchedResults:[NSManagedObject]? = nil
+     
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Events loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+            }
+        }
+     
+         if let results = fetchedResults {
+             for result in results {
+                 //add data from result to dataDict
+             }
+         } else {
+             print("Could not fetch users.")
+         }
+     
+         //Do basically the same thing for users, templates, and medicine data, etc.
+        
+         return dataDict
+     }
+    */
     
     ///////////////////////////////////////////////////////////////////////////////////////
     // START - Core Data code moved from AppDelegate - unchanged.
