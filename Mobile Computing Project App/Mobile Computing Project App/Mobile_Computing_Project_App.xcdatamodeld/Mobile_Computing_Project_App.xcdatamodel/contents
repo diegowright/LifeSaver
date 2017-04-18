@@ -31,8 +31,14 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="stringAttributes" inverseEntity="Event" syncable="YES"/>
     </entity>
+    <entity name="MedDose" representedClassName="MedDose" syncable="YES" codeGenerationType="class">
+        <attribute name="med" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instruct" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -57,9 +63,10 @@
         <element name="EventDateValue" positionX="-362" positionY="270" width="128" height="120"/>
         <element name="EventFloatValue" positionX="-360" positionY="-0" width="128" height="118"/>
         <element name="EventStringValue" positionX="-360" positionY="135" width="128" height="118"/>
-        <element name="Medicine" positionX="-360" positionY="18" width="128" height="90"/>
+        <element name="Medicine" positionX="-360" positionY="18" width="128" height="105"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
+        <element name="MedDose" positionX="-360" positionY="18" width="128" height="90"/>
     </elements>
 </model>

@@ -78,7 +78,7 @@ final class DataManager {
         return
     }
     
-    func saveMedicine(name: String, dose:Float, unit: String) {
+    func saveMedicine(name: String, dose:Float, unit: String, instruct: String) {
         // Obtain context
         let managedContext = self.persistentContainer.viewContext
         
@@ -91,6 +91,7 @@ final class DataManager {
         med.setValue(name, forKey: "name")
         med.setValue(dose, forKey: "dose")
         med.setValue(unit, forKey: "unit")
+        med.setValue(instruct, forKey: "instruct")
         
         do {
             try managedContext.save()
@@ -123,6 +124,28 @@ final class DataManager {
             print("Could not fetch")
             return fetchedResults!
         }
+    }
+    
+    func saveDose(med: String, quantity:Double, time: Date) {
+        let managedContext = self.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "MedDose", in: managedContext)
+        let dose = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        print("saving med for \(med)")
+        
+        dose.setValue(med, forKey: "med")
+        dose.setValue(quantity, forKey: "quantity")
+        dose.setValue(time, forKey: "time")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
     }
     
     func loadEventsByDate(_ date: Date) -> [(String, Date)] {

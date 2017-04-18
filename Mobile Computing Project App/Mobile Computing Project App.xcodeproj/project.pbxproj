@@ -18,13 +18,14 @@
 		1B0969001E859C6100DBF79D /* CalendarEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968FF1E859C6100DBF79D /* CalendarEventsTableViewController.swift */; };
 		1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B0F1E854FCA006573D9 /* Calendar.storyboard */; };
 		1B211B131E855020006573D9 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B121E855020006573D9 /* CellView.xib */; };
+		1B30D6911EA5992B00DFBA3D /* DisplayMedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30D6901EA5992B00DFBA3D /* DisplayMedViewController.swift */; };
+		1B30D6931EA59D6600DFBA3D /* AddDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30D6921EA59D6600DFBA3D /* AddDoseViewController.swift */; };
 		1BC6D6301EA162D60025F493 /* Medicine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6D62F1EA162D60025F493 /* Medicine.storyboard */; };
 		1BC6D6331EA167560025F493 /* PrescriptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6321EA167560025F493 /* PrescriptionsTableViewController.swift */; };
 		1BC6D6351EA1697C0025F493 /* NewMedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */; };
 		1BC6D6371EA172A00025F493 /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6361EA172A00025F493 /* PrescriptionTableViewCell.swift */; };
 		1BC6D6391EA193AA0025F493 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */; };
 		1BC6D63B1EA195120025F493 /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */; };
-		1BCF4DF11EA544F800C545F4 /* UYLNotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */; };
 		1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC53781E7F7508001145E1 /* AppDelegate.swift */; };
 		1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEC537C1E7F7508001145E1 /* Main.storyboard */; };
 		1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */; };
@@ -86,13 +87,14 @@
 		1B0968FF1E859C6100DBF79D /* CalendarEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventsTableViewController.swift; sourceTree = "<group>"; };
 		1B211B0F1E854FCA006573D9 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		1B211B121E855020006573D9 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		1B30D6901EA5992B00DFBA3D /* DisplayMedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMedViewController.swift; sourceTree = "<group>"; };
+		1B30D6921EA59D6600DFBA3D /* AddDoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDoseViewController.swift; sourceTree = "<group>"; };
 		1BC6D62F1EA162D60025F493 /* Medicine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Medicine.storyboard; sourceTree = "<group>"; };
 		1BC6D6321EA167560025F493 /* PrescriptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionsTableViewController.swift; sourceTree = "<group>"; };
 		1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMedicineViewController.swift; sourceTree = "<group>"; };
 		1BC6D6361EA172A00025F493 /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
-		1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UYLNotificationDelegate.swift; sourceTree = "<group>"; };
 		1BEC53751E7F7508001145E1 /* Mobile Computing Project App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Computing Project App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEC53781E7F7508001145E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BEC537D1E7F7508001145E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -194,7 +196,8 @@
 				1BC6D6341EA1697C0025F493 /* NewMedicineViewController.swift */,
 				1BC6D63A1EA195120025F493 /* RemindersTableViewController.swift */,
 				1BC6D6381EA193AA0025F493 /* DailyTableViewCell.swift */,
-				1BCF4DF01EA544F800C545F4 /* UYLNotificationDelegate.swift */,
+				1B30D6901EA5992B00DFBA3D /* DisplayMedViewController.swift */,
+				1B30D6921EA59D6600DFBA3D /* AddDoseViewController.swift */,
 			);
 			name = Medicine;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
+				1B30D6911EA5992B00DFBA3D /* DisplayMedViewController.swift in Sources */,
 				1BC6D6351EA1697C0025F493 /* NewMedicineViewController.swift in Sources */,
 				2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */,
 				2BC825CA1E85B36900FD8784 /* MedicineVC.swift in Sources */,
@@ -548,7 +552,7 @@
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				2B8F52AC1E81CCE600F3CDAE /* Attribute.swift in Sources */,
-				1BCF4DF11EA544F800C545F4 /* UYLNotificationDelegate.swift in Sources */,
+				1B30D6931EA59D6600DFBA3D /* AddDoseViewController.swift in Sources */,
 				1BC6D6331EA167560025F493 /* PrescriptionsTableViewController.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				1BC6D6371EA172A00025F493 /* PrescriptionTableViewCell.swift in Sources */,

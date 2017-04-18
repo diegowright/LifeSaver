@@ -29,6 +29,8 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         
+        self.title = "New Medicine"
+        
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
             (granted, error) in
@@ -46,7 +48,6 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
         completionHandler([.alert, .sound])
     }
     
@@ -65,7 +66,7 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBAction func saveAction(_ sender: Any) {
         let unitsValue:String = unitData[unitsOutlet.selectedRow(inComponent: 0)]
         
-        if medNameOutlet.text! == "" || doseStrengthOutlet.text! == "" || unitsValue == "" || Int(doseStrengthOutlet.text!) == nil {
+        if medNameOutlet.text! == "" || doseStrengthOutlet.text! == "" || unitsValue == "" || Int(doseStrengthOutlet.text!) == nil || instructionsOutlet.text! == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields. Make sure the dose is an integer.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
                 print("Ok Button Pressed 1");
@@ -74,7 +75,7 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
             self.present(self.alertController!, animated: true, completion:nil)
         }
         else {
-            DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue)
+            DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue, instruct: instructionsOutlet.text!)
         }
         
         for object in notify {

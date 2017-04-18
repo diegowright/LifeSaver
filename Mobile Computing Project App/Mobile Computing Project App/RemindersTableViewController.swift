@@ -16,6 +16,8 @@ class RemindersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Pick Reminder Frequency"
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
