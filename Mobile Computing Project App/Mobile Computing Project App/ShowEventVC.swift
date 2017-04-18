@@ -15,8 +15,7 @@ class ShowEventVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
-    
-    var noteText: String?  //this one really shouldn't exist yet
+    var noteText: String?
     var date: Date?
     
     override func viewDidLoad() {
@@ -29,8 +28,6 @@ class ShowEventVC: UIViewController {
         dateFormatter.locale = NSLocale.autoupdatingCurrent
         self.recordDate.text = dateFormatter.string(from: self.date!)
         self.textView.text = self.noteText!
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

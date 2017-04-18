@@ -12,7 +12,6 @@ class EventInputTable: UITableViewController {
     
     var template:Template?
     var attributeInfo:[Dictionary<String, Any>]?
-    var data:Dictionary<String, [Any]>?
     
     let white:UIColor = UIColor.white
 
@@ -59,7 +58,6 @@ class EventInputTable: UITableViewController {
         switch identifier {
             
         case "Date & Time":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DateTimeCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -68,7 +66,6 @@ class EventInputTable: UITableViewController {
             return cell
             
         case "Note":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NoteCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -77,7 +74,6 @@ class EventInputTable: UITableViewController {
             return cell
             
         case "Pain Location":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLocationCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -104,7 +100,6 @@ class EventInputTable: UITableViewController {
             return cell
             
         case "Pain Type":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainTypeCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -113,16 +108,15 @@ class EventInputTable: UITableViewController {
             return cell
             
         case "Pain Duration":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainDurationCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
-            cell.sendNotification()
+            cell.durationInput.text = "1"
+            cell.sendUnitNotification(cell)
             return cell
             
         case "Pain Level":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLevelCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -131,7 +125,6 @@ class EventInputTable: UITableViewController {
             return cell
             
         case "Question":
-            print()
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! QuestionCell
             cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
@@ -155,20 +148,11 @@ class EventInputTable: UITableViewController {
     }
     
     func saveEvent() {
-        // Save Record
-        print("Current Data")
-        for el in self.attributeInfo! {
-            print()
-            for (key, value) in el {
-                print(key, value)
-            }
-        }
-        
-        //DataManager.shared.saveRecord(stuff)
-        //print("Event type Saved!")
+        DataManager.shared.saveEvent(template: self.template!, data: self.attributeInfo!)
+        print("Event type Saved!")
         
         // Return to previous view which is Medical Event Table
-        //_ = self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func dismissKeyboard() {

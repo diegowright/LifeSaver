@@ -18,7 +18,7 @@ class PainLevelCell: UITableViewCell {
     var row:Int?
     
     @IBAction func sendPainLevelNotification(_ sender: Any) {
-        let roundedVal:Int = Int(roundf(self.painSlider.value))
+        let roundedVal:Int16 = Int16(roundf(self.painSlider.value))
         self.painLevel.text = String(roundedVal)
         self.painSlider.value = Float(roundedVal)
         let dataDict:Dictionary<String, Any> = ["data":roundedVal,

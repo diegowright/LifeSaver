@@ -71,6 +71,128 @@ final class DataManager {
     
     // MARK: - Medical Event Methods
     
+    func saveEvent(template:Template, data:[Dictionary<String, Any>]) {
+        let managedContext = self.persistentContainer.viewContext
+        
+        // Define template entity
+        let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)
+        let event = NSManagedObject(entity: entity!, insertInto: managedContext) as! Event
+        let currentDate:Date = Date()
+        // Populate entity values
+        
+        event.eventType = template.name
+        event.dateCreated = currentDate as NSDate?
+        event.user = self.currentUser
+        event.template = template
+        
+        for el in data {
+            let attType:String = el["id"]! as! String
+            switch attType {
+            case "Date & Time":
+                let entity = NSEntityDescription.entity(forEntityName: "EventDateTimeValue", in: managedContext)
+                let dateTimeValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventDateTimeValue
+                dateTimeValue.id = el["id"]! as? String
+                dateTimeValue.datetime = el["data"]! as? NSDate
+                event.addToDatetimes(dateTimeValue)
+                print("Datetime value saved.")
+                
+            case "Note":
+                let entity = NSEntityDescription.entity(forEntityName: "EventNoteValue", in: managedContext)
+                let noteValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventNoteValue
+                noteValue.id = el["id"]! as? String
+                noteValue.noteText = el["data"]! as? String
+                event.addToNotes(noteValue)
+                print("Note value saved.")
+                
+            case "Pain Location":
+                let entity = NSEntityDescription.entity(forEntityName: "EventPainLocValue", in: managedContext)
+                let painLocValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainLocValue
+                painLocValue.id = el["id"]! as? String
+                painLocValue.location = el["data"]! as? String
+                event.addToPainLocs(painLocValue)
+                print("Pain Location value saved.")
+                
+            case "Pain Type":
+                let entity = NSEntityDescription.entity(forEntityName: "EventPainTypeValue", in: managedContext)
+                let painTypeValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainTypeValue
+                painTypeValue.id = el["id"]! as? String
+                painTypeValue.type = el["data"]! as? String
+                event.addToPainTypes(painTypeValue)
+                print("Pain Type value saved.")
+                
+            case "Pain Duration":
+                let entity = NSEntityDescription.entity(forEntityName: "EventPainDurValue", in: managedContext)
+                let painDurValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainDurValue
+                painDurValue.id = el["id"]! as? String
+                painDurValue.duration = el["data"]! as! Float
+                event.addToPainDurs(painDurValue)
+                print("Pain Duration value saved.")
+                
+            case "Pain Level":
+                let entity = NSEntityDescription.entity(forEntityName: "EventPainLvlValue", in: managedContext)
+                let painLvlValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainLvlValue
+                painLvlValue.id = el["id"]! as? String
+                painLvlValue.level = el["data"]! as! Int16
+                event.addToPainLvls(painLvlValue)
+                print("Pain Level value saved.")
+                
+            case "Question":
+                let entity = NSEntityDescription.entity(forEntityName: "EventQuestionValue", in: managedContext)
+                let questionValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventQuestionValue
+                questionValue.id = el["id"]! as? String
+                questionValue.answer = el["data"]! as? String
+                event.addToQuestions(questionValue)
+                print("Question value saved.")
+                
+            default:
+                print("Default case, something went wrong.")
+                
+            }
+        }
+        // Try saving newly event record
+        do {
+            try managedContext.save()
+            print("Saved event record.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+    func loadAllEvents() -> [Event] {
+        var events:[Event] = []
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Event")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Events loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        // Add each fetched template to list
+        if let results = fetchedResults {
+            for result in results {
+                events.append(result as! Event)
+            }
+        } else {
+            print("Could not fetch events.")
+        }
+        
+        print(events)
+        return events
+    }
+    
     func saveTemplate(templateName: String, attributeList:[String:[Dictionary<String, String>]]) {
         let managedContext = self.persistentContainer.viewContext
 
@@ -257,7 +379,7 @@ final class DataManager {
         return attNames
     }
     
-    // MARK: - Notes
+    // MARK: - Calendar
     
     func saveNoteRecord(date: Date, noteText: String) {
         // Obtain context

@@ -2,7 +2,51 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="datetimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventDateTimeValue" inverseName="event" inverseEntity="EventDateTimeValue" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventNoteValue" inverseName="event" inverseEntity="EventNoteValue" syncable="YES"/>
+        <relationship name="painDurs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventPainDurValue" inverseName="event" inverseEntity="EventPainDurValue" syncable="YES"/>
+        <relationship name="painLocs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventPainLocValue" inverseName="event" inverseEntity="EventPainLocValue" syncable="YES"/>
+        <relationship name="painLvls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventPainLvlValue" inverseName="event" inverseEntity="EventPainLvlValue" syncable="YES"/>
+        <relationship name="painTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventPainTypeValue" inverseName="event" inverseEntity="EventPainTypeValue" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventQuestionValue" inverseName="event" inverseEntity="EventQuestionValue" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="event" inverseEntity="Template" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="events" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="EventDateTimeValue" representedClassName="EventDateTimeValue" syncable="YES" codeGenerationType="class">
+        <attribute name="datetime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="datetimes" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventNoteValue" representedClassName="EventNoteValue" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="notes" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventPainDurValue" representedClassName="EventPainDurValue" syncable="YES" codeGenerationType="class">
+        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painDurs" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventPainLocValue" representedClassName="EventPainLocValue" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painLocs" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventPainLvlValue" representedClassName="EventPainLvlValue" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painLvls" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventPainTypeValue" representedClassName="EventPainTypeValue" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painTypes" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="EventQuestionValue" representedClassName="EventQuestionValue" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="questions" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -63,10 +107,18 @@
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="passWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="user" inverseEntity="Event" syncable="YES"/>
         <relationship name="templates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="user" inverseEntity="Template" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-560" positionY="-0" width="128" height="75"/>
+        <element name="Event" positionX="-560" positionY="-0" width="128" height="210"/>
+        <element name="EventDateTimeValue" positionX="-378" positionY="27" width="128" height="90"/>
+        <element name="EventNoteValue" positionX="-369" positionY="36" width="128" height="90"/>
+        <element name="EventPainDurValue" positionX="-360" positionY="45" width="128" height="90"/>
+        <element name="EventPainLocValue" positionX="-333" positionY="72" width="128" height="90"/>
+        <element name="EventPainLvlValue" positionX="-342" positionY="63" width="128" height="90"/>
+        <element name="EventPainTypeValue" positionX="-351" positionY="54" width="128" height="90"/>
+        <element name="EventQuestionValue" positionX="-324" positionY="81" width="128" height="90"/>
         <element name="Medicine" positionX="-378" positionY="18" width="128" height="90"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-198" positionY="-0" width="128" height="210"/>
@@ -77,6 +129,6 @@
         <element name="TemplatePainLvlAtt" positionX="-324" positionY="36" width="128" height="75"/>
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
-        <element name="User" positionX="-369" positionY="27" width="128" height="90"/>
+        <element name="User" positionX="-369" positionY="27" width="128" height="105"/>
     </elements>
 </model>

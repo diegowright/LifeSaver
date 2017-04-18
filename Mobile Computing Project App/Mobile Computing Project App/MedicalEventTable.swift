@@ -121,13 +121,8 @@ class MedicalEventTable: UITableViewController {
     }
     
     func editButton() {
-        print("Current user: ", DataManager.shared.getCurrentUser())
-        //let name: String = "Migraine"
-        //let atts: [(String, String)] = [("pain_level", "slider"), ("date", "date_picker")]
-        //DataManager.shared.saveEventTemplate(name: name, atts: atts)
-        
-        // let storyboard: UIStoryboard = UIStoryboard(name: "MedicalEvent", bundle: nil)
-        // let nextVC = storyboard.instantiateViewController(withIdentifier: "DefineEvent")
-        // present(nextVC, animated: true, completion: nil)
+        print("Current events saved: ")
+        //print all recorded events for testing purposes
+        print(DataManager.shared.loadAllEvents())
     }
 }
