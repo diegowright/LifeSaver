@@ -12,15 +12,13 @@ class NoteCell: UITableViewCell {
     
     static let noteDescription = "Small comment about your pain or ailment."
 
+    @IBOutlet weak var noteText: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }

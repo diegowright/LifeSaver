@@ -10,17 +10,15 @@ import UIKit
 
 class PainLevelCell: UITableViewCell {
 
+    @IBOutlet weak var painSlider: UISlider!
+    
     static let painLvlDescription = "Rating of your pain from scale of 0 - 10."
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
 }

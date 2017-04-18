@@ -12,3 +12,5 @@ import Foundation
 let addQuestionAtt = "addQuestionAtt"
 let addPainLocAtt = "addPainLocAtt"
 let addOtherAtt = "addOtherAtt"
+
+let addQuestionData = "addQuestionData"

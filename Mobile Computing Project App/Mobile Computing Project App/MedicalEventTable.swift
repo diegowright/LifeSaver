@@ -10,7 +10,7 @@ import UIKit
 
 class MedicalEventTable: UITableViewController {
 
-    fileprivate var definedEvents:[Template] = DataManager.shared.loadTemplates()
+    fileprivate var definedEvents:[Template] = DataManager.shared.loadAllTemplates()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class MedicalEventTable: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         // reload events when page is opened again
         super.viewWillAppear(animated)
-        self.definedEvents = DataManager.shared.loadTemplates()
+        self.definedEvents = DataManager.shared.loadAllTemplates()
         self.tableView.reloadData()
         self.tableView.delegate = self
     }
@@ -106,7 +106,7 @@ class MedicalEventTable: UITableViewController {
         
         // For each seque set the destination template as the correct one from the list
         if segue.identifier == "eventSegue" {
-            if let destination = segue.destination as? EventInput {
+            if let destination = segue.destination as? EventInputTable {
                 if let idx = tableView.indexPathForSelectedRow?.row {
                     destination.template = definedEvents[idx]
                 }

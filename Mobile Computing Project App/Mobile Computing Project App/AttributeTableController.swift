@@ -12,7 +12,7 @@ class AttributeTableController: UITableViewController {
     
     var alertController:UIAlertController? = nil
     
-    fileprivate let attributeTypes = [["Date & Time", addOtherAtt, DatePickerCell.dateDescription],
+    fileprivate let attributeTypes = [["Date & Time", addOtherAtt, DateTimeCell.dateDescription],
                                       ["Question", addQuestionAtt, QuestionCell.questionDescription],
                                       ["Pain Duration", addOtherAtt, PainDurationCell.painDurDescription],
                                       ["Note", addOtherAtt, NoteCell.noteDescription],
@@ -23,12 +23,6 @@ class AttributeTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Select Attribute"
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,8 +89,7 @@ class AttributeTableController: UITableViewController {
                 return
             }
             
-            let dataDict = ["question":questionText]
-            
+            let dataDict = ["question":questionText, "id":"Question"]
             // Send notification with data
             NotificationCenter.default.post(name: Notification.Name(rawValue: addQuestionAtt),
                                             object: nil,
@@ -138,8 +131,8 @@ class AttributeTableController: UITableViewController {
                 let location3 = textField3.text
                 let location4 = textField4.text
 
-                if (location0 == "") {
-                    self.showMessage("Must have at least one location entered")
+                if (location0 == "" || location1 == "") {
+                    self.showMessage("Must have at least two locations entered")
                     return
                 }
                 

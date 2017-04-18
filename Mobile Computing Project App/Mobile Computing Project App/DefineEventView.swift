@@ -66,10 +66,11 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let dataDict:Dictionary<String,String> = notification.userInfo as! Dictionary<String,String>
         
         let questionText = dataDict["question"]!
-        print("Question & id: ", questionText)
+        let id = dataDict["id"]!
+        print("Question: ", questionText, "id: ", id)
         
         // Add attribute to data list and reload table
-        let questionAtt = ["question":questionText, "id":questionText]
+        let questionAtt = ["question":questionText, "id":id]
         
         attributeList["Question"]!.append(questionAtt)
         self.attributeNames.append(questionAtt["id"]!)

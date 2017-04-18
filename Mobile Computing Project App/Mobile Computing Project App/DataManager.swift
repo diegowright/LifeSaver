@@ -169,7 +169,7 @@ final class DataManager {
     }
     
     // Load all template names so that they can be later identified by name
-    func loadTemplates() -> [Template] {
+    func loadAllTemplates() -> [Template] {
         var templates:[Template] = []
         
         let managedContext = self.persistentContainer.viewContext
@@ -198,6 +198,63 @@ final class DataManager {
         
         print(templates)
         return templates
+    }
+    
+    // This function returns a list with all the id's associated with the template
+    func getTemplateAttributeNames(template: Template) -> [Dictionary<String, String>] {
+        // I know this code is lame but it kinda needs to be like this
+        var attNames:[Dictionary<String, String>] = []
+        
+        let dateTimeAtts = template.datetimeAtts!
+        let questionAtts = template.questionAtts!
+        let painLocAtts = template.painLocAtts!
+        let painLvlAtts = template.painLvlAtts!
+        let painTypeAtts = template.painTypeAtts!
+        let painDurAtts = template.painDurAtts!
+        let noteAtts = template.noteAtts!
+        
+        for att in dateTimeAtts {
+            let temp = att as! TemplateDateTimeAtt
+            let dict = ["id":temp.id!]
+            attNames.append(dict)
+        }
+        for att in questionAtts {
+            let temp = att as! TemplateQuestionAtt
+            let dict = ["id":temp.id!, "question":temp.question!]
+            attNames.append(dict)
+        }
+        for att in painLocAtts {
+            let temp = att as! TemplatePainLocAtt
+            let dict = ["id":temp.id!,
+                        "loc0":temp.loc0!,
+                        "loc1":temp.loc1!,
+                        "loc2":temp.loc2!,
+                        "loc3":temp.loc3!,
+                        "loc4":temp.loc4!]
+            attNames.append(dict)
+        }
+        for att in painLvlAtts {
+            let temp = att as! TemplatePainLvlAtt
+            let dict = ["id":temp.id!]
+            attNames.append(dict)
+        }
+        for att in painTypeAtts {
+            let temp = att as! TemplatePainTypeAtt
+            let dict = ["id":temp.id!]
+            attNames.append(dict)
+        }
+        for att in painDurAtts {
+            let temp = att as! TemplatePainDurAtt
+            let dict = ["id":temp.id!]
+            attNames.append(dict)
+        }
+        for att in noteAtts {
+            let temp = att as! TemplateNoteAtt
+            let dict = ["id":temp.id!]
+            attNames.append(dict)
+        }
+        
+        return attNames
     }
     
     // MARK: - Notes
