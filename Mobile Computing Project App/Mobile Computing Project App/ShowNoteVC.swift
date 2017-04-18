@@ -1,5 +1,5 @@
 //
-//  ShowEventVC.swift
+//  ShowNoteVC.swift
 //  Mobile Computing Project App
 //
 //  Created by Diego Wright on 3/24/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowEventVC: UIViewController {
+class ShowNoteVC: UIViewController {
 
     @IBOutlet weak var eventType: UILabel!
     @IBOutlet weak var recordDate: UILabel!

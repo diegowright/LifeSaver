@@ -1,5 +1,5 @@
 //
-//  loadedEventCell.swift
+//  CalendarCell.swift
 //  Mobile Computing Project App
 //
 //  Created by Diego Wright on 3/24/17.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class LoadedEventCell: UITableViewCell {
+class CalendarCell: UITableViewCell {
 
-    @IBOutlet weak var event: UILabel!
+    @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var date: UILabel!
     
     var exactDate: Date?    // this will be used to exactly identify a note from another

@@ -406,13 +406,15 @@ final class DataManager {
     }
     
     // This function needs to be modified to also search for entities by date and add them somehow to calendar
-    func loadEventsByDate(_ date: Date) -> [(String, Date)] {
+    func loadEventsByDate(_ date: Date) -> [Dictionary<String, Any>] {
+        // initiate container that will have Entity name and link to entity
+        var records:[Dictionary<String, Any>] = []
         
         let managedContext = self.persistentContainer.viewContext
         
-        //print("\nloading data for \(date)")
+        // Fetch Notes
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Note")
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Note")
         var fetchedResults:[NSManagedObject]? = nil
         
         do {
@@ -424,13 +426,10 @@ final class DataManager {
             abort()
         }
         
-        var records:[(String, Date)] = []
-        
         if let results = fetchedResults {
             for result in results {
-                
-                let noteText = result.value(forKey: "text") as! String
-                let recordDate = result.value(forKey: "date") as! Date
+                let note:Note = result as! Note
+                let recordDate:Date = note.date! as Date
                 
                 //compare dates
                 let dateFormatter = DateFormatter()
@@ -440,13 +439,65 @@ final class DataManager {
                 let loadDateString = dateFormatter.string(from: date)
                 
                 if recordDateString == loadDateString {
-                    records.append((noteText, recordDate))
+                    records.append(["entity":note, "type":"Note"])
                 }
             }
         } else {
-            print("Could not fetch")
+            print("Could not fetch Notes")
+        }
+        
+        // Fetch Events
+        
+        fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Event")  // Reassign fetch request
+        fetchedResults!.removeAll()  // Remove previous results
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResults {
+            for result in results {
+                let event:Event = result as! Event
+                let eventDates = event.datetimes!
+                
+                // Create date formatter
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy MM dd"
+                dateFormatter.locale = NSLocale.autoupdatingCurrent
+                
+                // Check if entity has a date associated
+                if eventDates.count != 0 {
+                    // Event had datetime attribute so use that time
+                    let dateTimeValue = Array(eventDates)[0] as! EventDateTimeValue // just use first value
+                    let recordDate:Date = dateTimeValue.datetime! as Date
+                    let recordDateString = dateFormatter.string(from: recordDate)
+                    let loadDateString = dateFormatter.string(from: date)
+                    
+                    if recordDateString == loadDateString {
+                        records.append(["entity":event, "type":"Event"])
+                    }
+                } else {
+                    // No date associated by attribute type so use event creation time
+                    let recordDate:Date = event.dateCreated! as Date
+                    let recordDateString = dateFormatter.string(from: recordDate)
+                    let loadDateString = dateFormatter.string(from: date)
+                    
+                    if recordDateString == loadDateString {
+                        records.append(["entity":event, "type":"Event"])
+                    }
+                }
+            }
+        } else {
+            print("Could not fetch Events")
             return []
         }
+        
+        // Fetch Medicine stuff
         
         return records
     }

@@ -20,7 +20,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     let gray = UIColor.gray
     
     var selectedDate: Date = Date() // Will be used to load events for that day
-    var selectedEvents:[(String, Date)] = DataManager.shared.loadEventsByDate(Date())
+    var selectedEvents:[Dictionary<String, Any>] = DataManager.shared.loadEventsByDate(Date())
+    var cellDateFormatter:DateFormatter?
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var eventTable: UITableView!
@@ -37,6 +38,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         calendarView.registerHeaderView(xibFileNames: ["MonthHeader"])
         calendarView.scrollToDate(Date())   // set initial month to current month
         calendarView.selectDates([Date()])  // set intial selected date to current date
+        
+        self.cellDateFormatter = DateFormatter()
+        self.cellDateFormatter!.dateFormat = "hh:mm:ss"
+        self.cellDateFormatter!.locale = NSLocale.autoupdatingCurrent
         
         self.title = "Calendar"
     }
@@ -58,13 +63,23 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEvent" {
-            if let destination = segue.destination as? ShowEventVC {
-                if let idx:Int = self.eventTable.indexPathForSelectedRow?.row {
-                    let recordDate = self.selectedEvents[idx].1
-                    let noteText = self.selectedEvents[idx].0
-
-                    destination.date = recordDate
-                    destination.noteText = noteText
+            if let row:Int = self.eventTable.indexPathForSelectedRow?.row {
+                let eventType:String = self.selectedEvents[row]["type"] as! String
+                if eventType == "Note" {
+                    if let destination = segue.destination as? ShowNoteVC {
+                        let note:Note = self.selectedEvents[row]["entity"] as! Note
+                        let recordDate = note.date! as Date
+                        let noteText = note.text! as String
+                        
+                        destination.date = recordDate
+                        destination.noteText = noteText
+                    }
+                } else if eventType == "Event" {
+                    if let destination = segue.destination as? ShowEventValues {
+                        let event:Event = self.selectedEvents[row]["entity"] as! Event
+                        destination.event = event
+                        destination.eventType = eventType
+                    }
                 }
             }
         }
@@ -121,18 +136,46 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! LoadedEventCell
-  
-        cell.event.text = self.selectedEvents[indexPath.row].0
-        let exactDate = self.selectedEvents[indexPath.row].1
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm:ss"
-        dateFormatter.locale = NSLocale.autoupdatingCurrent
-        cell.date.text = dateFormatter.string(from: exactDate)
-        cell.exactDate = exactDate
-        
-        return cell
+        let row:Int = indexPath.row
+        let entityType:String = self.selectedEvents[row]["type"] as! String
+        if (entityType == "Note") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CalendarCell
+            let note:Note = self.selectedEvents[row]["Note"] as! Note
+      
+            cell.labelText.text = note.text!
+            let exactDate = note.date! as Date
+            cell.date.text = self.cellDateFormatter!.string(from: exactDate)
+            cell.exactDate = exactDate
+            
+            return cell
+        } else if (entityType == "Event") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CalendarCell
+            let event:Event = self.selectedEvents[row]["Event"] as! Event
+            
+            cell.labelText.text = event.eventType!
+            
+            let eventDates = event.datetimes!
+            var exactDate:Date?
+            
+            // Check if entity has a date associated
+            if eventDates.count != 0 {
+                // Event had datetime attribute so use that time
+                let dateTimeValue = Array(eventDates)[0] as! EventDateTimeValue // just use first value
+                exactDate = dateTimeValue.datetime! as Date
+            } else {
+                // No date associated by attribute type so use event creation time
+                exactDate = event.dateCreated! as Date
+            }
+            
+            cell.date.text = self.cellDateFormatter!.string(from: exactDate!)
+            cell.exactDate = exactDate!
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+            print("something went wrong in loading calendar cell")
+            return cell
+        }
     }
    
     // New Note action
