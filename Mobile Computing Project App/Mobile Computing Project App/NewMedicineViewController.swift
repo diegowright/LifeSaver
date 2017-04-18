@@ -15,9 +15,10 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var doseStrengthOutlet: UITextField!
     @IBOutlet weak var unitsOutlet: UIPickerView!
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var instructionsOutlet: UITextView!
     
     let unitData = ["mg", "mcg", "mL", "pill(s)"]
-    var notify:Array = [[String(),Date()]]
+    var notify:Array = [["Frequency",Date()]]
     let center = UNUserNotificationCenter.current()
     var alertController:UIAlertController? = nil
     
@@ -76,10 +77,15 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
             DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue)
         }
         
-        let selectedDate = Date()
-        print("Selected date: \(selectedDate)")
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        delegate?.scheduleNotification(at: selectedDate)
+        for object in notify {
+            if String(describing: object[0]) == "Frequency" {
+            } else {
+                let selectedDate = object[1]
+                print("Selected date: \(selectedDate)")
+                let delegate = UIApplication.shared.delegate as? AppDelegate
+                delegate?.scheduleNotification(at: selectedDate as! Date, name: medNameOutlet.text!, dose: doseStrengthOutlet.text!, unit: unitsValue)
+            }
+        }
     }
   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

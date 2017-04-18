@@ -29,23 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func scheduleNotification(at date: Date) {
+    func scheduleNotification(at date: Date, name: String, dose: String, unit: String) {
+        //let calendar = Calendar(identifier: .gregorian)
+        //let components = calendar.dateComponents(in: .current, from: date)
+        //let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        
+        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
         let content = UNMutableNotificationContent()
-        content.title = "Meeting Reminder"
-        content.subtitle = "It workds!"
-        content.body = "Don't forget to bring coffee."
+        content.title = name
+        content.body = dose + " " + unit
+        //content.body = "<Instructions>"
         content.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
-                                                        repeats: false)
-        
         let requestIdentifier = "demoNotification"
-        let request = UNNotificationRequest(identifier: requestIdentifier,
-                                            content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request, 
-                                               withCompletionHandler: { (error) in
-                                                // Handle error
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: {
+            (error) in // Handle error
         })
     }
     
@@ -77,10 +82,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if response.actionIdentifier == "remindLater" {
-            let newDate = Date(timeInterval: 900, since: Date())
-            scheduleNotification(at: newDate)
-        }
+      //  if response.actionIdentifier == "remindLater" {
+      //      let newDate = Date(timeInterval: 900, since: Date())
+      //      scheduleNotification(at: newDate)
+      //  }
     }
 }
 
