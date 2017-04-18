@@ -124,7 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="x01-5P-1eb" detailTextLabel="ZUm-BZ-IDt" style="IBUITableViewCellStyleValue1" id="jj6-TJ-Kp7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayMedCell" textLabel="x01-5P-1eb" detailTextLabel="ZUm-BZ-IDt" style="IBUITableViewCellStyleValue1" id="jj6-TJ-Kp7">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jj6-TJ-Kp7" id="w9D-Cr-3PQ">
@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="doseUnit" destination="Dzj-au-nvQ" id="3nc-hv-BAx"/>
                         <outlet property="instructOutlet" destination="TVM-L2-srB" id="TTA-vA-eb5"/>
+                        <outlet property="myTableView" destination="1th-ls-PZK" id="1P4-0b-Srz"/>
                         <outlet property="name" destination="pFp-oT-ghd" id="QhT-dz-HTZ"/>
                     </connections>
                 </viewController>
@@ -450,7 +451,7 @@
                                 <rect key="frame" x="0.0" y="101" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-9M-dS5">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="15" stepValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-9M-dS5">
                                 <rect key="frame" x="265" y="189" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>

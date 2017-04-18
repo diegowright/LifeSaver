@@ -85,6 +85,7 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
                 print("Selected date: \(selectedDate)")
                 let delegate = UIApplication.shared.delegate as? AppDelegate
                 delegate?.scheduleNotification(at: selectedDate as! Date, name: medNameOutlet.text!, dose: doseStrengthOutlet.text!, unit: unitsValue)
+                DataManager.shared.saveReminder(name: medNameOutlet.text!, freq: "Daily", time: selectedDate as! Date)
             }
         }
     }

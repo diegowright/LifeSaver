@@ -9,13 +9,16 @@
 import UIKit
 import CoreData
 
-class DisplayMedViewController: UIViewController {
+class DisplayMedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var med = NSManagedObject()
+    var remindArray = [NSManagedObject]()
+    var remindSelect = [NSManagedObject]()
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var doseUnit: UILabel!
     @IBOutlet weak var instructOutlet: UITextView!
+    @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +31,47 @@ class DisplayMedViewController: UIViewController {
         let tempDose:Float = (med.value(forKey: "dose") as? Float)!
         doseUnit.text = String(tempDose) + " " + (med.value(forKey: "unit") as? String)!
         instructOutlet.text = med.value(forKey: "instruct") as? String
+        
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+        
+        remindArray = DataManager.shared.loadReminder()
+        
+        for object in remindArray {
+            if object.value(forKey: "name") as? String == med.value(forKey: "name") as? String {
+                remindSelect.append(object)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return remindSelect.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "displayMedCell", for: indexPath)
+        
+        
+        let theTime = remindSelect[indexPath.row].value(forKey: "time") as! Date
+        print ("\(theTime)")
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: theTime)
+        let minute = calendar.component(.minute, from: theTime)
+        
+        cell.textLabel?.text = remindSelect[indexPath.row].value(forKey: "freq") as? String
+        cell.detailTextLabel?.text = "\(hour):\(minute)"
+        return cell
+    }
+}
     
 
     /*
@@ -46,4 +84,3 @@ class DisplayMedViewController: UIViewController {
     }
     */
 
-}

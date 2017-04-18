@@ -46,6 +46,11 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="freq" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -68,5 +73,6 @@
         <element name="Template" positionX="-200" positionY="-0" width="128" height="103"/>
         <element name="TemplateAttribute" positionX="-0" positionY="-0" width="128" height="103"/>
         <element name="MedDose" positionX="-360" positionY="18" width="128" height="90"/>
+        <element name="Reminder" positionX="-351" positionY="27" width="128" height="90"/>
     </elements>
 </model>

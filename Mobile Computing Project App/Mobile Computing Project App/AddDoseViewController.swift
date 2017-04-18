@@ -48,15 +48,13 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBAction func stepperAction(_ sender: Any) {
-        let quantTemp:Double = Double(quantityTaken.text!)!
-        quantityTaken.text = String(quantTemp + 0.5)
+        quantityTaken.text = "\(Double(stepperOutlet.value))"
     }
     
     @IBAction func saveAction(_ sender: Any) {
         let medValue:String = (medArray[medPicker.selectedRow(inComponent: 0)].value(forKey: "name") as? String)!
-        let quantityValue:Double = Double(quantityTaken.text!)!
         
-        if medValue == "" || quantityValue > 0.0 {
+        if medValue == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
                 print("Ok Button Pressed 1");
@@ -65,7 +63,7 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.present(self.alertController!, animated: true, completion:nil)
         }
         else {
-            DataManager.shared.saveDose(med: medValue, quantity: quantityValue, time: Date())
+            DataManager.shared.saveDose(med: medValue, quantity: Double(stepperOutlet.value), time: consumeTimePicker.date)
         }
     }
     
