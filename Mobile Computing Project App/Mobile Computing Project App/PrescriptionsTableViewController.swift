@@ -17,6 +17,7 @@ class PrescriptionsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         medArray = DataManager.shared.loadMedicine()
+        self.title = "Prescriptions"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -97,14 +98,19 @@ class PrescriptionsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "displayMed" {
+            let destinationVC = segue.destination as! DisplayMedViewController
+            let rowID = self.tableView.indexPath(for: sender as! UITableViewCell)
+            destinationVC.med = medArray[rowID!.row]
+        }
     }
-    */
+
 
 }

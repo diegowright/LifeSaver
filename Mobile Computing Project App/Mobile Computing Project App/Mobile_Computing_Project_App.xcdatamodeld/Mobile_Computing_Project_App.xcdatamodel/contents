@@ -48,14 +48,25 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="questions" inverseEntity="Event" syncable="YES"/>
     </entity>
+    <entity name="MedDose" representedClassName="MedDose" syncable="YES" codeGenerationType="class">
+        <attribute name="med" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="Medicine" representedClassName="Medicine" syncable="YES" codeGenerationType="class">
         <attribute name="dose" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instruct" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="freq" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <entity name="Template" representedClassName="Template" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -119,7 +130,7 @@
         <element name="EventPainLvlValue" positionX="-342" positionY="63" width="128" height="90"/>
         <element name="EventPainTypeValue" positionX="-351" positionY="54" width="128" height="90"/>
         <element name="EventQuestionValue" positionX="-324" positionY="81" width="128" height="90"/>
-        <element name="Medicine" positionX="-378" positionY="18" width="128" height="90"/>
+        <element name="Medicine" positionX="-378" positionY="18" width="128" height="105"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="75"/>
         <element name="Template" positionX="-198" positionY="-0" width="128" height="210"/>
         <element name="TemplateDateTimeAtt" positionX="-315" positionY="63" width="128" height="75"/>
@@ -130,5 +141,7 @@
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
         <element name="User" positionX="-369" positionY="27" width="128" height="105"/>
+        <element name="MedDose" positionX="-378" positionY="27" width="128" height="90"/>
+        <element name="Reminder" positionX="-369" positionY="36" width="128" height="90"/>
     </elements>
 </model>

@@ -9,15 +9,18 @@
 import UIKit
 import UserNotifications
 
-class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UNUserNotificationCenterDelegate {
     
     @IBOutlet weak var medNameOutlet: UITextField!
     @IBOutlet weak var doseStrengthOutlet: UITextField!
     @IBOutlet weak var unitsOutlet: UIPickerView!
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var instructionsOutlet: UITextView!
     
     let unitData = ["mg", "mcg", "mL", "pill(s)"]
-    var notify:Array = [[String(),Date()]]
+    var notify:Array = [["Frequency",Date()]]
+    let center = UNUserNotificationCenter.current()
+    var alertController:UIAlertController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,8 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         
-        let center = UNUserNotificationCenter.current()
+        self.title = "New Medicine"
+        
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
             (granted, error) in
@@ -36,6 +40,18 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(displayDaily(notification:)), name: NSNotification.Name(rawValue: "displayDaily"), object: nil)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [[.alert, .sound, .badge]], completionHandler: { (granted, error) in
+            // Handle Error
+        })
+        UNUserNotificationCenter.current().delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,16 +68,29 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBAction func saveAction(_ sender: Any) {
         let unitsValue:String = unitData[unitsOutlet.selectedRow(inComponent: 0)]
-        DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue)
         
-        // create a corresponding local notification
-        let notification = UILocalNotification()
-        notification.alertBody = "Todo Item Is Overdue" // text that will be displayed in the notification
-        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-        notification.fireDate = notify[0][1] as? Date // todo item due date (when notification will be fired) notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        notification.userInfo = [:] // assign a unique identifier to the notification so that we can retrieve it later
+        if medNameOutlet.text! == "" || doseStrengthOutlet.text! == "" || unitsValue == "" || Int(doseStrengthOutlet.text!) == nil || instructionsOutlet.text! == "" {
+            self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields. Make sure the dose is an integer.", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                print("Ok Button Pressed 1");
+            }
+            self.alertController!.addAction(OKAction)
+            self.present(self.alertController!, animated: true, completion:nil)
+        }
+        else {
+            DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue, instruct: instructionsOutlet.text!)
+        }
         
-        UIApplication.shared.scheduleLocalNotification(notification)
+        for object in notify {
+            if String(describing: object[0]) == "Frequency" {
+            } else {
+                let selectedDate = object[1]
+                print("Selected date: \(selectedDate)")
+                let delegate = UIApplication.shared.delegate as? AppDelegate
+                delegate?.scheduleNotification(at: selectedDate as! Date, name: medNameOutlet.text!, dose: doseStrengthOutlet.text!, unit: unitsValue)
+                DataManager.shared.saveReminder(name: medNameOutlet.text!, freq: "Daily", time: selectedDate as! Date)
+            }
+        }
     }
   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -121,5 +150,10 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
 }
