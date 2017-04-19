@@ -17,9 +17,8 @@ class PainTypeCell: UITableViewCell {
     var row:Int?
     
     @IBAction func sendPainTypeNotification(_ sender: Any) {
-        let idx:Int = painTypeControl.selectedSegmentIndex
-        let selectedText:String = painTypeControl.titleForSegment(at: idx)!
-        let dataDict:Dictionary<String, Any> = ["data":selectedText,
+        let idx:Int16 = Int16(painTypeControl.selectedSegmentIndex)
+        let dataDict:Dictionary<String, Any> = ["data":idx,
                                                 "row":self.row!]
         NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
                                         object: nil,

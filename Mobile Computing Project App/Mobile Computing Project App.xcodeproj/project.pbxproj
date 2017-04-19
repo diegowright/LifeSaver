@@ -35,8 +35,9 @@
 		2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089271EA54E6C005AEE7F /* Config.swift */; };
 		2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */; };
 		2B2089331EA57D12005AEE7F /* EventInputTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089321EA57D12005AEE7F /* EventInputTable.swift */; };
+		2B25A9CB1EA6F7E800D5213C /* CalendarEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */; };
 		2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26EB1E85C3330024461B /* TabVC.swift */; };
-		2B2F26F11E85D6C60024461B /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F01E85D6C60024461B /* CalendarCell.swift */; };
+		2B2F26F11E85D6C60024461B /* CalendarNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */; };
 		2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */; };
 		2B2F26F51E85F86C0024461B /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F41E85F86C0024461B /* NoteVC.swift */; };
 		2B3AC8FB1E805F9900CF5BD0 /* MedicalEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FA1E805F9900CF5BD0 /* MedicalEvent.storyboard */; };
@@ -117,8 +118,9 @@
 		2B2089271EA54E6C005AEE7F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2B2089321EA57D12005AEE7F /* EventInputTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInputTable.swift; sourceTree = "<group>"; };
+		2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventCell.swift; sourceTree = "<group>"; };
 		2B2F26EB1E85C3330024461B /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
-		2B2F26F01E85D6C60024461B /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNoteCell.swift; sourceTree = "<group>"; };
 		2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNoteVC.swift; sourceTree = "<group>"; };
 		2B2F26F41E85F86C0024461B /* NoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
 		2B3AC8FA1E805F9900CF5BD0 /* MedicalEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MedicalEvent.storyboard; sourceTree = "<group>"; };
@@ -196,7 +198,8 @@
 				2BB2E2791EA28C270024B748 /* CellView.swift */,
 				1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */,
 				2B2F26F41E85F86C0024461B /* NoteVC.swift */,
-				2B2F26F01E85D6C60024461B /* CalendarCell.swift */,
+				2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */,
+				2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */,
 				2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */,
 				2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */,
 			);
@@ -571,6 +574,7 @@
 				2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */,
 				016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */,
 				2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */,
+				2B25A9CB1EA6F7E800D5213C /* CalendarEventCell.swift in Sources */,
 				2B2F26F51E85F86C0024461B /* NoteVC.swift in Sources */,
 				1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */,
 				2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */,
@@ -583,7 +587,7 @@
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
 				2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */,
 				2BB2E2781EA28BCB0024B748 /* QuestionCell.swift in Sources */,
-				2B2F26F11E85D6C60024461B /* CalendarCell.swift in Sources */,
+				2B2F26F11E85D6C60024461B /* CalendarNoteCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */,
 				2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */,

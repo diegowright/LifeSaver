@@ -62,24 +62,20 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showEvent" {
+        if segue.identifier == "showNote" {
             if let row:Int = self.eventTable.indexPathForSelectedRow?.row {
-                let eventType:String = self.selectedEvents[row]["type"] as! String
-                if eventType == "Note" {
-                    if let destination = segue.destination as? ShowNoteVC {
-                        let note:Note = self.selectedEvents[row]["entity"] as! Note
-                        let recordDate = note.date! as Date
-                        let noteText = note.text! as String
-                        
-                        destination.date = recordDate
-                        destination.noteText = noteText
-                    }
-                } else if eventType == "Event" {
-                    if let destination = segue.destination as? ShowEventValues {
-                        let event:Event = self.selectedEvents[row]["entity"] as! Event
-                        destination.event = event
-                        destination.eventType = eventType
-                    }
+                if let destination = segue.destination as? ShowNoteVC {
+                let note:Note = self.selectedEvents[row]["entity"] as! Note
+                destination.date = note.date! as Date
+                destination.noteText = note.text!
+                }
+            }
+        } else if segue.identifier == "showEvent" {
+            if let row:Int = self.eventTable.indexPathForSelectedRow?.row {
+                if let destination = segue.destination as? ShowEventValues {
+                    let event:Event = self.selectedEvents[row]["entity"] as! Event
+                    destination.event = event
+                    destination.eventType = event.eventType!
                 }
             }
         }
@@ -138,9 +134,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row:Int = indexPath.row
         let entityType:String = self.selectedEvents[row]["type"] as! String
+        print("Entity Type: \(entityType)")
         if (entityType == "Note") {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CalendarCell
-            let note:Note = self.selectedEvents[row]["Note"] as! Note
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CalendarNoteCell
+            cell.backgroundColor = white
+            let note:Note = self.selectedEvents[row]["entity"] as! Note
       
             cell.labelText.text = note.text!
             let exactDate = note.date! as Date
@@ -149,8 +147,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             return cell
         } else if (entityType == "Event") {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! CalendarCell
-            let event:Event = self.selectedEvents[row]["Event"] as! Event
+            let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! CalendarEventCell
+            let event:Event = self.selectedEvents[row]["entity"] as! Event
+            cell.backgroundColor = white
             
             cell.labelText.text = event.eventType!
             

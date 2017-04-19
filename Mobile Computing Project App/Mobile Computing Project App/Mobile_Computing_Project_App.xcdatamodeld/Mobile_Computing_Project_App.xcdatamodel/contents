@@ -30,7 +30,7 @@
     </entity>
     <entity name="EventPainLocValue" representedClassName="EventPainLocValue" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painLocs" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="EventPainLvlValue" representedClassName="EventPainLvlValue" syncable="YES" codeGenerationType="class">
@@ -40,11 +40,11 @@
     </entity>
     <entity name="EventPainTypeValue" representedClassName="EventPainTypeValue" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painTypes" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="EventQuestionValue" representedClassName="EventQuestionValue" syncable="YES" codeGenerationType="class">
-        <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="questions" inverseEntity="Event" syncable="YES"/>
     </entity>

@@ -108,7 +108,7 @@ final class DataManager {
                 let entity = NSEntityDescription.entity(forEntityName: "EventPainLocValue", in: managedContext)
                 let painLocValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainLocValue
                 painLocValue.id = el["id"]! as? String
-                painLocValue.location = el["data"]! as? String
+                painLocValue.location = el["data"]! as! Int16
                 event.addToPainLocs(painLocValue)
                 print("Pain Location value saved.")
                 
@@ -116,7 +116,7 @@ final class DataManager {
                 let entity = NSEntityDescription.entity(forEntityName: "EventPainTypeValue", in: managedContext)
                 let painTypeValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainTypeValue
                 painTypeValue.id = el["id"]! as? String
-                painTypeValue.type = el["data"]! as? String
+                painTypeValue.type = el["data"]! as! Int16
                 event.addToPainTypes(painTypeValue)
                 print("Pain Type value saved.")
                 
@@ -140,7 +140,7 @@ final class DataManager {
                 let entity = NSEntityDescription.entity(forEntityName: "EventQuestionValue", in: managedContext)
                 let questionValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventQuestionValue
                 questionValue.id = el["id"]! as? String
-                questionValue.answer = el["data"]! as? String
+                questionValue.answer = el["data"]! as! Int16
                 event.addToQuestions(questionValue)
                 print("Question value saved.")
                 
@@ -323,9 +323,61 @@ final class DataManager {
     }
     
     // This function returns a list with all the id's associated with the template
-    func getTemplateAttributeNames(template: Template) -> [Dictionary<String, String>] {
+    func getEventAttributeData(event: Event) -> [Dictionary<String, Any>] {
         // I know this code is lame but it kinda needs to be like this
-        var attNames:[Dictionary<String, String>] = []
+        var vals:[Dictionary<String, Any>] = []
+        
+        let dateTimeVals = event.datetimes!
+        let questionVals = event.questions!
+        let painLocVals = event.painLocs!
+        let painLvlVals = event.painLvls!
+        let painTypeVals = event.painTypes!
+        let painDurVals = event.painDurs!
+        let noteVals = event.notes!
+        
+        for val in dateTimeVals {
+            let temp = val as! EventDateTimeValue
+            let dict:Dictionary<String, Any> = ["value":temp.datetime!, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in questionVals {
+            let temp = val as! EventQuestionValue
+            let dict:Dictionary<String, Any> = ["value":temp.answer, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in painLocVals {
+            let temp = val as! EventPainLocValue
+            let dict:Dictionary<String, Any> = ["value":temp.location, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in painLvlVals {
+            let temp = val as! EventPainLvlValue
+            let dict:Dictionary<String, Any> = ["value":temp.level, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in painTypeVals {
+            let temp = val as! EventPainTypeValue
+            let dict:Dictionary<String, Any> = ["value":temp.type, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in painDurVals {
+            let temp = val as! EventPainDurValue
+            let dict:Dictionary<String, Any> = ["value":temp.duration, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        for val in noteVals {
+            let temp = val as! EventNoteValue
+            let dict:Dictionary<String, Any> = ["value":temp.noteText!, "event":temp.event!, "id":temp.id!]
+            vals.append(dict)
+        }
+        
+        return vals
+    }
+    
+    // This function returns a list with all the id's associated with the template
+    func getTemplateAttributeData(template: Template) -> [Dictionary<String, String>] {
+        // I know this code is lame but it kinda needs to be like this
+        var atts:[Dictionary<String, String>] = []
         
         let dateTimeAtts = template.datetimeAtts!
         let questionAtts = template.questionAtts!
@@ -338,12 +390,12 @@ final class DataManager {
         for att in dateTimeAtts {
             let temp = att as! TemplateDateTimeAtt
             let dict = ["id":temp.id!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in questionAtts {
             let temp = att as! TemplateQuestionAtt
             let dict = ["id":temp.id!, "question":temp.question!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in painLocAtts {
             let temp = att as! TemplatePainLocAtt
@@ -353,30 +405,30 @@ final class DataManager {
                         "loc2":temp.loc2!,
                         "loc3":temp.loc3!,
                         "loc4":temp.loc4!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in painLvlAtts {
             let temp = att as! TemplatePainLvlAtt
             let dict = ["id":temp.id!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in painTypeAtts {
             let temp = att as! TemplatePainTypeAtt
             let dict = ["id":temp.id!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in painDurAtts {
             let temp = att as! TemplatePainDurAtt
             let dict = ["id":temp.id!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         for att in noteAtts {
             let temp = att as! TemplateNoteAtt
             let dict = ["id":temp.id!]
-            attNames.append(dict)
+            atts.append(dict)
         }
         
-        return attNames
+        return atts
     }
     
     // MARK: - Calendar
@@ -498,6 +550,8 @@ final class DataManager {
         }
         
         // Fetch Medicine stuff
+        
+        print("Loaded records by date: \(records)")
         
         return records
     }

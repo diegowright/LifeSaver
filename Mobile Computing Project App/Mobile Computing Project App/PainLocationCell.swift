@@ -17,9 +17,8 @@ class PainLocationCell: UITableViewCell {
     var row:Int?
 
     @IBAction func sendLocationNotification(_ sender: Any) {
-        let idx:Int = locationControl.selectedSegmentIndex
-        let selectedText:String = locationControl.titleForSegment(at: idx)!
-        let dataDict:Dictionary<String, Any> = ["data":selectedText,
+        let idx:Int16 = Int16(locationControl.selectedSegmentIndex)
+        let dataDict:Dictionary<String, Any> = ["data":idx,
                                                 "row":self.row!]
         NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
                                         object: nil,

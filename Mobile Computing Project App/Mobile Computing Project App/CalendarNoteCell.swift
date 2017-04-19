@@ -1,5 +1,5 @@
 //
-//  CalendarCell.swift
+//  CalendarNoteCell.swift
 //  Mobile Computing Project App
 //
 //  Created by Diego Wright on 3/24/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarCell: UITableViewCell {
+class CalendarNoteCell: UITableViewCell {
 
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var date: UILabel!

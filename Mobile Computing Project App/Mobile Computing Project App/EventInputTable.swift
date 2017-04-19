@@ -21,7 +21,7 @@ class EventInputTable: UITableViewController {
         super.viewDidLoad()
         print("Template: ", self.template ?? "No template :(")
         self.title = self.template!.name!
-        self.attributeInfo = DataManager.shared.getTemplateAttributeNames(template: self.template!)
+        self.attributeInfo = DataManager.shared.getTemplateAttributeData(template: self.template!)
         
         // Add save button to top right of nav controller
         let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done,
@@ -59,7 +59,6 @@ class EventInputTable: UITableViewController {
             
         case "Date & Time":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DateTimeCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             cell.sendDateNotification(cell)
@@ -67,7 +66,6 @@ class EventInputTable: UITableViewController {
             
         case "Note":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NoteCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             cell.sendNoteNotification(cell)
@@ -75,7 +73,6 @@ class EventInputTable: UITableViewController {
             
         case "Pain Location":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLocationCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             
@@ -101,7 +98,6 @@ class EventInputTable: UITableViewController {
             
         case "Pain Type":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainTypeCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             cell.sendPainTypeNotification(cell)
@@ -109,7 +105,6 @@ class EventInputTable: UITableViewController {
             
         case "Pain Duration":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainDurationCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             cell.durationInput.text = "1"
@@ -118,7 +113,6 @@ class EventInputTable: UITableViewController {
             
         case "Pain Level":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PainLevelCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             cell.sendPainLevelNotification(cell)
@@ -126,7 +120,6 @@ class EventInputTable: UITableViewController {
             
         case "Question":
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! QuestionCell
-            cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.size.width, height: CGFloat(100)))
             cell.backgroundColor = white
             cell.row = indexPath.row
             
