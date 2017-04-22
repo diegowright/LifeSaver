@@ -11,8 +11,12 @@ import UIKit
 
 class Config {
     
+    // Set current system theme to the value specified by current user
+    static var currentTheme = DataManager.shared.getCurrentUser().theme!
+    
     //static var myCustomBackground = UIColor.white
     static var myCustomLabelColor = UIColor.black
     static var myCustomButtonFont = UIFont.systemFont(ofSize: 15.0)
+    static var systemBackgroundColor = UIColor.white
     
 }

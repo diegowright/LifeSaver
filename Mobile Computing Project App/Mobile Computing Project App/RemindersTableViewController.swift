@@ -23,7 +23,9 @@ class RemindersTableViewController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handlerDaily(notification:)), name: NSNotification.Name(rawValue: "dailyPickerTime"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handlerDaily(notification:)),
+                                               name: NSNotification.Name(rawValue: "dailyPickerTime"),
+                                               object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -95,7 +97,9 @@ class RemindersTableViewController: UITableViewController {
         let minute = calendar.component(.minute, from: theTime!)
         print ("Notification Date: \(hour):\(minute)")
         let dataDict:Dictionary = ["Daily":theTime]
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "displayDaily"), object: nil, userInfo: dataDict)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "displayDaily"),
+                                        object: nil,
+                                        userInfo: dataDict)
     }
 
     /*

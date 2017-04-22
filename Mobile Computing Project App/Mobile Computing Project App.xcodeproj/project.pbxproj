@@ -235,6 +235,7 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
+				2BC99BFD1EABF19D00529C4A /* Assets */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				1B211B111E854FD8006573D9 /* Calendar */,
@@ -337,7 +338,6 @@
 		2BB983531E86204B002BF3A7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
 				2BB9834E1E862041002BF3A7 /* LoginViewController.swift */,
 				2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */,
 			);
@@ -355,6 +355,14 @@
 				2B2F26EB1E85C3330024461B /* TabVC.swift */,
 			);
 			name = TabViewControllers;
+			sourceTree = "<group>";
+		};
+		2BC99BFD1EABF19D00529C4A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		CD2FBC87555DB5C18770C376 /* Pods */ = {

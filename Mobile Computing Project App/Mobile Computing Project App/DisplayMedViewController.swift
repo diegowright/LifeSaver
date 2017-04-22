@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import CoreData
 
 class DisplayMedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var med = NSManagedObject()
-    var remindArray = [NSManagedObject]()
-    var remindSelect = [NSManagedObject]()
+    var med:Medicine?
+    var remindArray:[Reminder] = DataManager.shared.loadReminder()
+    var remindSelect:[Reminder] = []
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var doseUnit: UILabel!
@@ -27,18 +26,16 @@ class DisplayMedViewController: UIViewController, UITableViewDataSource, UITable
         barButton.title = "Back"
         navigationController!.navigationBar.topItem!.backBarButtonItem = barButton
         
-        name.text = med.value(forKey: "name") as? String
-        let tempDose:Float = (med.value(forKey: "dose") as? Float)!
-        doseUnit.text = String(tempDose) + " " + (med.value(forKey: "unit") as? String)!
-        instructOutlet.text = med.value(forKey: "instruct") as? String
+        name.text = med!.name!
+        let tempDose:Float = med!.dose
+        doseUnit.text = String(tempDose) + " " + med!.unit!
+        instructOutlet.text = med!.instruct!
         
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         
-        remindArray = DataManager.shared.loadReminder()
-        
         for object in remindArray {
-            if object.value(forKey: "name") as? String == med.value(forKey: "name") as? String {
+            if object.name! == med!.name! {
                 remindSelect.append(object)
             }
         }
@@ -64,14 +61,13 @@ class DisplayMedViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "displayMedCell", for: indexPath)
         
-        
-        let theTime = remindSelect[indexPath.row].value(forKey: "time") as! Date
+        let theTime = remindSelect[indexPath.row].time! as Date
         print ("\(theTime)")
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: theTime)
         let minute = calendar.component(.minute, from: theTime)
         
-        cell.textLabel?.text = remindSelect[indexPath.row].value(forKey: "freq") as? String
+        cell.textLabel?.text = remindSelect[indexPath.row].freq!
         cell.detailTextLabel?.text = "\(hour):\(minute)"
         return cell
     }

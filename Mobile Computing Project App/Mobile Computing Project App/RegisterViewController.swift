@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
             
         }else if userN?.text != "" && passW.text != ""{
             
-            let saved = DataManager.shared.saveUser(userN: userN.text!, passW: passW.text!)
+            let saved = DataManager.shared.saveUser(userN: userN.text!, passW: passW.text!, theme: "light")
             
             if saved == true {
                 print("New user saved with username \(userN) and password \(passW).")

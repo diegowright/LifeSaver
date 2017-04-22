@@ -22,6 +22,10 @@ class Appearance: NSObject {
         UILabel.appearance().textColor = Config.myCustomLabelColor
     }
     
+    class func setUIViewBGColor() {
+        UIView.appearance().backgroundColor = Config.systemBackgroundColor
+    }
+    
     class func setMyCustomButtonFont() {
         // UIButton.appearance().titleLabelFont = Config.myCustomButtonFont
         print()

@@ -48,26 +48,13 @@ final class DataManager {
         return
     }
     
-    func loadMedicine() ->  [NSManagedObject]{
-        let managedContext = self.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Medicine")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+    func loadMedicine() ->  [Medicine] {
+        let nsValues = self.getCurrentUser().medicines!
+        var medicines:[Medicine] = []
+        for val in nsValues {
+            medicines.append(val as! Medicine)
         }
-        
-        if let results = fetchedResults {
-            return results
-        } else {
-            print("Could not fetch")
-            return fetchedResults!
-        }
+        return medicines
     }
     
     func saveDose(med: String, quantity:Double, time: Date) {
@@ -114,26 +101,13 @@ final class DataManager {
         return
     }
     
-    func loadReminder() ->  [NSManagedObject]{
-        let managedContext = self.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Reminder")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+    func loadReminder() ->  [Reminder] {
+        let nsValues = self.getCurrentUser().reminders!
+        var reminders:[Reminder] = []
+        for val in nsValues {
+            reminders.append(val as! Reminder)
         }
-        
-        if let results = fetchedResults {
-            return results
-        } else {
-            print("Could not fetch")
-            return fetchedResults!
-        }
+        return reminders
     }
     
     // MARK: - Medical Event Methods
@@ -230,33 +204,11 @@ final class DataManager {
     }
     
     func loadAllEvents() -> [Event] {
+        let nsValues = self.getCurrentUser().events!
         var events:[Event] = []
-        
-        let managedContext = self.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Event")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-            print("Events loaded.")
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+        for val in nsValues {
+            events.append(val as! Event)
         }
-        
-        // Add each fetched template to list
-        if let results = fetchedResults {
-            for result in results {
-                events.append(result as! Event)
-            }
-        } else {
-            print("Could not fetch events.")
-        }
-        
-        print(events)
         return events
     }
     
@@ -359,33 +311,11 @@ final class DataManager {
     
     // Load all template names so that they can be later identified by name
     func loadAllTemplates() -> [Template] {
+        let nsValues = self.getCurrentUser().templates!
         var templates:[Template] = []
-        
-        let managedContext = self.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Template")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-            print("Templates loaded.")
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+        for val in nsValues {
+            templates.append(val as! Template)
         }
-        
-        // Add each fetched template to list
-        if let results = fetchedResults {
-            for result in results {
-                templates.append(result as! Template)
-            }
-        } else {
-            print("Could not fetch templates.")
-        }
-        
-        print(templates)
         return templates
     }
     
@@ -647,6 +577,10 @@ final class DataManager {
         return self.currentUser
     }
     
+    func setUserTheme(user: User, theme: String) {
+        user.theme = theme
+    }
+    
     func isValidUser(userName: String, passWord: String) -> Bool{
         let userList = self.loadUsers()
         
@@ -686,7 +620,7 @@ final class DataManager {
         return users
     }
     
-    func saveUser(userN: String, passW: String) -> Bool {
+    func saveUser(userN: String, passW: String, theme: String) -> Bool {
         
         let managedContext = self.persistentContainer.viewContext
         

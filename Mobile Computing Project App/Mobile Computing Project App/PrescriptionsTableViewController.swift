@@ -7,16 +7,15 @@
 //
 
 import UIKit
-import CoreData
 
 class PrescriptionsTableViewController: UITableViewController {
     
-    var medArray = [NSManagedObject]()
+    var medArray:[Medicine] = DataManager.shared.loadMedicine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        medArray = DataManager.shared.loadMedicine()
+        //medArray = DataManager.shared.loadMedicine()
         self.title = "Prescriptions"
 
         // Uncomment the following line to preserve selection between presentations
@@ -55,10 +54,10 @@ class PrescriptionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath) as! PrescriptionTableViewCell
         
         let med = medArray[indexPath.row]
-        let name = med.value(forKey: "name") as? String
-        let dose = med.value(forKey: "dose") as? Float
-        let unit = med.value(forKey: "unit") as? String
-        cell.nameOutlet.text = "\(name!) (\(String(dose!)) \(unit!))"
+        let name = med.name!
+        let dose = med.dose
+        let unit = med.unit!
+        cell.nameOutlet.text = "\(name) (\(String(dose)) \(unit))"
 
         return cell
     }

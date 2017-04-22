@@ -39,24 +39,26 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
             }
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(displayDaily(notification:)), name: NSNotification.Name(rawValue: "displayDaily"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(displayDaily(notification:)),
+                                               name: NSNotification.Name(rawValue: "displayDaily"),
+                                               object: nil)
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [[.alert, .sound, .badge]], completionHandler: { (granted, error) in
-            // Handle Error
-        })
+        UNUserNotificationCenter.current().requestAuthorization(options: [[.alert, .sound, .badge]],
+                                                                completionHandler: { (granted, error) in /* Handle Error */ })
         UNUserNotificationCenter.current().delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .sound])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //medArray = DataManager.shared.loadMedicine()
         self.myTableView.reloadData()
         self.myTableView.delegate = self
     }
@@ -78,7 +80,10 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
             self.present(self.alertController!, animated: true, completion:nil)
         }
         else {
-            DataManager.shared.saveMedicine(name: medNameOutlet.text!, dose: Float(doseStrengthOutlet.text!)!, unit: unitsValue, instruct: instructionsOutlet.text!)
+            DataManager.shared.saveMedicine(name: medNameOutlet.text!,
+                                            dose: Float(doseStrengthOutlet.text!)!,
+                                            unit: unitsValue,
+                                            instruct: instructionsOutlet.text!)
         }
         
         for object in notify {
@@ -87,8 +92,13 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
                 let selectedDate = object[1]
                 print("Selected date: \(selectedDate)")
                 let delegate = UIApplication.shared.delegate as? AppDelegate
-                delegate?.scheduleNotification(at: selectedDate as! Date, name: medNameOutlet.text!, dose: doseStrengthOutlet.text!, unit: unitsValue)
-                DataManager.shared.saveReminder(name: medNameOutlet.text!, freq: "Daily", time: selectedDate as! Date)
+                delegate?.scheduleNotification(at: selectedDate as! Date,
+                                               name: medNameOutlet.text!,
+                                               dose: doseStrengthOutlet.text!,
+                                               unit: unitsValue)
+                DataManager.shared.saveReminder(name: medNameOutlet.text!,
+                                                freq: "Daily",
+                                                time: selectedDate as! Date)
             }
         }
     }

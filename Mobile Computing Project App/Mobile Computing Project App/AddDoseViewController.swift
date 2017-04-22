@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import UserNotifications
 
 class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -17,12 +16,11 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var stepperOutlet: UIStepper!
     @IBOutlet weak var quantityTaken: UILabel!
     
-    var medArray = [NSManagedObject]()
+    var medArray = DataManager.shared.loadMedicine()
     var alertController:UIAlertController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        medArray = DataManager.shared.loadMedicine()
         
         medPicker.dataSource = self
         medPicker.delegate = self
@@ -44,7 +42,7 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return medArray[row].value(forKey: "name") as? String
+        return medArray[row].name!
     }
     
     @IBAction func stepperAction(_ sender: Any) {
@@ -52,7 +50,7 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let medValue:String = (medArray[medPicker.selectedRow(inComponent: 0)].value(forKey: "name") as? String)!
+        let medValue:String = medArray[medPicker.selectedRow(inComponent: 0)].name!
         
         if medValue == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields.", preferredStyle: UIAlertControllerStyle.alert)
@@ -66,9 +64,6 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             DataManager.shared.saveDose(med: medValue, quantity: Double(stepperOutlet.value), time: consumeTimePicker.date)
         }
     }
-    
-
-    
 
     /*
     // MARK: - Navigation
