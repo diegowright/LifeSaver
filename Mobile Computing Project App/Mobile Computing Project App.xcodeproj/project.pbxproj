@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353E71E85C19C008958BD /* OptionTableViewController.swift */; };
-		016353EA1E85C4F3008958BD /* optionsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */; };
+		016353EA1E85C4F3008958BD /* options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016353E91E85C4F3008958BD /* options.storyboard */; };
 		016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353EB1E85DA5E008958BD /* SettingsVC.swift */; };
 		016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016353ED1E85DA6C008958BD /* AboutVC.swift */; };
 		1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968F91E8562A400DBF79D /* CalendarViewController.swift */; };
@@ -48,6 +48,10 @@
 		2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */; };
 		2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4428641EA16423009D178B /* NotificationKeys.swift */; };
 		2B63F5C81EA2C5690059717F /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63F5C71EA2C5690059717F /* DateTimeCell.swift */; };
+		2B7A6F9E1EB508980079A368 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B7A6F9D1EB508980079A368 /* colorPalette.plist */; };
+		2B7A6FA21EB50A930079A368 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */; };
+		2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */; };
+		2B7A6FA81EB51DE50079A368 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA71EB51DE50079A368 /* SaveButton.swift */; };
 		2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200D1EA42F710060D88E /* AttributeTableController.swift */; };
 		2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200F1EA4345F0060D88E /* AttributeCell.swift */; };
 		2B8E20121EA43DFB0060D88E /* PainDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */; };
@@ -87,7 +91,7 @@
 
 /* Begin PBXFileReference section */
 		016353E71E85C19C008958BD /* OptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
-		016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = optionsStoryboard.storyboard; sourceTree = "<group>"; };
+		016353E91E85C4F3008958BD /* options.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = options.storyboard; sourceTree = "<group>"; };
 		016353EB1E85DA5E008958BD /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		016353ED1E85DA6C008958BD /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		128AFF607E21E26A856D2EC7 /* Pods-Mobile Computing Project App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Computing Project App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Computing Project App/Pods-Mobile Computing Project App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,10 @@
 		2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineEventView.swift; sourceTree = "<group>"; };
 		2B4428641EA16423009D178B /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		2B63F5C71EA2C5690059717F /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeCell.swift; sourceTree = "<group>"; };
+		2B7A6F9D1EB508980079A368 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = colorPalette.plist; path = ../../../ColorPickerExample/ColorPickerExample/colorPalette.plist; sourceTree = "<group>"; };
+		2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		2B7A6FA71EB51DE50079A368 /* SaveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
 		2B8E200D1EA42F710060D88E /* AttributeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeTableController.swift; sourceTree = "<group>"; };
 		2B8E200F1EA4345F0060D88E /* AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeCell.swift; sourceTree = "<group>"; };
 		2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainDurationCell.swift; sourceTree = "<group>"; };
@@ -184,10 +192,12 @@
 		016353E41E85BE58008958BD /* Options */ = {
 			isa = PBXGroup;
 			children = (
-				016353E91E85C4F3008958BD /* optionsStoryboard.storyboard */,
+				016353E91E85C4F3008958BD /* options.storyboard */,
 				016353ED1E85DA6C008958BD /* AboutVC.swift */,
+				2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */,
 				016353E71E85C19C008958BD /* OptionTableViewController.swift */,
 				016353EB1E85DA5E008958BD /* SettingsVC.swift */,
+				2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -235,7 +245,7 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
-				2BC99BFD1EABF19D00529C4A /* Assets */,
+				2BC99BFD1EABF19D00529C4A /* Resources */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				1B211B111E854FD8006573D9 /* Calendar */,
@@ -249,6 +259,7 @@
 				1BEC537C1E7F7508001145E1 /* Main.storyboard */,
 				1BEC53841E7F7508001145E1 /* LaunchScreen.storyboard */,
 				1BEC53871E7F7508001145E1 /* Info.plist */,
+				2B7A6F9D1EB508980079A368 /* colorPalette.plist */,
 				1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */,
 			);
 			path = "Mobile Computing Project App";
@@ -357,12 +368,13 @@
 			name = TabViewControllers;
 			sourceTree = "<group>";
 		};
-		2BC99BFD1EABF19D00529C4A /* Assets */ = {
+		2BC99BFD1EABF19D00529C4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
+				2B7A6FA71EB51DE50079A368 /* SaveButton.swift */,
 			);
-			name = Assets;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CD2FBC87555DB5C18770C376 /* Pods */ = {
@@ -492,13 +504,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016353EA1E85C4F3008958BD /* optionsStoryboard.storyboard in Resources */,
+				016353EA1E85C4F3008958BD /* options.storyboard in Resources */,
 				1BEC53861E7F7508001145E1 /* LaunchScreen.storyboard in Resources */,
 				1BEC53831E7F7508001145E1 /* Assets.xcassets in Resources */,
 				1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */,
 				2B20891F1EA54AB8005AEE7F /* Medicine.storyboard in Resources */,
 				1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */,
 				1B211B131E855020006573D9 /* CellView.xib in Resources */,
+				2B7A6F9E1EB508980079A368 /* colorPalette.plist in Resources */,
 				2B3AC8FB1E805F9900CF5BD0 /* MedicalEvent.storyboard in Resources */,
 				2BB983501E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png in Resources */,
 				1B0968FC1E85945F00DBF79D /* MonthHeader.xib in Resources */,
@@ -580,6 +593,7 @@
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
 				2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */,
+				2B7A6FA21EB50A930079A368 /* ThemeViewController.swift in Sources */,
 				2BA2A1FD1EA6AA5000EDEFD1 /* ShowEventValues.swift in Sources */,
 				2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */,
 				2BC825CA1E85B36900FD8784 /* MedicineVC.swift in Sources */,
@@ -595,7 +609,9 @@
 				2B25A9CF1EA70EFD00D5213C /* DisplayMedViewController.swift in Sources */,
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
 				2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */,
+				2B7A6FA81EB51DE50079A368 /* SaveButton.swift in Sources */,
 				2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */,
+				2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */,
 				1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */,
 				2B8E20161EA43E0E0060D88E /* PainLocationCell.swift in Sources */,
 				016353EC1E85DA5E008958BD /* SettingsVC.swift in Sources */,

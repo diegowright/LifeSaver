@@ -14,7 +14,7 @@ class OptionsVC: UIViewController {
         super.viewDidLoad()
 
         // Instantiate the separate storyboard for Options section and load it
-        let storyboard = UIStoryboard(name: "optionsStoryboard", bundle: nil)
+        let storyboard = UIStoryboard(name: "options", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "OptionsNav") as UIViewController
         addChildViewController(controller)
         view.addSubview(controller.view)
