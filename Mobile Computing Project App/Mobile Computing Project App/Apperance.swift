@@ -21,4 +21,13 @@ class Appearance: NSObject {
         UINavigationBar.appearance().backgroundColor = currentTheme.navBarColor as? UIColor
         UITabBar.appearance().backgroundColor = currentTheme.tabBarColor as? UIColor
     }
+    
+    class func setTheme(theme: Theme) {
+        UIView.appearance().backgroundColor = theme.backgroundColor as? UIColor
+        UIButton.appearance().backgroundColor = theme.buttonColor as? UIColor
+        UIButton.appearance().tintColor = theme.buttonTxtColor as? UIColor
+        UILabel.appearance().tintColor = theme.lblTxtColor as? UIColor
+        UINavigationBar.appearance().backgroundColor = theme.navBarColor as? UIColor
+        UITabBar.appearance().backgroundColor = theme.tabBarColor as? UIColor
+    }
 }

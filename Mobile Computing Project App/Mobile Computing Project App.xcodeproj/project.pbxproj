@@ -37,6 +37,8 @@
 		2B25A9CB1EA6F7E800D5213C /* CalendarEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */; };
 		2B25A9CE1EA70EFD00D5213C /* AddDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25A9CC1EA70EFD00D5213C /* AddDoseViewController.swift */; };
 		2B25A9CF1EA70EFD00D5213C /* DisplayMedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25A9CD1EA70EFD00D5213C /* DisplayMedViewController.swift */; };
+		2B2A6A7E1EB94B4900A6CBFA /* SelectThemeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A6A7D1EB94B4900A6CBFA /* SelectThemeTableVC.swift */; };
+		2B2A6A801EB94BC200A6CBFA /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A6A7F1EB94BC200A6CBFA /* ThemeCell.swift */; };
 		2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26EB1E85C3330024461B /* TabVC.swift */; };
 		2B2F26F11E85D6C60024461B /* CalendarNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */; };
 		2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */; };
@@ -69,6 +71,7 @@
 		2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825C71E85B35800FD8784 /* CalendarVC.swift */; };
 		2BC825CA1E85B36900FD8784 /* MedicineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825C91E85B36900FD8784 /* MedicineVC.swift */; };
 		2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC825CB1E85B37100FD8784 /* OptionsVC.swift */; };
+		2BC966BB1EB951FB009C0F82 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC966BA1EB951FB009C0F82 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,8 @@
 		2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventCell.swift; sourceTree = "<group>"; };
 		2B25A9CC1EA70EFD00D5213C /* AddDoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDoseViewController.swift; sourceTree = "<group>"; };
 		2B25A9CD1EA70EFD00D5213C /* DisplayMedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMedViewController.swift; sourceTree = "<group>"; };
+		2B2A6A7D1EB94B4900A6CBFA /* SelectThemeTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectThemeTableVC.swift; sourceTree = "<group>"; };
+		2B2A6A7F1EB94BC200A6CBFA /* ThemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		2B2F26EB1E85C3330024461B /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNoteCell.swift; sourceTree = "<group>"; };
 		2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNoteVC.swift; sourceTree = "<group>"; };
@@ -157,6 +162,7 @@
 		2BC825C71E85B35800FD8784 /* CalendarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		2BC825C91E85B36900FD8784 /* MedicineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineVC.swift; sourceTree = "<group>"; };
 		2BC825CB1E85B37100FD8784 /* OptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsVC.swift; sourceTree = "<group>"; };
+		2BC966BA1EB951FB009C0F82 /* ColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		340542A1FADF73E8FC75529D /* Pods-Mobile Computing Project App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Computing Project App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Computing Project App/Pods-Mobile Computing Project App.release.xcconfig"; sourceTree = "<group>"; };
 		462492C6BC49F9834BF64482 /* Pods_Mobile_Computing_Project_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Computing_Project_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,6 +200,8 @@
 				016353ED1E85DA6C008958BD /* AboutVC.swift */,
 				2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */,
 				016353E71E85C19C008958BD /* OptionTableViewController.swift */,
+				2B2A6A7D1EB94B4900A6CBFA /* SelectThemeTableVC.swift */,
+				2B2A6A7F1EB94BC200A6CBFA /* ThemeCell.swift */,
 				2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */,
 			);
 			name = Options;
@@ -357,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7A6FA71EB51DE50079A368 /* CircularButton.swift */,
+				2BC966BA1EB951FB009C0F82 /* ColorButton.swift */,
 			);
 			name = CustomElements;
 			sourceTree = "<group>";
@@ -613,11 +622,13 @@
 				2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */,
 				2B25A9CF1EA70EFD00D5213C /* DisplayMedViewController.swift in Sources */,
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
+				2B2A6A7E1EB94B4900A6CBFA /* SelectThemeTableVC.swift in Sources */,
 				2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */,
 				2B7A6FA81EB51DE50079A368 /* CircularButton.swift in Sources */,
 				2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */,
 				2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */,
 				1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */,
+				2BC966BB1EB951FB009C0F82 /* ColorButton.swift in Sources */,
 				2B8E20161EA43E0E0060D88E /* PainLocationCell.swift in Sources */,
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
 				2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */,
@@ -632,6 +643,7 @@
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
+				2B2A6A801EB94BC200A6CBFA /* ThemeCell.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */,
