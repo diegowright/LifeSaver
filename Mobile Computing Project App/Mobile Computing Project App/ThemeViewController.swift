@@ -47,6 +47,17 @@ class ThemeViewController: UIViewController, UIPopoverPresentationControllerDele
         if themeName != "" {
             print("There is a valid name \(themeName).")
             // Save theme
+            DataManager.shared.saveTheme(backgroundColor: bgColor,
+                                         buttonColor: buttonColor,
+                                         buttonTxtColor: buttonTxtColor,
+                                         lblTxtColor: lblTxtColor,
+                                         navBarColor: navBarColor,
+                                         tabBarColor: tabBarColor,
+                                         themeName: themeName)
+            
+            // Update currently selected theme
+            Appearance.updateTheme()
+            
             // return to previous viewcontroller
             _ = self.navigationController?.popViewController(animated: true)
         } else {

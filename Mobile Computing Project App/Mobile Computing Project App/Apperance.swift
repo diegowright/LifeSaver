@@ -11,48 +11,14 @@ import UIKit
 
 class Appearance: NSObject {
     
-    class func setInitialAppTheme() {
-        Appearance.setMyCustomLabelColor()
-        Appearance.setMyCustomButtonFont()
-        //Appearance.setMyBackGroundColor()
+    class func updateTheme() {
+        //do something
+        let currentTheme:Theme = DataManager.shared.getCurrentTheme()
+        UIView.appearance().backgroundColor = currentTheme.backgroundColor as? UIColor
+        UIButton.appearance().backgroundColor = currentTheme.buttonColor as? UIColor
+        UIButton.appearance().tintColor = currentTheme.buttonTxtColor as? UIColor
+        UILabel.appearance().tintColor = currentTheme.lblTxtColor as? UIColor
+        UINavigationBar.appearance().backgroundColor = currentTheme.navBarColor as? UIColor
+        UITabBar.appearance().backgroundColor = currentTheme.tabBarColor as? UIColor
     }
-    
-    class func setMyCustomLabelColor() {
-        //MyCustomLabel.appearance().textColor = Config.myCustomLabelColor
-        UILabel.appearance().textColor = Config.myCustomLabelColor
-    }
-    
-    class func setUIViewBGColor() {
-        UIView.appearance().backgroundColor = Config.systemBackgroundColor
-    }
-    
-    class func setMyCustomButtonFont() {
-        // UIButton.appearance().titleLabelFont = Config.myCustomButtonFont
-        print()
-    }
-    
-    /*
-    class func setMyBackGroundColor() {
-        if UserDefaults.standard.object(forKey: cColor) == nil {
-            BGColorUser.setBGC(UIColor.white)
-        BGColorUser.setBGC(UIColor.white)
-        
-    }
-    
-    class func updateBackgroundColor(color: UIColor){
-        Config.myCustomBackground = color
-        Appearance.setMyBackgroundColor()
-    }
-    */
-    
-    class func updateLabelColor(color: UIColor) {
-        Config.myCustomLabelColor = color
-        Appearance.setMyCustomLabelColor()
-    }
-    
-    class func updateButtonFont(font: UIFont) {
-        Config.myCustomButtonFont = font
-        Appearance.setMyCustomButtonFont()
-    }
-    
 }

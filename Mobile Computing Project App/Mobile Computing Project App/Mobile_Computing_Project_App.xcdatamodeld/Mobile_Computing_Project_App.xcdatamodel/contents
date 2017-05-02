@@ -119,15 +119,25 @@
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="template" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Template" inverseName="questionAtts" inverseEntity="Template" syncable="YES"/>
     </entity>
+    <entity name="Theme" representedClassName=".Theme" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="buttonColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="buttonTxtColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="lblTxtColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="navBarColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="tabBarColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="selectedTheme" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="passWord" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="theme" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="user" inverseEntity="Event" syncable="YES"/>
         <relationship name="medDoses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedDose" inverseName="user" inverseEntity="MedDose" syncable="YES"/>
         <relationship name="medicines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="user" inverseEntity="Medicine" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="user" inverseEntity="Note" syncable="YES"/>
         <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="user" inverseEntity="Reminder" syncable="YES"/>
+        <relationship name="selectedTheme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Theme" inverseName="user" inverseEntity="Theme" syncable="YES"/>
         <relationship name="templates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="user" inverseEntity="Template" syncable="YES"/>
     </entity>
     <elements>
@@ -152,5 +162,6 @@
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
         <element name="User" positionX="-369" positionY="27" width="128" height="180"/>
+        <element name="Theme" positionX="-378" positionY="27" width="128" height="165"/>
     </elements>
 </model>

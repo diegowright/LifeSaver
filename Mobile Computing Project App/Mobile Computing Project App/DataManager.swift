@@ -577,10 +577,6 @@ final class DataManager {
         return self.currentUser
     }
     
-    func setUserTheme(user: User, theme: String) {
-        user.theme = theme
-    }
-    
     func isValidUser(userName: String, passWord: String) -> Bool{
         let userList = self.loadUsers()
         
@@ -645,6 +641,88 @@ final class DataManager {
             abort()
         }
         return true
+    }
+    
+    // MARK: - Theme
+    
+    func saveTheme(backgroundColor: UIColor, buttonColor: UIColor, buttonTxtColor: UIColor, lblTxtColor: UIColor,
+                   navBarColor: UIColor, tabBarColor: UIColor, themeName: String) {
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let entity =  NSEntityDescription.entity(forEntityName: "Theme", in: managedContext)
+        let newTheme = NSManagedObject(entity: entity!, insertInto: managedContext) as! Theme
+        
+        // Set attribute values
+        newTheme.backgroundColor = backgroundColor
+        newTheme.buttonTxtColor = buttonColor
+        newTheme.buttonTxtColor = buttonTxtColor
+        newTheme.lblTxtColor = lblTxtColor
+        newTheme.navBarColor = navBarColor
+        newTheme.tabBarColor = tabBarColor
+        newTheme.name = themeName
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        self.setCurrentTheme(theme: newTheme)
+        print("Theme saved and set as current theme.")
+    }
+    
+    func loadThemes() -> [Theme] {
+        var themes:[Theme] = []
+        let managedContext = self.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Theme")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            print("Themes loaded.")
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        if let results = fetchedResults {
+            for result in results {
+                themes.append(result as! Theme)
+            }
+        } else {
+            print("Could not fetch themes.")
+        }
+        
+        return themes
+    }
+    
+    func getCurrentTheme() -> Theme {
+        if let currentTheme = self.currentUser.selectedTheme {
+            return currentTheme
+        } else {
+            let defaultTheme: Theme = Theme()
+            defaultTheme.name = "Default"
+            let white:UIColor = UIColor.white
+            let defaultBlue:UIColor = UIColor(colorLiteralRed: 0, green: (122/255), blue: 1, alpha: 1)
+            let defaultGray:UIColor = UIColor(colorLiteralRed: (247/255), green: (247/255), blue: (247/255), alpha: 1)
+            defaultTheme.backgroundColor = white
+            defaultTheme.buttonColor = white
+            defaultTheme.buttonTxtColor = defaultBlue
+            defaultTheme.lblTxtColor = defaultBlue
+            defaultTheme.navBarColor = defaultGray
+            defaultTheme.tabBarColor = defaultGray
+            return defaultTheme
+        }
+    }
+    
+    func setCurrentTheme(theme: Theme) {
+        self.currentUser.selectedTheme = theme
     }
     
     /*
