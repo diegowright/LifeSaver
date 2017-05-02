@@ -1,5 +1,5 @@
 //
-//  SaveButton.swift
+//  CircularButton.swift
 //  Mobile Computing Project App
 //
 //  Created by Diego Wright on 4/29/17.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class SaveButton: UIButton {
+class CircularButton: UIButton {
 
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        // Drawing code
-        self.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+        self.frame = CGRect(x: self.frame.origin.x,
+                            y: self.frame.origin.y,
+                            width: self.frame.height,
+                            height: self.frame.height)
         self.layer.cornerRadius = 0.5 * self.bounds.size.width
         self.clipsToBounds = true
     }

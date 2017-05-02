@@ -51,7 +51,7 @@
 		2B63F5C81EA2C5690059717F /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63F5C71EA2C5690059717F /* DateTimeCell.swift */; };
 		2B7A6FA21EB50A930079A368 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */; };
 		2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */; };
-		2B7A6FA81EB51DE50079A368 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA71EB51DE50079A368 /* SaveButton.swift */; };
+		2B7A6FA81EB51DE50079A368 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA71EB51DE50079A368 /* CircularButton.swift */; };
 		2B8E200E1EA42F710060D88E /* AttributeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200D1EA42F710060D88E /* AttributeTableController.swift */; };
 		2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E200F1EA4345F0060D88E /* AttributeCell.swift */; };
 		2B8E20121EA43DFB0060D88E /* PainDurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */; };
@@ -140,7 +140,7 @@
 		2B63F5C71EA2C5690059717F /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeCell.swift; sourceTree = "<group>"; };
 		2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		2B7A6FA71EB51DE50079A368 /* SaveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
+		2B7A6FA71EB51DE50079A368 /* CircularButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		2B8E200D1EA42F710060D88E /* AttributeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeTableController.swift; sourceTree = "<group>"; };
 		2B8E200F1EA4345F0060D88E /* AttributeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeCell.swift; sourceTree = "<group>"; };
 		2B8E20111EA43DFB0060D88E /* PainDurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainDurationCell.swift; sourceTree = "<group>"; };
@@ -245,14 +245,15 @@
 		1BEC53771E7F7508001145E1 /* Mobile Computing Project App */ = {
 			isa = PBXGroup;
 			children = (
-				2BC99BFD1EABF19D00529C4A /* Resources */,
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
+				2BC5A4041EB9115D00911D29 /* CustomElements */,
 				2BB983531E86204B002BF3A7 /* Login */,
 				1B211B111E854FD8006573D9 /* Calendar */,
 				2B2F26EF1E85CF990024461B /* DataManagement */,
 				2B2089241EA54AC1005AEE7F /* Medicine */,
 				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
 				016353E41E85BE58008958BD /* Options */,
+				2BC99BFD1EABF19D00529C4A /* Resources */,
 				2B20892B1EA54E81005AEE7F /* Styling */,
 				2BC825C41E85B33A00FD8784 /* TabViewControllers */,
 				1BEC53821E7F7508001145E1 /* Assets.xcassets */,
@@ -355,6 +356,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		2BC5A4041EB9115D00911D29 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				2B7A6FA71EB51DE50079A368 /* CircularButton.swift */,
+			);
+			name = CustomElements;
+			sourceTree = "<group>";
+		};
 		2BC825C41E85B33A00FD8784 /* TabViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				2BB9834D1E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png */,
-				2B7A6FA71EB51DE50079A368 /* SaveButton.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -609,7 +617,7 @@
 				2B25A9CF1EA70EFD00D5213C /* DisplayMedViewController.swift in Sources */,
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
 				2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */,
-				2B7A6FA81EB51DE50079A368 /* SaveButton.swift in Sources */,
+				2B7A6FA81EB51DE50079A368 /* CircularButton.swift in Sources */,
 				2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */,
 				2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */,
 				1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */,

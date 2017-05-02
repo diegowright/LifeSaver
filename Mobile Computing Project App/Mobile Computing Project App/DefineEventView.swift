@@ -31,6 +31,7 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Define save bar and its action
         let save = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.done,
                                    target: self, action: #selector(DefineEventView.saveEvent))
+        save.tintColor = UIColor.red
         self.navigationItem.rightBarButtonItem = save
         
         // Add observers that look for attribute save notifications
@@ -45,7 +46,7 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
                                                object: nil)
         
         // function that dismisses keyboard on tap
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
 
@@ -180,9 +181,12 @@ class DefineEventView: UIViewController, UITableViewDelegate, UITableViewDataSou
     func displayMessage(_ message: String) {
         DispatchQueue.main.async {
             self.alertController =
-                UIAlertController(title: "Whoa", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                UIAlertController(title: self.title!,
+                                  message: message,
+                                  preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            let okAction = UIAlertAction(title: "OK",
+                                         style: UIAlertActionStyle.default) { (action:UIAlertAction) in
             }
             
             self.alertController!.addAction(okAction)

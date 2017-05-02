@@ -201,7 +201,7 @@ class AttributeTableController: UITableViewController {
     }
     
     func showMessage(_ message: String) {
-        let alertController = UIAlertController(title: "Title",
+        let alertController = UIAlertController(title: self.title!,
                                                 message: message,
                                                 preferredStyle: .alert)
         

@@ -33,7 +33,7 @@ class EventInputTable: UITableViewController {
                                                name: NSNotification.Name(rawValue: addDataKey),
                                                object: nil)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
 
