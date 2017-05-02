@@ -47,8 +47,8 @@
 		2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */; };
 		2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */; };
 		2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4428641EA16423009D178B /* NotificationKeys.swift */; };
+		2B5360B41EB909E90085703F /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5360B31EB909E90085703F /* colorPalette.plist */; };
 		2B63F5C81EA2C5690059717F /* DateTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63F5C71EA2C5690059717F /* DateTimeCell.swift */; };
-		2B7A6F9E1EB508980079A368 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B7A6F9D1EB508980079A368 /* colorPalette.plist */; };
 		2B7A6FA21EB50A930079A368 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */; };
 		2B7A6FA61EB514060079A368 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */; };
 		2B7A6FA81EB51DE50079A368 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A6FA71EB51DE50079A368 /* SaveButton.swift */; };
@@ -136,8 +136,8 @@
 		2B3AC8FF1E80674F00CF5BD0 /* MedicalEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalEventCell.swift; sourceTree = "<group>"; };
 		2B3AC9031E8081C700CF5BD0 /* DefineEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineEventView.swift; sourceTree = "<group>"; };
 		2B4428641EA16423009D178B /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
+		2B5360B31EB909E90085703F /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
 		2B63F5C71EA2C5690059717F /* DateTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeCell.swift; sourceTree = "<group>"; };
-		2B7A6F9D1EB508980079A368 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = colorPalette.plist; path = ../../../ColorPickerExample/ColorPickerExample/colorPalette.plist; sourceTree = "<group>"; };
 		2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		2B7A6FA71EB51DE50079A368 /* SaveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
@@ -258,8 +258,8 @@
 				1BEC53821E7F7508001145E1 /* Assets.xcassets */,
 				1BEC537C1E7F7508001145E1 /* Main.storyboard */,
 				1BEC53841E7F7508001145E1 /* LaunchScreen.storyboard */,
+				2B5360B31EB909E90085703F /* colorPalette.plist */,
 				1BEC53871E7F7508001145E1 /* Info.plist */,
-				2B7A6F9D1EB508980079A368 /* colorPalette.plist */,
 				1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */,
 			);
 			path = "Mobile Computing Project App";
@@ -511,7 +511,7 @@
 				2B20891F1EA54AB8005AEE7F /* Medicine.storyboard in Resources */,
 				1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */,
 				1B211B131E855020006573D9 /* CellView.xib in Resources */,
-				2B7A6F9E1EB508980079A368 /* colorPalette.plist in Resources */,
+				2B5360B41EB909E90085703F /* colorPalette.plist in Resources */,
 				2B3AC8FB1E805F9900CF5BD0 /* MedicalEvent.storyboard in Resources */,
 				2BB983501E862041002BF3A7 /* lifesaver-clipart-9TpeL8XTE.png in Resources */,
 				1B0968FC1E85945F00DBF79D /* MonthHeader.xib in Resources */,
