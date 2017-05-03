@@ -14,11 +14,11 @@ class DataVC: UIViewController {
         super.viewDidLoad()
         
         // Instantiate the separate storyboard for Data section and load it
-        // let storyboard = UIStoryboard(name: "Data", bundle: nil)
-        // let controller = storyboard.instantiateViewController(withIdentifier: "DataNav") as UIViewController
-        // addChildViewController(controller)
-        // view.addSubview(controller.view)
-        // controller.didMove(toParentViewController: self)
+         let storyboard = UIStoryboard(name: "Plot", bundle: nil)
+         let controller = storyboard.instantiateViewController(withIdentifier: "PlotNav") as UIViewController
+         addChildViewController(controller)
+         view.addSubview(controller.view)
+         controller.didMove(toParentViewController: self)
     }
 
     override func didReceiveMemoryWarning() {
