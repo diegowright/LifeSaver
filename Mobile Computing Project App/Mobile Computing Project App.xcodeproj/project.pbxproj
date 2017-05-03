@@ -236,8 +236,8 @@
 		2BFABF321EB96B00000CD978 /* Plot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Plot.storyboard; sourceTree = "<group>"; };
 		2BFABF341EB96B25000CD978 /* PlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotViewController.swift; sourceTree = "<group>"; };
 		2BFABF3B1EB96BBB000CD978 /* JBChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JBChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BFABF3D1EB96BBB000CD978 /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBChart.h; sourceTree = "<group>"; };
-		2BFABF3E1EB96BBB000CD978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BFABF3D1EB96BBB000CD978 /* JBChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBChart.h; path = JBChart/JBChart.h; sourceTree = SOURCE_ROOT; };
+		2BFABF3E1EB96BBB000CD978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = JBChart/Info.plist; sourceTree = SOURCE_ROOT; };
 		2BFABF431EB96BBB000CD978 /* JBChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JBChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BFABF4A1EB96BBB000CD978 /* JBChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBChartTests.m; sourceTree = "<group>"; };
 		2BFABF4C1EB96BBB000CD978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -533,9 +533,8 @@
 				2BFABF3D1EB96BBB000CD978 /* JBChart.h */,
 				2BFABF3E1EB96BBB000CD978 /* Info.plist */,
 			);
-			name = JBChart;
-			path = "/u/dwright/Projects/LifeSaver/Mobile Computing Project App/JBChart";
-			sourceTree = "<absolute>";
+			path = JBChart;
+			sourceTree = SOURCE_ROOT;
 		};
 		2BFABF491EB96BBB000CD978 /* JBChartTests */ = {
 			isa = PBXGroup;
@@ -543,9 +542,8 @@
 				2BFABF4A1EB96BBB000CD978 /* JBChartTests.m */,
 				2BFABF4C1EB96BBB000CD978 /* Info.plist */,
 			);
-			name = JBChartTests;
-			path = "/u/dwright/Projects/LifeSaver/Mobile Computing Project App/JBChartTests";
-			sourceTree = "<absolute>";
+			path = JBChartTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		2BFABF591EB96BFD000CD978 /* Classes */ = {
 			isa = PBXGroup;
@@ -555,8 +553,9 @@
 				2BFABF631EB96BFD000CD978 /* Base */,
 				2BFABF661EB96BFD000CD978 /* Line */,
 			);
-			path = Classes;
-			sourceTree = "<group>";
+			name = Classes;
+			path = JBChart/Classes;
+			sourceTree = SOURCE_ROOT;
 		};
 		2BFABF5A1EB96BFD000CD978 /* Additions */ = {
 			isa = PBXGroup;
