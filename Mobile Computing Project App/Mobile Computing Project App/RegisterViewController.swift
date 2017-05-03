@@ -49,7 +49,8 @@ class RegisterViewController: UIViewController {
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) { (action:UIAlertAction) in
                     print("Ok Button Pressed 2")
                     // pop back to login view
-                    _ = self.navigationController?.popViewController(animated: true)
+                    let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                    self.present(loginVC, animated: true, completion: nil)
                 }
                 self.alertController!.addAction(okAction)
                 self.present(self.alertController!, animated: true, completion:nil)
