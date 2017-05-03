@@ -19,7 +19,7 @@ class QuestionCell: UITableViewCell {
     
     @IBAction func sendQuestionNotification(_ sender: Any) {
         let idx:Int16 = Int16(answer.selectedSegmentIndex)
-        let dataDict:Dictionary<String, Any> = ["data":idx,
+        let dataDict:Dictionary<String, Any> = ["data":[idx, questionText.text!],
                                                 "row":self.row!]
         NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
                                         object: nil,

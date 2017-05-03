@@ -122,6 +122,8 @@ class ShowEventValues: UITableViewController {
             cell.row = indexPath.row
             // Set proper pain duration value
             cell.durationInput.text = self.attributes![indexPath.row]["value"]! as? String
+            let unit:Int16 = self.attributes![indexPath.row]["unit"]! as! Int16
+            cell.unitControl.selectedSegmentIndex = Int(unit)
             // disable text input and segmented control
             cell.durationInput.isEnabled = false
             cell.unitControl.isEnabled = false
@@ -156,6 +158,7 @@ class ShowEventValues: UITableViewController {
             //set questionanswer to correct value
             let idx16:Int16 = self.attributes![indexPath.row]["value"]! as! Int16
             cell.answer.selectedSegmentIndex = Int(idx16)
+            cell.questionText.text = self.attributes![indexPath.row]["question"]! as? String
             // disable answer selector
             cell.answer.isEnabled = false
             return cell

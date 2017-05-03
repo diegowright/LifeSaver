@@ -56,7 +56,7 @@ class PainDurationCell: UITableViewCell {
             return
         }
         
-        let dataDict:Dictionary<String, Any> = ["data":duration,
+        let dataDict:Dictionary<String, Any> = ["data":[duration, unitControl.selectedSegmentIndex],
                                                 "row":self.row!]
         NotificationCenter.default.post(name: Notification.Name(rawValue: addDataKey),
                                         object: nil,

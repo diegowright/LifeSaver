@@ -26,6 +26,7 @@
     <entity name="EventPainDurValue" representedClassName="EventPainDurValue" syncable="YES" codeGenerationType="class">
         <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="painDurs" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="EventPainLocValue" representedClassName="EventPainLocValue" syncable="YES" codeGenerationType="class">
@@ -46,6 +47,7 @@
     <entity name="EventQuestionValue" representedClassName="EventQuestionValue" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="questions" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="MedDose" representedClassName="MedDose" syncable="YES" codeGenerationType="class">
@@ -144,11 +146,11 @@
         <element name="Event" positionX="-560" positionY="-0" width="128" height="210"/>
         <element name="EventDateTimeValue" positionX="-378" positionY="27" width="128" height="90"/>
         <element name="EventNoteValue" positionX="-369" positionY="36" width="128" height="90"/>
-        <element name="EventPainDurValue" positionX="-360" positionY="45" width="128" height="90"/>
+        <element name="EventPainDurValue" positionX="-360" positionY="45" width="128" height="105"/>
         <element name="EventPainLocValue" positionX="-333" positionY="72" width="128" height="90"/>
         <element name="EventPainLvlValue" positionX="-342" positionY="63" width="128" height="90"/>
         <element name="EventPainTypeValue" positionX="-351" positionY="54" width="128" height="90"/>
-        <element name="EventQuestionValue" positionX="-324" positionY="81" width="128" height="90"/>
+        <element name="EventQuestionValue" positionX="-324" positionY="81" width="128" height="105"/>
         <element name="MedDose" positionX="-378" positionY="27" width="128" height="105"/>
         <element name="Medicine" positionX="-378" positionY="18" width="128" height="120"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="90"/>
@@ -161,7 +163,7 @@
         <element name="TemplatePainLvlAtt" positionX="-324" positionY="36" width="128" height="75"/>
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
-        <element name="User" positionX="-369" positionY="27" width="128" height="180"/>
         <element name="Theme" positionX="-378" positionY="27" width="128" height="165"/>
+        <element name="User" positionX="-369" positionY="27" width="128" height="180"/>
     </elements>
 </model>

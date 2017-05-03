@@ -165,7 +165,9 @@ final class DataManager {
                 let entity = NSEntityDescription.entity(forEntityName: "EventPainDurValue", in: managedContext)
                 let painDurValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventPainDurValue
                 painDurValue.id = el["id"]! as? String
-                painDurValue.duration = el["data"]! as! Float
+                let data = el["data"]! as! Array<Any>
+                painDurValue.duration = data[0] as! Float
+                painDurValue.unit = Int16(data[1] as! Int)
                 event.addToPainDurs(painDurValue)
                 print("Pain Duration value saved.")
                 
@@ -181,7 +183,9 @@ final class DataManager {
                 let entity = NSEntityDescription.entity(forEntityName: "EventQuestionValue", in: managedContext)
                 let questionValue = NSManagedObject(entity: entity!, insertInto: managedContext) as! EventQuestionValue
                 questionValue.id = el["id"]! as? String
-                questionValue.answer = el["data"]! as! Int16
+                let data = el["data"]! as! Array<Any>
+                questionValue.answer = data[0] as! Int16
+                questionValue.question = data[1] as? String
                 event.addToQuestions(questionValue)
                 print("Question value saved.")
                 
@@ -339,7 +343,8 @@ final class DataManager {
         }
         for val in questionVals {
             let temp = val as! EventQuestionValue
-            let dict:Dictionary<String, Any> = ["value":temp.answer, "event":temp.event!, "id":temp.id!]
+            let dict:Dictionary<String, Any> = ["value":temp.answer, "question":temp.question!,
+                                                "event":temp.event!, "id":temp.id!]
             vals.append(dict)
         }
         for val in painLocVals {
@@ -359,7 +364,8 @@ final class DataManager {
         }
         for val in painDurVals {
             let temp = val as! EventPainDurValue
-            let dict:Dictionary<String, Any> = ["value":temp.duration, "event":temp.event!, "id":temp.id!]
+            let dict:Dictionary<String, Any> = ["value":temp.duration, "unit":temp.unit,
+                                                "event":temp.event!, "id":temp.id!]
             vals.append(dict)
         }
         for val in noteVals {
