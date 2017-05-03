@@ -61,6 +61,8 @@
 		2B8E20181EA43E1C0060D88E /* PainTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */; };
 		2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20191EA43E280060D88E /* NoteCell.swift */; };
 		2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A91E81CA6800F3CDAE /* DataManager.swift */; };
+		2B9F6DD31EBA6C4500230836 /* EventSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6DD21EBA6C4500230836 /* EventSorting.swift */; };
+		2B9F6DD81EBA902900230836 /* PlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6DD71EBA902900230836 /* PlotCell.swift */; };
 		2BA2A1FD1EA6AA5000EDEFD1 /* ShowEventValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */; };
 		2BB2E2781EA28BCB0024B748 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2E2771EA28BCB0024B748 /* QuestionCell.swift */; };
 		2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB2E2791EA28C270024B748 /* CellView.swift */; };
@@ -218,6 +220,8 @@
 		2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainTypeCell.swift; sourceTree = "<group>"; };
 		2B8E20191EA43E280060D88E /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		2B8F52A91E81CA6800F3CDAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2B9F6DD21EBA6C4500230836 /* EventSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSorting.swift; sourceTree = "<group>"; };
+		2B9F6DD71EBA902900230836 /* PlotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotCell.swift; sourceTree = "<group>"; };
 		2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventValues.swift; sourceTree = "<group>"; };
 		2BB2E2771EA28BCB0024B748 /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		2BB2E2791EA28C270024B748 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
@@ -514,7 +518,9 @@
 			isa = PBXGroup;
 			children = (
 				2BFABF321EB96B00000CD978 /* Plot.storyboard */,
+				2B9F6DD71EBA902900230836 /* PlotCell.swift */,
 				2BFABF341EB96B25000CD978 /* PlotViewController.swift */,
+				2B9F6DD21EBA6C4500230836 /* EventSorting.swift */,
 			);
 			name = Plotting;
 			path = ..;
@@ -935,6 +941,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B9F6DD31EBA6C4500230836 /* EventSorting.swift in Sources */,
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
 				2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */,
 				2B2089331EA57D12005AEE7F /* EventInputTable.swift in Sources */,
@@ -980,6 +987,7 @@
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				2B2A6A801EB94BC200A6CBFA /* ThemeCell.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */,
+				2B9F6DD81EBA902900230836 /* PlotCell.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */,
 				2B2089211EA54AB8005AEE7F /* PrescriptionsTableViewController.swift in Sources */,
@@ -1370,6 +1378,7 @@
 				2BFABF541EB96BBB000CD978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BFABF561EB96BBB000CD978 /* Build configuration list for PBXNativeTarget "JBChartTests" */ = {
 			isa = XCConfigurationList;
@@ -1378,6 +1387,7 @@
 				2BFABF581EB96BBB000CD978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

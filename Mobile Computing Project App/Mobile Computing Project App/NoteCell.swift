@@ -26,9 +26,14 @@ class NoteCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        noteText.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControlEvents.editingDidEnd)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func textFieldDidChange (_ noteText: UITextField) {
+        self.sendNoteNotification(self)
     }
 }

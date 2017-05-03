@@ -13,12 +13,7 @@ import CoreData
 final class DataManager {
     // Instantiate DataManager singleton.
     static let shared = DataManager()
-    
-    // This is the current user
-    fileprivate var currentUser = User()
-    
-    // fileprivate var events = [Event]()
-    // fileprivate var templates = [Template]()
+    fileprivate var currentUser = User()    // Current user
     
     // MARK: - Medicine Methods
     
@@ -191,7 +186,6 @@ final class DataManager {
                 
             default:
                 print("Default case, something went wrong.")
-                
             }
         }
         // Try saving newly event record
@@ -442,12 +436,12 @@ final class DataManager {
         
         // Create note entity
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)
-        let note = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let note = NSManagedObject(entity: entity!, insertInto: managedContext) as! Note
         
         print("saving note for \(date), \(noteText)")
-        
-        note.setValue(date, forKey: "date")
-        note.setValue(noteText, forKey: "text")
+        note.date = date as NSDate?
+        note.text = noteText
+        note.user = self.currentUser
         
         do {
             try managedContext.save()
@@ -460,100 +454,68 @@ final class DataManager {
         return
     }
     
-    // This function needs to be modified to also search for entities by date and add them somehow to calendar
+    // Loads in Notes and Events by date
     func loadEventsByDate(_ date: Date) -> [Dictionary<String, Any>] {
         // initiate container that will have Entity name and link to entity
         var records:[Dictionary<String, Any>] = []
         
-        let managedContext = self.persistentContainer.viewContext
+        // Format date formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.locale = NSLocale.autoupdatingCurrent
         
-        // Fetch Notes
-        
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Note")
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
+        let nsNotes = self.getCurrentUser().notes!
+        var notes:[Note] = []
+        for val in nsNotes {
+            notes.append(val as! Note)
         }
         
-        if let results = fetchedResults {
-            for result in results {
-                let note:Note = result as! Note
-                let recordDate:Date = note.date! as Date
-                
-                //compare dates
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy MM dd"
-                dateFormatter.locale = NSLocale.autoupdatingCurrent
+        for note in notes {
+            let recordDate:Date = note.date! as Date
+            
+            //compare dates
+            let recordDateString = dateFormatter.string(from: recordDate)
+            let loadDateString = dateFormatter.string(from: date)
+            
+            if recordDateString == loadDateString {
+                records.append(["entity":note, "type":"Note"])
+            }
+        }
+        
+        // Fetch Events
+        let nsEvents = self.currentUser.events!
+        var events:[Event] = []
+        for val in nsEvents {
+            events.append(val as! Event)
+        }
+        
+        for event in events {
+            let eventDates = event.datetimes!
+            
+            // Check if entity has a date associated
+            if eventDates.count != 0 {
+                // Event had datetime attribute so use that time
+                let dateTimeValue = Array(eventDates)[0] as! EventDateTimeValue // just use first value
+                let recordDate:Date = dateTimeValue.datetime! as Date
                 let recordDateString = dateFormatter.string(from: recordDate)
                 let loadDateString = dateFormatter.string(from: date)
                 
                 if recordDateString == loadDateString {
-                    records.append(["entity":note, "type":"Note"])
+                    records.append(["entity":event, "type":"Event"])
+                }
+            } else {
+                // No date associated by attribute type so use event creation time
+                let recordDate:Date = event.dateCreated! as Date
+                let recordDateString = dateFormatter.string(from: recordDate)
+                let loadDateString = dateFormatter.string(from: date)
+                
+                if recordDateString == loadDateString {
+                    records.append(["entity":event, "type":"Event"])
                 }
             }
-        } else {
-            print("Could not fetch Notes")
-        }
-        
-        // Fetch Events
-        
-        fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Event")  // Reassign fetch request
-        fetchedResults!.removeAll()  // Remove previous results
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // what to do if an error occurs?
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResults {
-            for result in results {
-                let event:Event = result as! Event
-                let eventDates = event.datetimes!
-                
-                // Create date formatter
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy MM dd"
-                dateFormatter.locale = NSLocale.autoupdatingCurrent
-                
-                // Check if entity has a date associated
-                if eventDates.count != 0 {
-                    // Event had datetime attribute so use that time
-                    let dateTimeValue = Array(eventDates)[0] as! EventDateTimeValue // just use first value
-                    let recordDate:Date = dateTimeValue.datetime! as Date
-                    let recordDateString = dateFormatter.string(from: recordDate)
-                    let loadDateString = dateFormatter.string(from: date)
-                    
-                    if recordDateString == loadDateString {
-                        records.append(["entity":event, "type":"Event"])
-                    }
-                } else {
-                    // No date associated by attribute type so use event creation time
-                    let recordDate:Date = event.dateCreated! as Date
-                    let recordDateString = dateFormatter.string(from: recordDate)
-                    let loadDateString = dateFormatter.string(from: date)
-                    
-                    if recordDateString == loadDateString {
-                        records.append(["entity":event, "type":"Event"])
-                    }
-                }
-            }
-        } else {
-            print("Could not fetch Events")
-            return []
         }
         
         // Fetch Medicine stuff
-        
         print("Loaded records by date: \(records)")
         
         return records
@@ -680,6 +642,7 @@ final class DataManager {
         print("Theme saved and set as current theme.")
     }
     
+    // This loads all themes on device, these do not have to be associated with a particular user
     func loadThemes() -> [Theme] {
         var themes:[Theme] = []
         let managedContext = self.persistentContainer.viewContext
@@ -708,6 +671,7 @@ final class DataManager {
         return themes
     }
     
+    // Returns the theme currently associated with the current user
     func getCurrentTheme() -> Theme {
         if let currentTheme = self.currentUser.selectedTheme {
             return currentTheme
@@ -727,6 +691,7 @@ final class DataManager {
         }
     }
     
+    // Sets the theme for the current user
     func setCurrentTheme(theme: Theme) {
         self.currentUser.selectedTheme = theme
     }

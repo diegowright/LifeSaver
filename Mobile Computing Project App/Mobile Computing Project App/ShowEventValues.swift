@@ -66,7 +66,9 @@ class ShowEventValues: UITableViewController {
             cell.row = indexPath.row
             
             // Set proper value
-            cell.noteText!.text = self.attributes![indexPath.row]["value"]! as? String
+            let noteText:String = self.attributes![indexPath.row]["value"]! as! String
+            print("Notetext: ", noteText)
+            cell.noteText!.text = noteText
             // Disable note text
             cell.noteText!.isEnabled = false
             

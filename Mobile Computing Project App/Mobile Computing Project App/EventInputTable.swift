@@ -12,6 +12,7 @@ class EventInputTable: UITableViewController {
     
     var template:Template?
     var attributeInfo:[Dictionary<String, Any>]?
+    var alertController:UIAlertController? = nil
     
     let white:UIColor = UIColor.white
 
@@ -141,11 +142,26 @@ class EventInputTable: UITableViewController {
     }
     
     func saveEvent() {
-        DataManager.shared.saveEvent(template: self.template!, data: self.attributeInfo!)
-        print("Event type Saved!")
+        // Present alert controller with prompt
+        let alertController = UIAlertController(title: "Add Attribute",
+                                                message: "Add this attribute?",
+                                                preferredStyle: .alert)
         
-        // Return to previous view which is Medical Event Table
-        _ = self.navigationController?.popViewController(animated: true)
+        alertController.addAction(UIAlertAction(title: "Save",
+                                                style: .default,
+                                                handler: { alert -> Void in
+            DataManager.shared.saveEvent(template: self.template!, data: self.attributeInfo!)
+            print("Event type Saved!")
+            
+            // Return to previous view which is Medical Event Table
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel",
+                                                style: .cancel,
+                                                handler: { alert -> Void in return}))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func dismissKeyboard() {

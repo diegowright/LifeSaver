@@ -69,5 +69,10 @@ class PainDurationCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        durationInput.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControlEvents.editingDidEnd)
+    }
+    
+    func textFieldDidChange (_ noteText: UITextField) {
+        self.sendDurationNotification(self)
     }
 }
