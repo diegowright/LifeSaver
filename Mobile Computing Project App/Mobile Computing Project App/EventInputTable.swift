@@ -143,8 +143,8 @@ class EventInputTable: UITableViewController {
     
     func saveEvent() {
         // Present alert controller with prompt
-        let alertController = UIAlertController(title: "Add Attribute",
-                                                message: "Add this attribute?",
+        let alertController = UIAlertController(title: self.title!,
+                                                message: "Save this event?",
                                                 preferredStyle: .alert)
         
         alertController.addAction(UIAlertAction(title: "Save",

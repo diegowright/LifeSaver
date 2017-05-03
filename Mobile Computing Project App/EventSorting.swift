@@ -9,9 +9,16 @@
 import Foundation
 
 class EventSorting {
+    
+    // will return a binned list of event counts for a specific event type
     class func sortByDate(template: Template) -> ([Date], [Int]) {
         // Load in all events associated to
         let templateEvents = template.event!
+        
+        // Check if there are events for this template
+        if templateEvents.count == 0 {
+            return ([], [])
+        }
         
         // Create date formatter
         let dateFormatter = DateFormatter()
@@ -49,8 +56,6 @@ class EventSorting {
             }
             events.append(event)
         }
-        print("Oldest date: ", dateFormatter.string(from: oldestDate!))
-        
         // Create list of weeks from oldest date till current date
         var weekList:[Date] = [oldestDate!]
         let calendar = Calendar.current
@@ -58,8 +63,6 @@ class EventSorting {
             let newDate = calendar.date(byAdding: .day, value: 7, to: weekList[weekList.count - 1])!
             weekList.append(newDate)
         }
-        print("Weeklist: ", weekList)
-        
         // Get count of events sorted into week long bins
         var eventCount:[Int] = []
         for _ in weekList {
@@ -89,7 +92,6 @@ class EventSorting {
                 }
             }
         }
-        print("Eventcount: ", eventCount)
         
         // Return weeklist and eventCount
         return (weekList, eventCount)

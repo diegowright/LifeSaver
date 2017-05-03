@@ -515,7 +515,8 @@ final class DataManager {
             }
         }
         
-        // Fetch Medicine stuff
+        // Stuff for adding med dose entities
+        
         print("Loaded records by date: \(records)")
         
         return records

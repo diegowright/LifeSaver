@@ -13,7 +13,6 @@ import JBChart
 class PlotViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var barChart: JBBarChartView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var selectedIdx:Int = 0
@@ -42,7 +41,7 @@ class PlotViewController: UIViewController, JBBarChartViewDelegate, JBBarChartVi
         barChart.delegate = self
         barChart.dataSource = self
         barChart.minimumValue = 0
-        barChart.maximumValue = 100
+        barChart.maximumValue = CGFloat(self.chartData.max()! + 5)
         
         barChart.reloadData()
         barChart.setState(.collapsed, animated: false)
@@ -133,6 +132,8 @@ class PlotViewController: UIViewController, JBBarChartViewDelegate, JBBarChartVi
         let data = chartData[Int(index)]
         let key = chartLegend[Int(index)]
         
+        //plotDescription.text = "There are \(data) recorded events for \(key)"
+        
         //informationLabel.text = "Weather on \(key): \(data)"
         return
     }
@@ -181,5 +182,29 @@ class PlotViewController: UIViewController, JBBarChartViewDelegate, JBBarChartVi
         
         self.chartLegend = newDates
         self.chartData = newVals.1
+        
+        /*
+        let footer1 = UILabel(frame: CGRect(x: 0, y: 0,
+                                            width: barChart.frame.width/2 - 8,
+                                            height: 16))
+        footer1.textColor = black
+        footer1.text = "\(chartLegend[0])"
+        
+        let footer2 = UILabel(frame: CGRect(x: barChart.frame.width/2 - 8, y: 0,
+                                            width: barChart.frame.width/2 - 8,
+                                            height: 16))
+        footer2.textColor = black
+        footer2.text = "\(chartLegend[chartLegend.count - 1])"
+        footer2.textAlignment = NSTextAlignment.right
+        
+        self.barChart.footerView.insertSubview(footer1, at: 0)
+        self.barChart.footerView.insertSubview(footer2, at: 1)
+        */
+        
+        if newVals.0.count == 0 {
+            barChart.maximumValue = CGFloat(10)
+        } else {
+            barChart.maximumValue = CGFloat(self.chartData.max()! + 5)
+        }
     }
 }
