@@ -10,8 +10,8 @@ import UIKit
 
 class OptionTableViewController: UITableViewController {
     
-    fileprivate let sections = ["Options", "Themes"]
-    fileprivate let options = [["about_ID"], ["selectTheme_ID", "createTheme_ID"]]
+    fileprivate let sections = ["Options", "Themes", "Food Tracker"]
+    fileprivate let options = [["about_ID"], ["selectTheme_ID", "createTheme_ID"], ["food_ID"]]
     fileprivate let white:UIColor = UIColor.white
     
     override func viewDidLoad() {

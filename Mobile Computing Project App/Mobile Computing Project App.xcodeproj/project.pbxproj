@@ -15,6 +15,7 @@
 		1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */; };
 		1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B0F1E854FCA006573D9 /* Calendar.storyboard */; };
 		1B211B131E855020006573D9 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B121E855020006573D9 /* CellView.xib */; };
+		1B8AAAC01EBB785B00D1A819 /* FoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */; };
 		1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC53781E7F7508001145E1 /* AppDelegate.swift */; };
 		1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEC537C1E7F7508001145E1 /* Main.storyboard */; };
 		1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */; };
@@ -169,6 +170,7 @@
 		1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		1B211B0F1E854FCA006573D9 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		1B211B121E855020006573D9 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodTracker.storyboard; sourceTree = "<group>"; };
 		1BEC53751E7F7508001145E1 /* Mobile Computing Project App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Computing Project App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEC53781E7F7508001145E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BEC537D1E7F7508001145E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -343,6 +345,14 @@
 			name = Calendar;
 			sourceTree = "<group>";
 		};
+		1B8AAAC21EBB7B2C00D1A819 /* Food Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */,
+			);
+			name = "Food Tracker";
+			sourceTree = "<group>";
+		};
 		1BEC536C1E7F7508001145E1 = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
+				1B8AAAC21EBB7B2C00D1A819 /* Food Tracker */,
 				2BFABF311EB96ACC000CD978 /* Plotting */,
 				2BC5A4041EB9115D00911D29 /* CustomElements */,
 				2BB983531E86204B002BF3A7 /* Login */,
@@ -846,6 +857,7 @@
 				1BEC53861E7F7508001145E1 /* LaunchScreen.storyboard in Resources */,
 				1BEC53831E7F7508001145E1 /* Assets.xcassets in Resources */,
 				1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */,
+				1B8AAAC01EBB785B00D1A819 /* FoodTracker.storyboard in Resources */,
 				2B20891F1EA54AB8005AEE7F /* Medicine.storyboard in Resources */,
 				2BFABF331EB96B00000CD978 /* Plot.storyboard in Resources */,
 				1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */,
