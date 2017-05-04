@@ -23,14 +23,15 @@ final class DataManager {
         
         // Create note entity
         let entity = NSEntityDescription.entity(forEntityName: "Medicine", in: managedContext)
-        let med = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let med = NSManagedObject(entity: entity!, insertInto: managedContext) as! Medicine
         
         print("saving med for \(name)")
         
-        med.setValue(name, forKey: "name")
-        med.setValue(dose, forKey: "dose")
-        med.setValue(unit, forKey: "unit")
-        med.setValue(instruct, forKey: "instruct")
+        med.name = name
+        med.dose = dose
+        med.unit = unit
+        med.instruct = instruct
+        med.user = self.currentUser
         
         do {
             try managedContext.save()
@@ -55,13 +56,14 @@ final class DataManager {
     func saveDose(med: String, quantity:Double, time: Date) {
         let managedContext = self.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "MedDose", in: managedContext)
-        let dose = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let dose = NSManagedObject(entity: entity!, insertInto: managedContext) as! MedDose
         
         print("saving med for \(med)")
         
-        dose.setValue(med, forKey: "med")
-        dose.setValue(quantity, forKey: "quantity")
-        dose.setValue(time, forKey: "time")
+        dose.med = med
+        dose.quantity = quantity
+        dose.time = time as NSDate
+        dose.user = self.currentUser
         
         do {
             try managedContext.save()
@@ -77,13 +79,14 @@ final class DataManager {
     func saveReminder(name:String, freq:String, time:Date) {
         let managedContext = self.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Reminder", in: managedContext)
-        let dose = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let dose = NSManagedObject(entity: entity!, insertInto: managedContext) as! Reminder
         
         print("saving med for \(name)")
         
         dose.setValue(name, forKey: "name")
         dose.setValue(freq, forKey: "freq")
         dose.setValue(time, forKey: "time")
+        dose.user = self.currentUser
         
         do {
             try managedContext.save()
