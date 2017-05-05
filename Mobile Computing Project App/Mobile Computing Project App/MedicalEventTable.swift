@@ -16,16 +16,11 @@ class MedicalEventTable: UITableViewController {
         super.viewDidLoad()
         self.title = "Medical Events"
         
-        let edit_button:UIBarButtonItem = UIBarButtonItem(title:"Edit",
-                                                          style: .plain,
-                                                          target: self,
-                                                          action: #selector(MedicalEventTable.editButton))
         let define_button:UIBarButtonItem = UIBarButtonItem(title:"Define New",
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(MedicalEventTable.defineButton))
         
-        self.navigationItem.leftBarButtonItem = edit_button
         self.navigationItem.rightBarButtonItem = define_button
     }
     

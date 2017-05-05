@@ -76,6 +76,108 @@ final class DataManager {
         return
     }
     
+    func saveMeal(date: Date, type: String, food: String, beverage: String, comment: String) {
+        // Obtain context
+        let managedContext = self.persistentContainer.viewContext
+        
+        // Create note entity
+        let entity = NSEntityDescription.entity(forEntityName: "Meal", in: managedContext)
+        let meal = NSManagedObject(entity: entity!, insertInto: managedContext) as! Meal
+        
+        print("saving meal for \(date) \(type) \(food) \(beverage) \(comment)")
+        
+        meal.date = date as NSDate?!
+        meal.type = type
+        meal.food = food
+        meal.beverage = beverage
+        meal.comment = comment
+        meal.user = self.currentUser
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+    func loadMeal() ->  [Meal] {
+        let nsValues = self.getCurrentUser().meals!
+        
+        var meals:[Meal] = []
+        for val in nsValues {
+            meals.append(val as! Meal)
+        }
+        
+        var oldDate:Date = Date()
+        var mealsOrdered:[Meal] = []
+        
+        for meal in meals {
+            if mealsOrdered.count == 0 || meal.date! as Date > oldDate {
+                mealsOrdered.append(meal)
+                oldDate = meal.date as! Date
+            } else {
+                mealsOrdered.insert(meal, at: 0)
+                oldDate = meal.date as! Date
+            }
+        }
+        
+        return mealsOrdered
+    }
+    
+    func saveWater(date: Date, type: String, amount: Int) {
+        // Obtain context
+        let managedContext = self.persistentContainer.viewContext
+        
+        // Create note entity
+        let entity = NSEntityDescription.entity(forEntityName: "WaterLog", in: managedContext)
+        let meal = NSManagedObject(entity: entity!, insertInto: managedContext) as! WaterLog
+        
+        print("saving water for \(date) \(type) \(amount)")
+        
+        meal.date = date as NSDate?!
+        meal.type = type
+        meal.amount = Int16(amount)
+        meal.user = self.currentUser
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        return
+    }
+    
+    func loadWater() ->  [WaterLog] {
+        let nsValues = self.getCurrentUser().waterLogs!
+        
+        var meals:[WaterLog] = []
+        for val in nsValues {
+            meals.append(val as! WaterLog)
+        }
+        
+        var oldDate:Date = Date()
+        var mealsOrdered:[WaterLog] = []
+        
+        for meal in meals {
+            if mealsOrdered.count == 0 || meal.date! as Date > oldDate {
+                mealsOrdered.append(meal)
+                oldDate = meal.date as! Date
+            } else {
+                mealsOrdered.insert(meal, at: 0)
+                oldDate = meal.date as! Date
+            }
+        }
+        
+        return mealsOrdered
+    }
+    
     func saveReminder(name:String, freq:String, time:Date) {
         let managedContext = self.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Reminder", in: managedContext)

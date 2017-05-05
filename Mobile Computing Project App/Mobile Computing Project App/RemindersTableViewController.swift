@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class RemindersTableViewController: UITableViewController {
     
     var expandedRows = Set<Int>()
     var time:Dictionary<String,Date> = ["Daily":Date()]
+    var alertController:UIAlertController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +102,13 @@ class RemindersTableViewController: UITableViewController {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "displayDaily"),
                                         object: nil,
                                         userInfo: dataDict)
+        
+        self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
+        }
+        self.alertController!.addAction(OKAction)
+        self.present(self.alertController!, animated: true, completion:nil)
     }
 
     /*

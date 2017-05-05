@@ -15,7 +15,12 @@
 		1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */; };
 		1B211B101E854FCA006573D9 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B0F1E854FCA006573D9 /* Calendar.storyboard */; };
 		1B211B131E855020006573D9 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B211B121E855020006573D9 /* CellView.xib */; };
+		1B2B91761EBBDD3B0001E0CB /* AddWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2B91751EBBDD3B0001E0CB /* AddWaterViewController.swift */; };
+		1B5E79251EBD2B1100197733 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E79241EBD2B1100197733 /* FoodDetailsViewController.swift */; };
+		1B8520631EBBE4E70072DE36 /* MainFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8520621EBBE4E70072DE36 /* MainFoodViewController.swift */; };
+		1B8520651EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8520641EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift */; };
 		1B8AAAC01EBB785B00D1A819 /* FoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */; };
+		1BD5721E1EBB8D7100194522 /* LogMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5721D1EBB8D7100194522 /* LogMealViewController.swift */; };
 		1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC53781E7F7508001145E1 /* AppDelegate.swift */; };
 		1BEC537E1E7F7508001145E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEC537C1E7F7508001145E1 /* Main.storyboard */; };
 		1BEC53811E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BEC537F1E7F7508001145E1 /* Mobile_Computing_Project_App.xcdatamodeld */; };
@@ -170,7 +175,12 @@
 		1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		1B211B0F1E854FCA006573D9 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		1B211B121E855020006573D9 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		1B2B91751EBBDD3B0001E0CB /* AddWaterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaterViewController.swift; sourceTree = "<group>"; };
+		1B5E79241EBD2B1100197733 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewController.swift; sourceTree = "<group>"; };
+		1B8520621EBBE4E70072DE36 /* MainFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFoodViewController.swift; sourceTree = "<group>"; };
+		1B8520641EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealWaterSummaryTableViewController.swift; sourceTree = "<group>"; };
 		1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodTracker.storyboard; sourceTree = "<group>"; };
+		1BD5721D1EBB8D7100194522 /* LogMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogMealViewController.swift; sourceTree = "<group>"; };
 		1BEC53751E7F7508001145E1 /* Mobile Computing Project App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Computing Project App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BEC53781E7F7508001145E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BEC537D1E7F7508001145E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -349,6 +359,11 @@
 			isa = PBXGroup;
 			children = (
 				1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */,
+				1B5E79241EBD2B1100197733 /* FoodDetailsViewController.swift */,
+				1B8520641EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift */,
+				1B8520621EBBE4E70072DE36 /* MainFoodViewController.swift */,
+				1BD5721D1EBB8D7100194522 /* LogMealViewController.swift */,
+				1B2B91751EBBDD3B0001E0CB /* AddWaterViewController.swift */,
 			);
 			name = "Food Tracker";
 			sourceTree = "<group>";
@@ -954,6 +969,7 @@
 			files = (
 				2B9F6DD31EBA6C4500230836 /* EventSorting.swift in Sources */,
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
+				1B8520631EBBE4E70072DE36 /* MainFoodViewController.swift in Sources */,
 				2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */,
 				2B2089331EA57D12005AEE7F /* EventInputTable.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
@@ -965,6 +981,7 @@
 				2BC825CA1E85B36900FD8784 /* MedicineVC.swift in Sources */,
 				2BC825C61E85B34E00FD8784 /* MedicalEventVC.swift in Sources */,
 				2B63F5C81EA2C5690059717F /* DateTimeCell.swift in Sources */,
+				1B5E79251EBD2B1100197733 /* FoodDetailsViewController.swift in Sources */,
 				2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */,
 				2BFABF351EB96B25000CD978 /* PlotViewController.swift in Sources */,
 				016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */,
@@ -986,6 +1003,7 @@
 				2BC825C31E85B33300FD8784 /* DataVC.swift in Sources */,
 				2B4428651EA16423009D178B /* NotificationKeys.swift in Sources */,
 				2BB2E2781EA28BCB0024B748 /* QuestionCell.swift in Sources */,
+				1BD5721E1EBB8D7100194522 /* LogMealViewController.swift in Sources */,
 				2B25A9CE1EA70EFD00D5213C /* AddDoseViewController.swift in Sources */,
 				2B2F26F11E85D6C60024461B /* CalendarNoteCell.swift in Sources */,
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
@@ -993,11 +1011,13 @@
 				2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */,
 				2B2089291EA54E6C005AEE7F /* BGColorUser.swift in Sources */,
 				2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */,
+				1B2B91761EBBDD3B0001E0CB /* AddWaterViewController.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
 				1B0968FE1E85956100DBF79D /* MonthHeaderView.swift in Sources */,
 				016353E81E85C19C008958BD /* OptionTableViewController.swift in Sources */,
 				2B2A6A801EB94BC200A6CBFA /* ThemeCell.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */,
+				1B8520651EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift in Sources */,
 				2B9F6DD81EBA902900230836 /* PlotCell.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */,

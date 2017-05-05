@@ -63,6 +63,13 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         else {
             DataManager.shared.saveDose(med: medValue, quantity: Double(stepperOutlet.value), time: consumeTimePicker.date)
         }
+        
+        self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
+        }
+        self.alertController!.addAction(OKAction)
+        self.present(self.alertController!, animated: true, completion:nil)
     }
 
     /*

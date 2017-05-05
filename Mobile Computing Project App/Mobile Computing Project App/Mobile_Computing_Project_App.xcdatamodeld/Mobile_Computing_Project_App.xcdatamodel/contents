@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1421" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
@@ -49,6 +49,14 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="questions" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Meal" representedClassName="Meal" syncable="YES" codeGenerationType="class">
+        <attribute name="beverage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="meals" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="MedDose" representedClassName="MedDose" syncable="YES" codeGenerationType="class">
         <attribute name="med" optional="YES" attributeType="String" syncable="YES"/>
@@ -135,12 +143,20 @@
         <attribute name="passWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="user" inverseEntity="Event" syncable="YES"/>
+        <relationship name="meals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" inverseName="user" inverseEntity="Meal" syncable="YES"/>
         <relationship name="medDoses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedDose" inverseName="user" inverseEntity="MedDose" syncable="YES"/>
         <relationship name="medicines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="user" inverseEntity="Medicine" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="user" inverseEntity="Note" syncable="YES"/>
         <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="user" inverseEntity="Reminder" syncable="YES"/>
         <relationship name="selectedTheme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Theme" inverseName="user" inverseEntity="Theme" syncable="YES"/>
         <relationship name="templates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Template" inverseName="user" inverseEntity="Template" syncable="YES"/>
+        <relationship name="waterLogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WaterLog" inverseName="user" inverseEntity="WaterLog" syncable="YES"/>
+    </entity>
+    <entity name="WaterLog" representedClassName="WaterLog" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="waterLogs" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="-560" positionY="-0" width="128" height="210"/>
@@ -151,6 +167,7 @@
         <element name="EventPainLvlValue" positionX="-342" positionY="63" width="128" height="90"/>
         <element name="EventPainTypeValue" positionX="-351" positionY="54" width="128" height="90"/>
         <element name="EventQuestionValue" positionX="-324" positionY="81" width="128" height="105"/>
+        <element name="Meal" positionX="-378" positionY="27" width="128" height="135"/>
         <element name="MedDose" positionX="-378" positionY="27" width="128" height="105"/>
         <element name="Medicine" positionX="-378" positionY="18" width="128" height="120"/>
         <element name="Note" positionX="-452" positionY="-126" width="128" height="90"/>
@@ -164,6 +181,7 @@
         <element name="TemplatePainTypeAtt" positionX="-351" positionY="27" width="128" height="75"/>
         <element name="TemplateQuestionAtt" positionX="-360" positionY="18" width="128" height="90"/>
         <element name="Theme" positionX="-378" positionY="27" width="128" height="165"/>
-        <element name="User" positionX="-369" positionY="27" width="128" height="180"/>
+        <element name="User" positionX="-369" positionY="27" width="128" height="210"/>
+        <element name="WaterLog" positionX="-378" positionY="27" width="128" height="105"/>
     </elements>
 </model>

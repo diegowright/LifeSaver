@@ -101,6 +101,13 @@ class NewMedicineViewController: UIViewController, UIPickerViewDataSource, UIPic
                                                 time: selectedDate as! Date)
             }
         }
+        
+        self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+            print("Ok Button Pressed 1");
+        }
+        self.alertController!.addAction(OKAction)
+        self.present(self.alertController!, animated: true, completion:nil)
     }
   
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

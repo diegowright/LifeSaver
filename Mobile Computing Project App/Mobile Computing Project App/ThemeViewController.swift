@@ -56,7 +56,7 @@ class ThemeViewController: UIViewController, UIPopoverPresentationControllerDele
                                          themeName: themeName)
             
             // Update currently selected theme
-            Appearance.updateTheme()
+            //Appearance.updateTheme()
             
             // return to previous viewcontroller
             _ = self.navigationController?.popViewController(animated: true)
