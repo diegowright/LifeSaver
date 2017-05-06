@@ -36,8 +36,6 @@
 		2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */; };
 		2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */; };
 		2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089251EA54E6C005AEE7F /* Apperance.swift */; };
-		2B2089291EA54E6C005AEE7F /* BGColorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089261EA54E6C005AEE7F /* BGColorUser.swift */; };
-		2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089271EA54E6C005AEE7F /* Config.swift */; };
 		2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */; };
 		2B2089331EA57D12005AEE7F /* EventInputTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2089321EA57D12005AEE7F /* EventInputTable.swift */; };
 		2B25A9CB1EA6F7E800D5213C /* CalendarEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */; };
@@ -67,6 +65,11 @@
 		2B8E20181EA43E1C0060D88E /* PainTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */; };
 		2B8E201A1EA43E280060D88E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E20191EA43E280060D88E /* NoteCell.swift */; };
 		2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F52A91E81CA6800F3CDAE /* DataManager.swift */; };
+		2B8FEFCF1EBE4393002E26C0 /* LSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FEFCE1EBE4393002E26C0 /* LSView.swift */; };
+		2B8FEFDA1EBE5383002E26C0 /* CalendarMedDoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FEFD91EBE5383002E26C0 /* CalendarMedDoseCell.swift */; };
+		2B8FEFDC1EBE538E002E26C0 /* CalendarMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FEFDB1EBE538E002E26C0 /* CalendarMealCell.swift */; };
+		2B8FEFDE1EBE539A002E26C0 /* CalendarWaterLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FEFDD1EBE539A002E26C0 /* CalendarWaterLogCell.swift */; };
+		2B8FEFE01EBE590F002E26C0 /* ShowMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FEFDF1EBE590F002E26C0 /* ShowMealVC.swift */; };
 		2B9F6DD31EBA6C4500230836 /* EventSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6DD21EBA6C4500230836 /* EventSorting.swift */; };
 		2B9F6DD81EBA902900230836 /* PlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6DD71EBA902900230836 /* PlotCell.swift */; };
 		2BA2A1FD1EA6AA5000EDEFD1 /* ShowEventValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */; };
@@ -201,8 +204,6 @@
 		2B20891C1EA54AB8005AEE7F /* PrescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		2B20891D1EA54AB8005AEE7F /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		2B2089251EA54E6C005AEE7F /* Apperance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apperance.swift; sourceTree = "<group>"; };
-		2B2089261EA54E6C005AEE7F /* BGColorUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGColorUser.swift; sourceTree = "<group>"; };
-		2B2089271EA54E6C005AEE7F /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		2B20892C1EA5503F005AEE7F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2B2089321EA57D12005AEE7F /* EventInputTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInputTable.swift; sourceTree = "<group>"; };
 		2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventCell.swift; sourceTree = "<group>"; };
@@ -232,6 +233,11 @@
 		2B8E20171EA43E1C0060D88E /* PainTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PainTypeCell.swift; sourceTree = "<group>"; };
 		2B8E20191EA43E280060D88E /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		2B8F52A91E81CA6800F3CDAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2B8FEFCE1EBE4393002E26C0 /* LSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LSView.swift; sourceTree = "<group>"; };
+		2B8FEFD91EBE5383002E26C0 /* CalendarMedDoseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMedDoseCell.swift; sourceTree = "<group>"; };
+		2B8FEFDB1EBE538E002E26C0 /* CalendarMealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMealCell.swift; sourceTree = "<group>"; };
+		2B8FEFDD1EBE539A002E26C0 /* CalendarWaterLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWaterLogCell.swift; sourceTree = "<group>"; };
+		2B8FEFDF1EBE590F002E26C0 /* ShowMealVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMealVC.swift; sourceTree = "<group>"; };
 		2B9F6DD21EBA6C4500230836 /* EventSorting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSorting.swift; sourceTree = "<group>"; };
 		2B9F6DD71EBA902900230836 /* PlotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotCell.swift; sourceTree = "<group>"; };
 		2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventValues.swift; sourceTree = "<group>"; };
@@ -328,11 +334,9 @@
 			children = (
 				016353E91E85C4F3008958BD /* options.storyboard */,
 				016353ED1E85DA6C008958BD /* AboutVC.swift */,
-				2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */,
 				016353E71E85C19C008958BD /* OptionTableViewController.swift */,
-				2B2A6A7D1EB94B4900A6CBFA /* SelectThemeTableVC.swift */,
-				2B2A6A7F1EB94BC200A6CBFA /* ThemeCell.swift */,
-				2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */,
+				1B8AAAC21EBB7B2C00D1A819 /* Food Tracker */,
+				2B8FEFCC1EBE4284002E26C0 /* Theming */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -347,10 +351,8 @@
 				2BB2E2791EA28C270024B748 /* CellView.swift */,
 				1B0968FD1E85956100DBF79D /* MonthHeaderView.swift */,
 				2B2F26F41E85F86C0024461B /* NoteVC.swift */,
-				2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */,
-				2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */,
-				2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */,
-				2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */,
+				2B8FEFD81EBE5369002E26C0 /* CalendarCells */,
+				2B8FEFCD1EBE42C6002E26C0 /* DisplayedData */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -359,11 +361,11 @@
 			isa = PBXGroup;
 			children = (
 				1B8AAABF1EBB785B00D1A819 /* FoodTracker.storyboard */,
-				1B5E79241EBD2B1100197733 /* FoodDetailsViewController.swift */,
-				1B8520641EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift */,
-				1B8520621EBBE4E70072DE36 /* MainFoodViewController.swift */,
-				1BD5721D1EBB8D7100194522 /* LogMealViewController.swift */,
 				1B2B91751EBBDD3B0001E0CB /* AddWaterViewController.swift */,
+				1B5E79241EBD2B1100197733 /* FoodDetailsViewController.swift */,
+				1BD5721D1EBB8D7100194522 /* LogMealViewController.swift */,
+				1B8520621EBBE4E70072DE36 /* MainFoodViewController.swift */,
+				1B8520641EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift */,
 			);
 			name = "Food Tracker";
 			sourceTree = "<group>";
@@ -398,17 +400,11 @@
 			isa = PBXGroup;
 			children = (
 				1BEC53781E7F7508001145E1 /* AppDelegate.swift */,
-				1B8AAAC21EBB7B2C00D1A819 /* Food Tracker */,
-				2BFABF311EB96ACC000CD978 /* Plotting */,
 				2BC5A4041EB9115D00911D29 /* CustomElements */,
-				2BB983531E86204B002BF3A7 /* Login */,
-				1B211B111E854FD8006573D9 /* Calendar */,
 				2B2F26EF1E85CF990024461B /* DataManagement */,
-				2B2089241EA54AC1005AEE7F /* Medicine */,
-				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
-				016353E41E85BE58008958BD /* Options */,
+				2BB983531E86204B002BF3A7 /* Login */,
+				2B8FEFD31EBE44FF002E26C0 /* MainTabs */,
 				2BC99BFD1EABF19D00529C4A /* Resources */,
-				2B20892B1EA54E81005AEE7F /* Styling */,
 				2BC825C41E85B33A00FD8784 /* TabViewControllers */,
 				1BEC53821E7F7508001145E1 /* Assets.xcassets */,
 				1BEC537C1E7F7508001145E1 /* Main.storyboard */,
@@ -453,16 +449,6 @@
 			name = Medicine;
 			sourceTree = "<group>";
 		};
-		2B20892B1EA54E81005AEE7F /* Styling */ = {
-			isa = PBXGroup;
-			children = (
-				2B2089251EA54E6C005AEE7F /* Apperance.swift */,
-				2B2089261EA54E6C005AEE7F /* BGColorUser.swift */,
-				2B2089271EA54E6C005AEE7F /* Config.swift */,
-			);
-			name = Styling;
-			sourceTree = "<group>";
-		};
 		2B2F26EF1E85CF990024461B /* DataManagement */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +487,52 @@
 			name = Attributes;
 			sourceTree = "<group>";
 		};
+		2B8FEFCC1EBE4284002E26C0 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				2B2089251EA54E6C005AEE7F /* Apperance.swift */,
+				2B7A6FA51EB514060079A368 /* ColorPickerViewController.swift */,
+				2B2A6A7D1EB94B4900A6CBFA /* SelectThemeTableVC.swift */,
+				2B2A6A7F1EB94BC200A6CBFA /* ThemeCell.swift */,
+				2B7A6FA11EB50A930079A368 /* ThemeViewController.swift */,
+			);
+			name = Theming;
+			sourceTree = "<group>";
+		};
+		2B8FEFCD1EBE42C6002E26C0 /* DisplayedData */ = {
+			isa = PBXGroup;
+			children = (
+				2BA2A1FC1EA6AA5000EDEFD1 /* ShowEventValues.swift */,
+				2B8FEFDF1EBE590F002E26C0 /* ShowMealVC.swift */,
+				2B2F26F21E85DA5A0024461B /* ShowNoteVC.swift */,
+			);
+			name = DisplayedData;
+			sourceTree = "<group>";
+		};
+		2B8FEFD31EBE44FF002E26C0 /* MainTabs */ = {
+			isa = PBXGroup;
+			children = (
+				2BFABF311EB96ACC000CD978 /* Plotting */,
+				2B3AC8FE1E8066EC00CF5BD0 /* MedicalEvent */,
+				1B211B111E854FD8006573D9 /* Calendar */,
+				2B2089241EA54AC1005AEE7F /* Medicine */,
+				016353E41E85BE58008958BD /* Options */,
+			);
+			name = MainTabs;
+			sourceTree = "<group>";
+		};
+		2B8FEFD81EBE5369002E26C0 /* CalendarCells */ = {
+			isa = PBXGroup;
+			children = (
+				2B25A9CA1EA6F7E800D5213C /* CalendarEventCell.swift */,
+				2B8FEFDB1EBE538E002E26C0 /* CalendarMealCell.swift */,
+				2B8FEFD91EBE5383002E26C0 /* CalendarMedDoseCell.swift */,
+				2B2F26F01E85D6C60024461B /* CalendarNoteCell.swift */,
+				2B8FEFDD1EBE539A002E26C0 /* CalendarWaterLogCell.swift */,
+			);
+			name = CalendarCells;
+			sourceTree = "<group>";
+		};
 		2BB983531E86204B002BF3A7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +547,7 @@
 			children = (
 				2B7A6FA71EB51DE50079A368 /* CircularButton.swift */,
 				2BC966BA1EB951FB009C0F82 /* ColorButton.swift */,
+				2B8FEFCE1EBE4393002E26C0 /* LSView.swift */,
 			);
 			name = CustomElements;
 			sourceTree = "<group>";
@@ -544,9 +577,9 @@
 			isa = PBXGroup;
 			children = (
 				2BFABF321EB96B00000CD978 /* Plot.storyboard */,
+				2B9F6DD21EBA6C4500230836 /* EventSorting.swift */,
 				2B9F6DD71EBA902900230836 /* PlotCell.swift */,
 				2BFABF341EB96B25000CD978 /* PlotViewController.swift */,
-				2B9F6DD21EBA6C4500230836 /* EventSorting.swift */,
 			);
 			name = Plotting;
 			path = ..;
@@ -971,10 +1004,12 @@
 				2BB983511E862041002BF3A7 /* LoginViewController.swift in Sources */,
 				1B8520631EBBE4E70072DE36 /* MainFoodViewController.swift in Sources */,
 				2B20892D1EA5503F005AEE7F /* RegisterViewController.swift in Sources */,
+				2B8FEFE01EBE590F002E26C0 /* ShowMealVC.swift in Sources */,
 				2B2089331EA57D12005AEE7F /* EventInputTable.swift in Sources */,
 				1B0968FA1E8562A400DBF79D /* CalendarViewController.swift in Sources */,
 				2B8F52AA1E81CA6800F3CDAE /* DataManager.swift in Sources */,
 				2B8E20101EA4345F0060D88E /* AttributeCell.swift in Sources */,
+				2B8FEFDC1EBE538E002E26C0 /* CalendarMealCell.swift in Sources */,
 				2B7A6FA21EB50A930079A368 /* ThemeViewController.swift in Sources */,
 				2BA2A1FD1EA6AA5000EDEFD1 /* ShowEventValues.swift in Sources */,
 				2BC825C81E85B35800FD8784 /* CalendarVC.swift in Sources */,
@@ -985,13 +1020,14 @@
 				2B20891E1EA54AB8005AEE7F /* DailyTableViewCell.swift in Sources */,
 				2BFABF351EB96B25000CD978 /* PlotViewController.swift in Sources */,
 				016353EE1E85DA6C008958BD /* AboutVC.swift in Sources */,
-				2B20892A1EA54E6C005AEE7F /* Config.swift in Sources */,
 				2B25A9CB1EA6F7E800D5213C /* CalendarEventCell.swift in Sources */,
 				2B2F26F51E85F86C0024461B /* NoteVC.swift in Sources */,
 				1BEC53791E7F7508001145E1 /* AppDelegate.swift in Sources */,
+				2B8FEFCF1EBE4393002E26C0 /* LSView.swift in Sources */,
 				2B3AC9001E80674F00CF5BD0 /* MedicalEventCell.swift in Sources */,
 				2B25A9CF1EA70EFD00D5213C /* DisplayMedViewController.swift in Sources */,
 				2B2F26EC1E85C3330024461B /* TabVC.swift in Sources */,
+				2B8FEFDA1EBE5383002E26C0 /* CalendarMedDoseCell.swift in Sources */,
 				2B2A6A7E1EB94B4900A6CBFA /* SelectThemeTableVC.swift in Sources */,
 				2BB2E27A1EA28C270024B748 /* CellView.swift in Sources */,
 				2B7A6FA81EB51DE50079A368 /* CircularButton.swift in Sources */,
@@ -1009,7 +1045,6 @@
 				2B3AC9041E8081C700CF5BD0 /* DefineEventView.swift in Sources */,
 				2B2089221EA54AB8005AEE7F /* PrescriptionTableViewCell.swift in Sources */,
 				2B2089281EA54E6C005AEE7F /* Apperance.swift in Sources */,
-				2B2089291EA54E6C005AEE7F /* BGColorUser.swift in Sources */,
 				2B8E20141EA43E060060D88E /* PainLevelCell.swift in Sources */,
 				1B2B91761EBBDD3B0001E0CB /* AddWaterViewController.swift in Sources */,
 				2BC825CC1E85B37100FD8784 /* OptionsVC.swift in Sources */,
@@ -1018,6 +1053,7 @@
 				2B2A6A801EB94BC200A6CBFA /* ThemeCell.swift in Sources */,
 				2B2F26F31E85DA5A0024461B /* ShowNoteVC.swift in Sources */,
 				1B8520651EBCBE840072DE36 /* MealWaterSummaryTableViewController.swift in Sources */,
+				2B8FEFDE1EBE539A002E26C0 /* CalendarWaterLogCell.swift in Sources */,
 				2B9F6DD81EBA902900230836 /* PlotCell.swift in Sources */,
 				2B3AC8FD1E80648500CF5BD0 /* MedicalEventTable.swift in Sources */,
 				2B2089231EA54AB8005AEE7F /* RemindersTableViewController.swift in Sources */,

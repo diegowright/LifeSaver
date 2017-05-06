@@ -12,22 +12,41 @@ import UIKit
 class Appearance: NSObject {
     
     class func updateTheme() {
-        //do something
         let currentTheme:Theme = DataManager.shared.getCurrentTheme()
-        UIView.appearance().backgroundColor = currentTheme.backgroundColor as? UIColor
-        UIButton.appearance().backgroundColor = currentTheme.buttonColor as? UIColor
-        UIButton.appearance().tintColor = currentTheme.buttonTxtColor as? UIColor
+        
+        // Background color
+        let bgColor:UIColor = currentTheme.backgroundColor as! UIColor
+        LSView.appearance().backgroundColor = bgColor
+        UITableView.appearance().backgroundColor = bgColor
+        // jbchart maybe
+        
+        // Label text color
         UILabel.appearance().tintColor = currentTheme.lblTxtColor as? UIColor
-        UINavigationBar.appearance().backgroundColor = currentTheme.navBarColor as? UIColor
-        UITabBar.appearance().backgroundColor = currentTheme.tabBarColor as? UIColor
+        
+        // TableViewCell Color
+        UITableViewCell.appearance().backgroundColor = currentTheme.buttonColor as? UIColor
+        
+        // Tabbar and Navbar Color
+        let barColor:UIColor = currentTheme.navBarColor as! UIColor
+        UITabBar.appearance().backgroundColor = barColor
+        UINavigationBar.appearance().backgroundColor = barColor
     }
     
     class func setTheme(theme: Theme) {
-        UIView.appearance().backgroundColor = theme.backgroundColor as? UIColor
-        UIButton.appearance().backgroundColor = theme.buttonColor as? UIColor
-        UIButton.appearance().tintColor = theme.buttonTxtColor as? UIColor
+        let bgColor:UIColor = theme.backgroundColor as! UIColor
+        LSView.appearance().backgroundColor = bgColor
+        UITableView.appearance().backgroundColor = bgColor
+        // jbchart maybe
+        
+        // Label text color
         UILabel.appearance().tintColor = theme.lblTxtColor as? UIColor
-        UINavigationBar.appearance().backgroundColor = theme.navBarColor as? UIColor
-        UITabBar.appearance().backgroundColor = theme.tabBarColor as? UIColor
+        
+        // TableViewCell Color
+        UITableViewCell.appearance().backgroundColor = theme.buttonColor as? UIColor
+        
+        // Tabbar and Navbar Color
+        let barColor:UIColor = theme.navBarColor as! UIColor
+        UITabBar.appearance().backgroundColor = barColor
+        UINavigationBar.appearance().backgroundColor = barColor
     }
 }

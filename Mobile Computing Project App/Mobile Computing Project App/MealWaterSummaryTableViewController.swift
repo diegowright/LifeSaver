@@ -10,51 +10,21 @@ import UIKit
 
 class MealWaterSummaryTableViewController: UITableViewController {
     
-    var meals:[Meal] = []
+    var meals:[Meal] = DataManager.shared.loadMeal()
+    var water:[WaterLog] = DataManager.shared.loadWater()
     var todayMeals:[Meal] = []
-    var water:[WaterLog] = []
     var todayWater:[WaterLog] = []
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Food/Water Summary"
-        
-        meals = DataManager.shared.loadMeal()
-        water = DataManager.shared.loadWater()
-        
-        for val in meals {
-            let theTime = val.date! as Date
-            print ("\(theTime)")
-            let calendar = Calendar.current
-            let day = calendar.component(.day, from: theTime)
-        
-            let currentDay = calendar.component(.day, from: Date())
-            
-            if day == currentDay {
-                todayMeals.append(val)
-            }
-        }
-        
-        for val in water {
-            let theTime = val.date! as Date
-            print ("\(theTime)")
-            let calendar = Calendar.current
-            let day = calendar.component(.day, from: theTime)
-            
-            let currentDay = calendar.component(.day, from: Date())
-            
-            if day == currentDay {
-                todayWater.append(val)
-            }
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.title = "Food & Water Summary"
+        self.reloadMealAndWater()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.reloadMealAndWater()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,8 +40,7 @@ class MealWaterSummaryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print (todayMeals.count)
-        return todayMeals.count + todayWater.count
+        return self.todayMeals.count + self.todayWater.count
     }
 
     
@@ -92,42 +61,6 @@ class MealWaterSummaryTableViewController: UITableViewController {
         
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -136,8 +69,34 @@ class MealWaterSummaryTableViewController: UITableViewController {
         let destinationVC = segue.destination as! FoodDetailsViewController
         let rowID = self.tableView.indexPath(for: sender as! UITableViewCell)
         destinationVC.meal = todayMeals[rowID!.row]
-     }
+        }
     }
-
-
+    
+    func reloadMealAndWater() {
+        for val in self.meals {
+            let theTime = val.date! as Date
+            print ("\(theTime)")
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: theTime)
+            
+            let currentDay = calendar.component(.day, from: Date())
+            
+            if day == currentDay {
+                todayMeals.append(val)
+            }
+        }
+        
+        for val in self.water {
+            let theTime = val.date! as Date
+            print ("\(theTime)")
+            let calendar = Calendar.current
+            let day = calendar.component(.day, from: theTime)
+            
+            let currentDay = calendar.component(.day, from: Date())
+            
+            if day == currentDay {
+                todayWater.append(val)
+            }
+        }
+    }
 }

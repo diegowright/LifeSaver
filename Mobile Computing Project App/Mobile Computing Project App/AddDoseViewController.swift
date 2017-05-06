@@ -55,7 +55,7 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if medValue == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for all fields.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                print("Ok Button Pressed 1");
+                return
             }
             self.alertController!.addAction(OKAction)
             self.present(self.alertController!, animated: true, completion:nil)
@@ -66,7 +66,8 @@ class AddDoseViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-            print("Ok Button Pressed 1");
+            print("Saved a dose.")
+            _ = self.navigationController?.popViewController(animated: true)
         }
         self.alertController!.addAction(OKAction)
         self.present(self.alertController!, animated: true, completion:nil)

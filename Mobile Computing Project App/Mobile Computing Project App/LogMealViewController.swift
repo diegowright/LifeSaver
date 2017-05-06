@@ -45,7 +45,7 @@ class LogMealViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         if foodOutlet.text == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for food.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                print("Ok Button Pressed 1");
+                return
             }
             self.alertController!.addAction(OKAction)
             self.present(self.alertController!, animated: true, completion:nil)
@@ -56,7 +56,8 @@ class LogMealViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         
         self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-            print("Ok Button Pressed 1");
+            print("Food log saved.")
+            _ = self.navigationController?.popViewController(animated: true)
         }
         self.alertController!.addAction(OKAction)
         self.present(self.alertController!, animated: true, completion:nil)
@@ -77,15 +78,4 @@ class LogMealViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerSelection = pickerData[row]
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

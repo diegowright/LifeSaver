@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="lla-vY-bKz"/>
                         <viewControllerLayoutGuide type="bottom" id="AZD-Se-3E1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gsc-fQ-Qa6">
+                    <view key="view" contentMode="scaleToFill" id="gsc-fQ-Qa6" customClass="LSView" customModule="Mobile_Computing_Project_App" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

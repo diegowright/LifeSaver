@@ -1,25 +1,35 @@
-# LifeSaver
-1.Implementation Contributions: 
-Diego Wright: 40%
-- Wrapping up of the Medical Event Tracker.
-- Created DataManager class and implementation of it.
-- Connecting data from the Medical Event Tracker to the Calendar and adjusting some calendar parameters.
-- Merging different features onto one branch.
+# Life-Saver
 
-Robin Stewart:30%
-- Everything in the Medicine Tracker tab.
+# 1: Implementation Contribution
+Diego Wright 50%
+- Medical event tab
+- Data I/O for large part of app
+- Calendar tab
+- Data plotting tab
+- Theming
 
-William Zhang: 30%
-- Registration/Login Screen implementation so that users can now be registered, saved etc. 
-- The beginnings of our medical info dashboard.
+Robin Stewart 25%
+- Initial setup of calendar tab
+- Medicine tracker tab
+- Food tracker
 
-2. Grading Level: Same grade for all members.
+William Zhang 25%
+- Login/Registration
+- Settings tab
+- Initial setup of plot tab
 
-3. Differences:
-- The settings screen is not very robust currently and that is because we are focused on getting all parts of the application working before we allow for user customization. Allowing for user customization is just one more variable that could go wrong, so we learned it’s easier to add at the end.
-- The Medical Info Dashboard is not very robust yet. This is for a couple of reasons first off being our Medical Event Tracker was significantly more difficult than we originally thought it would be. This meant that we had no data yet to get into the medical info dashboard so it was difficult to develop. We now finally have data so it should be easier to implement in a future release. Graphing is also turning out to be much more complicated than we anticipated.
-- The data exporter is not included yet as we intend to include it at the end once we successfully know all data has be input. Then we will be able to export ALL data at once, we decided this implementation was easier.
+# 2: Grading Level
+Same level
 
-4. Special Instructions: 
--CocoaPods 1.1.0+ is required to build JTApplecalendar.
--JTApplecalendar version 6.1 is used. 
+# 3: Differences
+- Plotting tab does not have as robust of features as we wanted because it is quite complicated to go sorting through all the data as it is loosely organized.
+- Medical Event tab is not editable, got bogged down in other stuff for this feature
+- Medicine tracker only has one reminder setting (daily)
+- Settings doesn't have data exporter, and themes are wonky.
+
+# 4: Special Instructions
+- need to have version 1.1.0+ of CocoaPods
+- JTAppleCalendar version 6.1 is used
+- JBChart version 3.0.13 is used
+- If the plot tab crashes the app there is probably no medical event data entered, and so to fix that create a medical event and add in at least one entry for that event type. It may still crash otherwise but reloading the app and avoiding that page will solve that.
+- Selecting a theme may severely screw up the way the app looks, if so reload the app and it should go back to the default

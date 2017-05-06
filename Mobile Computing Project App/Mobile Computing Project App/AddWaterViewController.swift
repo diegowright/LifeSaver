@@ -43,7 +43,7 @@ class AddWaterViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         if amountOutlet.text == "" {
             self.alertController = UIAlertController(title: "Error", message: "You must enter a value for amount.", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                print("Ok Button Pressed 1");
+                return
             }
             self.alertController!.addAction(OKAction)
             self.present(self.alertController!, animated: true, completion:nil)
@@ -54,7 +54,8 @@ class AddWaterViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         
         self.alertController = UIAlertController(title: "Saved!", message: "Your information is saved!", preferredStyle: UIAlertControllerStyle.alert)
         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-            print("Ok Button Pressed 1");
+            print("Saved beverage log.")
+            _ = self.navigationController?.popViewController(animated: true)
         }
         self.alertController!.addAction(OKAction)
         self.present(self.alertController!, animated: true, completion:nil)

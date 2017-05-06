@@ -78,6 +78,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                     destination.eventType = event.eventType!
                 }
             }
+        } else if segue.identifier == "showMeal" {
+            if let row:Int = self.eventTable.indexPathForSelectedRow?.row {
+                if let destination = segue.destination as? ShowMealVC {
+                    let meal:Meal = self.selectedEvents[row]["entity"] as! Meal
+                    destination.meal = meal
+                }
+            }
         }
     }
     
@@ -168,6 +175,35 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.date.text = self.cellDateFormatter!.string(from: exactDate!)
             cell.exactDate = exactDate!
+            
+            return cell
+        } else if (entityType == "MedDose") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "medDoseCell", for: indexPath) as! CalendarMedDoseCell
+            let medDose:MedDose = self.selectedEvents[row]["entity"] as! MedDose
+            cell.backgroundColor = white
+            
+            cell.medName.text = medDose.med!
+            cell.dose.text = "\(medDose.quantity) taken"
+            cell.date.text = self.cellDateFormatter?.string(from: medDose.time! as Date)
+            
+            return cell
+        } else if (entityType == "Meal") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! CalendarMealCell
+            let meal:Meal = self.selectedEvents[row]["entity"] as! Meal
+            cell.backgroundColor = white
+            
+            cell.meal.text = meal.food!
+            cell.date.text = self.cellDateFormatter?.string(from: meal.date! as Date)
+            
+            return cell
+        } else if (entityType == "WaterLog") {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "waterLogCell", for: indexPath) as! CalendarWaterLogCell
+            let bev:WaterLog = self.selectedEvents[row]["entity"] as! WaterLog
+            cell.backgroundColor = white
+            
+            cell.beverage.text = bev.type!
+            cell.quantity.text = "\(bev.amount) oz"
+            cell.date.text = self.cellDateFormatter?.string(from: bev.date! as Date)
             
             return cell
         } else {

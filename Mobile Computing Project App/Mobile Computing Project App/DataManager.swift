@@ -575,6 +575,8 @@ final class DataManager {
             notes.append(val as! Note)
         }
         
+        
+        // Fetch note logs
         for note in notes {
             let recordDate:Date = note.date! as Date
             
@@ -587,7 +589,7 @@ final class DataManager {
             }
         }
         
-        // Fetch Events
+        // Fetch Event logs
         let nsEvents = self.currentUser.events!
         var events:[Event] = []
         for val in nsEvents {
@@ -620,9 +622,62 @@ final class DataManager {
             }
         }
         
-        // Stuff for adding med dose entities
+        // Fetch MedDose logs
+        let nsMedDose = self.getCurrentUser().medDoses!
+        var medDoses:[MedDose] = []
+        for val in nsMedDose {
+            medDoses.append(val as! MedDose)
+        }
         
-        print("Loaded records by date: \(records)")
+        for medDose in medDoses {
+            let recordDate:Date = medDose.time! as Date
+            
+            //compare dates
+            let recordDateString = dateFormatter.string(from: recordDate)
+            let loadDateString = dateFormatter.string(from: date)
+            
+            if recordDateString == loadDateString {
+                records.append(["entity":medDose, "type":"MedDose"])
+            }
+        }
+        
+        // Fetch Meal logs
+        let nsMeals = self.getCurrentUser().meals!
+        var meals:[Meal] = []
+        for val in nsMeals {
+            meals.append(val as! Meal)
+        }
+        
+        for meal in meals {
+            let recordDate:Date = meal.date! as Date
+            
+            //compare dates
+            let recordDateString = dateFormatter.string(from: recordDate)
+            let loadDateString = dateFormatter.string(from: date)
+            
+            if recordDateString == loadDateString {
+                records.append(["entity":meal, "type":"Meal"])
+            }
+        }
+        
+        // Fetch Water logs
+        let nsBevs = self.getCurrentUser().waterLogs!
+        var bevs:[WaterLog] = []
+        for val in nsBevs {
+            bevs.append(val as! WaterLog)
+        }
+        
+        for bev in bevs {
+            let recordDate:Date = bev.date! as Date
+            
+            //compare dates
+            let recordDateString = dateFormatter.string(from: recordDate)
+            let loadDateString = dateFormatter.string(from: date)
+            
+            if recordDateString == loadDateString {
+                records.append(["entity":bev, "type":"WaterLog"])
+            }
+        }
         
         return records
     }

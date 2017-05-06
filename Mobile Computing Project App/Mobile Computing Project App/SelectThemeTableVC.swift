@@ -40,6 +40,7 @@ class SelectThemeTableVC: UITableViewController {
         cell.themeButton.setTitle(self.themes[indexPath.row].name!, for: .normal)
         cell.tapAction = {
             (cell) in self.selectTheme(tableView.indexPath(for: cell)!.row)
+            _ = self.navigationController?.popViewController(animated: true)
         }
         
         return cell
